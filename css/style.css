@@ -1,3 +1,17 @@
 * {
     font-family: 'Lato', sans-serif;
 }
+.pc-navbar {
+    background-color: #0f1014;
+    color: #ccccc2;
+    height: 45px;
+    line-height: 45px;
+}
+.pc-logo {
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 5px;
+}
+.pc-logo-img {
+    vertical-align: text-bottom;
+}
