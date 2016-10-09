@@ -5,6 +5,14 @@
     -ms-user-select: none;
     user-select: none;
 }
+body {
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-clip: border-box;
+    background-position: 0px 45px;
+    background-repeat: repeat-y;
+    overflow: hidden;
+}
 .pc-navbar {
     background-color: #0f1014;
     color: #ccccc2;
@@ -27,4 +35,21 @@
 }
 .pc-logo-img {
     margin-bottom: 5px;
+}
+.pc-bar {
+    display: inline-block;
+    float: left;
+    height: calc(100vh - 45px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.pc-leftbar {
+    background-color: red;
+    opacity: 0.5;
+    width: 35%;
+}
+.pc-rightbar {
+    background-color: blue;
+    opacity: 0.5;
+    width: 65%;
 }
