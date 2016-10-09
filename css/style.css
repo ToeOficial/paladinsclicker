@@ -1,3 +1,20 @@
+@media (max-width: 767px) {
+   .pc-leftbar {
+      width: 100% !important;
+      min-height: 500px !important;
+   }
+   .pc-rightbar {
+       width: 100% !important;
+       min-height: 200px !important;
+       border-top: 3px solid #0f1014 !important;
+       border-left: none !important;
+   }
+   body {
+       overflow-y: scroll !important;
+   }
+}
+
+
 * {
     font-family: 'Lato', sans-serif;
     -webkit-user-select: none;
@@ -6,6 +23,7 @@
     user-select: none;
 }
 body {
+    background-color: rgb(120, 122, 61);
     background-image: url('../img/background.jpg');
     background-size: cover;
     background-clip: border-box;
@@ -40,16 +58,13 @@ body {
     display: inline-block;
     float: left;
     height: calc(100vh - 45px);
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 .pc-leftbar {
-    background-color: red;
-    opacity: 0.5;
     width: 35%;
 }
 .pc-rightbar {
-    background-color: blue;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 3px solid #0f1014;
     width: 65%;
 }
