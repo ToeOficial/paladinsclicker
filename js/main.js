@@ -5,4 +5,9 @@ $(function() {
         scrollbarPosition: 'inside',
         theme: 'minimal'
     });
+
+
+
+
+    $('.loadingOverlay').fadeOut(500);
 });
