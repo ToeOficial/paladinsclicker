@@ -1,7 +1,8 @@
 @media (max-width: 767px) {
    .pc-leftbar {
       width: 100% !important;
-      min-height: 500px !important;
+      min-height: 200px !important;
+      max-height: 300px !important;
    }
    .pc-rightbar {
        width: 100% !important;
@@ -59,6 +60,7 @@ body {
     float: left;
     height: calc(100vh - 45px);
     overflow: hidden;
+    position: relative;
 }
 .pc-leftbar {
     width: 35%;
@@ -67,4 +69,18 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     border-left: 3px solid #0f1014;
     width: 65%;
+}
+.champion-wrapper {
+    width: 250px;
+    height: 250px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 125px);
+    right: calc(50% - 125px);
+    top: calc(50% - 125px);
+    bottom: calc(50% - 125px);
+    background-color: rgb(0, 155, 185);
+    border: 3px solid rgb(0, 50, 60);
 }
