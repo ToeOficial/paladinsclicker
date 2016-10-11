@@ -83,4 +83,21 @@ body {
     bottom: calc(50% - 125px);
     background-color: rgb(0, 155, 185);
     border: 3px solid rgb(0, 50, 60);
+    cursor: pointer;
+}
+.champion-icon {
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 115px);
+    top: calc(50% - 115px);
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+.champion-icon:hover {
+    top: calc(50% - 117px);
+}
+.champion-icon:active {
+    top: calc(50% - 113px);
 }
