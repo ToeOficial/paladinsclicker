@@ -94,10 +94,13 @@ body {
     -moz-transition-duration: 0.1s;
     -o-transition-duration: 0.1s;
     transition-duration: 0.1s;
+    opacity: 1;
 }
 .champion-icon:hover {
     top: calc(50% - 117px);
+    opacity: 1;
 }
 .champion-icon:active {
     top: calc(50% - 113px);
+    opacity: 0.9;
 }
