@@ -1,8 +1,8 @@
 @media (max-width: 767px) {
    .pc-leftbar {
       width: 100% !important;
-      min-height: 200px !important;
-      max-height: 300px !important;
+      min-height: 300px !important;
+      max-height: 400px !important;
    }
    .pc-rightbar {
        width: 100% !important;
