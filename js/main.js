@@ -17,7 +17,7 @@ function click() {
 
 //On full page load
 $(window).on('load', function() {
-    $('.loadingOverlay').delay(100).fadeOut(500, function() {
+    $('.loadingOverlay').delay(1000).fadeOut(500, function() {
         //On fade out complete
         $(this).remove();
     });
