@@ -15,6 +15,14 @@ function click() {
     console.log('Click!');
 }
 
+//On full page load
+$(window).on('load', function() {
+    $('.loadingOverlay').fadeOut(500, function() {
+        //On fade out complete
+        $(this).remove();
+    });
+});
+
 //On DOM load
 $(function() {
     $('.pc-rightbar').mCustomScrollbar({
@@ -29,15 +37,6 @@ $(function() {
 
 
     //     ***** EVENTS *****
-
-    //On full page load
-    $(window).on('load', function() {
-        $('.loadingOverlay').fadeOut(500, function() {
-            //On fade out complete
-            $(this).remove();
-        });
-    });
-
     //On champion icon left or middle click
     $('.champion-icon').click(function() {
         click();
