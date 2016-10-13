@@ -25,6 +25,7 @@ $(window).on('load', function() {
 
 //On DOM load
 $(function() {
+    $('.tooltip').tooltipster();
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
         scrollbarPosition: 'inside',

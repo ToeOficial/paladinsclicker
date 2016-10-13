@@ -24,7 +24,7 @@
     user-select: none;
 }
 body {
-    background-color: rgb(49, 50, 23);
+    background-color: #644C38;
     background-image: url('../img/background.jpg');
     background-size: cover;
     background-clip: border-box;
@@ -103,4 +103,7 @@ body {
 .champion-icon:active {
     top: calc(50% - 113px);
     opacity: 0.9;
+}
+.tooltip {
+    z-index: 2 !important;
 }
