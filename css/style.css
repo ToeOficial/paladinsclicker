@@ -79,7 +79,7 @@ body {
     position: absolute;
     left: calc(50% - 125px);
     top: calc(50% - 100px);
-    background-color: rgb(0, 113, 135);
+    background-color: rgb(73, 150, 164);
     border: 3px solid rgb(0, 50, 60);
     cursor: pointer;
 }
