@@ -15,13 +15,6 @@ function click() {
     console.log('Click!');
 }
 
-
-//     ***** EVENTS *****
-//On champion icon left or middle click
-$('.champion-icon').click(function() {
-    click();
-});
-
 //On DOM load
 $(function() {
     $('.pc-rightbar').mCustomScrollbar({
@@ -32,23 +25,32 @@ $(function() {
 
     $('.champion-icon').attr('src', './img/champicons/'+activeChampion+'.png');
     $('.champion-icon').attr('alt', activeChampion);
-});
 
-//On full page load
-$(window).on('load', function() {
-    $('.loadingOverlay').fadeOut(500, function() {
-        //On fade out complete
-        $(this).remove();
+
+
+    //     ***** EVENTS *****
+
+    //On full page load
+    $(window).on('load', function() {
+        $('.loadingOverlay').fadeOut(500, function() {
+            //On fade out complete
+            $(this).remove();
+        });
     });
-});
 
-//On champion wrapper right click
-$('.champion-wrapper').contextmenu(function() {
-    return false;
-});
+    //On champion icon left or middle click
+    $('.champion-icon').click(function() {
+        click();
+    });
 
-//On champion icon right click
-$('.champion-icon').contextmenu(function() {
-    click();
-    return false;
+    //On champion wrapper right click
+    $('.champion-wrapper').contextmenu(function() {
+        return false;
+    });
+
+    //On champion icon right click
+    $('.champion-icon').contextmenu(function() {
+        click();
+        return false;
+    });
 });
