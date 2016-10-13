@@ -27,6 +27,12 @@
     z-index: 1000;
 }
 
+.preload {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
 @-webkit-keyframes single2 {
     0% {
 	    -webkit-transform: rotate(0deg);
