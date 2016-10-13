@@ -78,8 +78,8 @@ body {
     border-radius: 50%;
     position: absolute;
     left: calc(50% - 125px);
-    top: calc(50% - 150px);
-    background-color: rgb(0, 155, 185);
+    top: calc(50% - 100px);
+    background-color: rgb(0, 113, 135);
     border: 3px solid rgb(0, 50, 60);
     cursor: pointer;
 }

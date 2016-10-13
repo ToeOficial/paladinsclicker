@@ -17,8 +17,8 @@
 	width: 100px;
 	border-radius: 50%;
 	border: 10px solid rgba(255,255,255,0);
-	border-top-color: 10px solid #7fc4d1;
-	border-right-color: 10px solid #7fc4d1;
+	border-top-color: 10px solid rgb(0, 192, 230);
+	border-right-color: 10px solid rgb(0, 192, 230);
 	-webkit-animation: single2 4s infinite linear;
 	animation: single2 4s infinite linear;
     position: absolute;
@@ -37,8 +37,8 @@
     0% {
 	    -webkit-transform: rotate(0deg);
 	    transform: rotate(0deg);
-	    border-top-color: #7fc4d1;
-	    border-right-color: #7fc4d1;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
     }
 	50% {
 	    border-top-color: #1f4f58;
@@ -47,8 +47,8 @@
 	100% {
 	    -webkit-transform: rotate(720deg);
 	    transform: rotate(720deg);
-	    border-top-color: #7fc4d1;
-	    border-right-color: #7fc4d1;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
 	}
 }
 
@@ -56,8 +56,8 @@
 	0% {
 	    -webkit-transform: rotate(0deg);
 	    transform: rotate(0deg);
-	    border-top-color: #7fc4d1;
-	    border-right-color: #7fc4d1;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
 	}
 	50% {
 	    border-top-color: #1f4f58;
@@ -66,7 +66,7 @@
 	100% {
 	    -webkit-transform: rotate(720deg);
 	    transform: rotate(720deg);
-	    border-top-color: #7fc4d1;
-	    border-right-color: #7fc4d1;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
 	}
 }
