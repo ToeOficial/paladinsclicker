@@ -12,10 +12,13 @@ $(function() {
         scrollbarPosition: 'inside',
         theme: 'minimal'
     });
-    
+
 });
 
 //On full page load
 $(window).on('load', function() {
-    $('.loadingOverlay').fadeOut(500);
+    $('.loadingOverlay').fadeOut(500, function() {
+        //On fade out complete
+        $(this).remove();
+    });
 });
