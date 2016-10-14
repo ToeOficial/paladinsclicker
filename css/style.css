@@ -42,7 +42,7 @@ body {
 }
 .pc-navbar {
     background-color: #0f1014;
-    color: #ccccc2;
+    color: #54E9E6/*#ccccc2*/;
     height: 45px;
     line-height: 45px;
     vertical-align: middle;
@@ -177,4 +177,19 @@ body {
     position: absolute;
     left: calc(50% - 130px);
     top: 20px;
+}
+.level-text {
+    position: absolute;
+    left: calc(50% - 130px);
+    width: 260px;
+    height: 260px;
+    top: 20px;
+
+    text-align: center;
+    line-height: 260px;
+    color: white;
+    font-weight: bold;
+    font-size: 70px;
+
+    text-shadow: 2px 2px 30px #128D8A, -2px -2px 30px #128D8A;
 }

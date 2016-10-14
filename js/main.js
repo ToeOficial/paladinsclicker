@@ -9,6 +9,11 @@ var championHP = 10;
 var maxChampionHP = 10;
 var dmg = 1;
 
+var level = 1;
+var oldXp = 0;
+var xp = 0;
+var xpPerKill = 20;
+var maxXP = 100;
 //Get random champion from the list
 function randomizeChampion() {
     activeChampion = CHAMPION_LIST[Math.floor(Math.random()*CHAMPION_LIST.length)];
@@ -32,7 +37,21 @@ function updateHP() {
             }, 100);
         });
         championHP = maxChampionHP;
+        oldXp=xp;
+        xp+=xpPerKill;
+        updateXp();
     }
+}
+
+function updateXp() {
+    if(xp>maxXP) {
+        level++;
+        oldXp=0;
+        xp=xpPerKill;
+        maxXP+=20;
+        $('.level-text').html(level);
+    }
+    drawLvLCircle();
 }
 
 //Draw lvl
@@ -40,8 +59,7 @@ function drawLvLCircle() {
     var canvas = document.getElementById('lvlCanvas'),
         ctx = canvas.getContext('2d'),
         centerX = canvas.width / 2,
-        centerY = canvas.height / 2,
-        endAngle = 2.3 * Math.PI;
+        centerY = canvas.height / 2;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -58,9 +76,13 @@ function drawLvLCircle() {
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, endAngle, false);
-    ctx.lineWidth = 24;
+    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(xp/maxXP)))*Math.PI, false);
     ctx.strokeStyle = '#54E9E6';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(oldXp/maxXP)))*Math.PI, false);
+    ctx.strokeStyle = '#128D8A';
     ctx.stroke();
 }
 
