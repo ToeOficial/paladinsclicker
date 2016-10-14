@@ -34,7 +34,7 @@ $(function() {
 
     $('.champion-icon').attr('src', './img/champicons/'+activeChampion+'.png');
     $('.champion-icon').attr('alt', activeChampion);
-
+    $('.champion-name').html(activeChampion);
 
 
     //     ***** EVENTS *****

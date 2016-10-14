@@ -122,3 +122,12 @@ body {
     position: absolute;
     width: 150px;
 }
+.champion-name {
+    left: calc(50% - 137px);
+    width: 274px;
+    top: calc(50% - 150px);
+    position: absolute;
+
+    text-align: center;
+    color: rgb(0, 192, 230);
+}
