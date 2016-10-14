@@ -133,7 +133,7 @@ body {
     background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
     height: 25px;
     position: absolute;
-    width: 150px;
+    width: 0px;
 }
 .champion-name {
     left: calc(50% - 137px);
