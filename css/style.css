@@ -1,12 +1,20 @@
-@media (max-width: 767px) {
+@media (max-width: 900px) {
+    .pc-bar {
+        width: 100% !important;
+    }
    .pc-leftbar {
-      width: 100% !important;
       min-height: 300px !important;
       max-height: 400px !important;
    }
+   .pc-midbar {
+       min-height: 300px !important;
+       max-height: 400px !important;
+       border-top: 3px solid #0f1014 !important;
+       border-left: none !important;
+   }
    .pc-rightbar {
-       width: 100% !important;
-       min-height: 200px !important;
+       min-height: 300px !important;
+       max-height: 400px !important;
        border-top: 3px solid #0f1014 !important;
        border-left: none !important;
    }
@@ -63,12 +71,17 @@ body {
     position: relative;
 }
 .pc-leftbar {
-    width: 35%;
+    width: 30%;
+}
+.pc-midbar {
+    width: 30%;
+    background-color: rgba(14, 15, 22, 0.8);
+    border-left: 4px solid #0f1014;
 }
 .pc-rightbar {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-left: 3px solid #0f1014;
-    width: 65%;
+    background-color: rgba(14, 15, 22, 0.8);
+    border-left: 4px solid #0f1014;
+    width: 40%;
 }
 .champion-wrapper {
     width: 250px;
