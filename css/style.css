@@ -121,11 +121,11 @@ body {
     z-index: 2 !important;
 }
 .health-wrapper {
-    background: rgb(0, 192, 230);
-    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
-    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
-    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
-    background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    background: #128D8A;
+    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, #54E9E6 5px, #54E9E6 30px);
+    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, #54E9E6 5px, #54E9E6 30px);
+    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, #54E9E6 5px, #54E9E6 30px);
+    background: repeating-linear-gradient(80deg, transparent, transparent 5px, #54E9E6 5px, #54E9E6 30px);
     left: calc(50% - 137px);
     top: calc(50% - 125px);
     height: 25px;
@@ -155,7 +155,7 @@ body {
     position: absolute;
 
     text-align: center;
-    color: rgb(0, 192, 230);
+    color: #54E9E6;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 1px 1px 1px black;
@@ -171,7 +171,7 @@ body {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 
-    border-top: 10px solid rgb(0, 192, 230);
+    border-top: 10px solid #54E9E6;
 }
 .level-canvas {
     position: absolute;

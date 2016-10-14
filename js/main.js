@@ -42,18 +42,25 @@ function drawLvLCircle() {
         centerX = canvas.width / 2,
         centerY = canvas.height / 2,
         endAngle = 2.3 * Math.PI;
-    ctx.lineWidth = 32;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 0 * Math.PI, 2 * Math.PI, false);
-    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 28;
+    ctx.strokeStyle = '#128D8A';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 114, 0 * Math.PI, 2 * Math.PI, false);
+    ctx.lineWidth = 24;
+    ctx.strokeStyle = '#222222';
     ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, endAngle, false);
-    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 24;
+    ctx.strokeStyle = '#54E9E6';
     ctx.stroke();
 }
 
