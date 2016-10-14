@@ -107,3 +107,18 @@ body {
 .tooltip {
     z-index: 2 !important;
 }
+.health-wrapper {
+    background-image: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    left: calc(50% - 137px);
+    top: calc(50% - 140px);
+    height: 25px;
+    position: absolute;
+    width: 274px;
+    transform: scaleX(-1);
+}
+.health-progress {
+    background-image: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+    height: 25px;
+    position: absolute;
+    width: 150px;
+}
