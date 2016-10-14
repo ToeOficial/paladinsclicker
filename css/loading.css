@@ -41,8 +41,8 @@
 	    border-right-color: rgb(0, 192, 230);
     }
 	50% {
-	    border-top-color: #1f4f58;
-	    border-right-color: #1f4f58;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
 	}
 	100% {
 	    -webkit-transform: rotate(720deg);
@@ -60,8 +60,8 @@
 	    border-right-color: rgb(0, 192, 230);
 	}
 	50% {
-	    border-top-color: #1f4f58;
-	    border-right-color: #1f4f58;
+	    border-top-color: rgb(0, 192, 230);
+	    border-right-color: rgb(0, 192, 230);
 	}
 	100% {
 	    -webkit-transform: rotate(720deg);
