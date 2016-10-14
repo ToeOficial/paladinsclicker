@@ -78,7 +78,7 @@ body {
     border-radius: 50%;
     position: absolute;
     left: calc(50% - 125px);
-    top: calc(50% - 100px);
+    top: calc(50% - 80px);
     background-color: rgb(73, 150, 164);
     border: 3px solid rgb(0, 50, 60);
     cursor: pointer;
@@ -108,16 +108,29 @@ body {
     z-index: 2 !important;
 }
 .health-wrapper {
-    background-image: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    background: rgb(0, 192, 230);
+    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
+    background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
     left: calc(50% - 137px);
-    top: calc(50% - 140px);
+    top: calc(50% - 120px);
     height: 25px;
     position: absolute;
     width: 274px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 .health-progress {
-    background-image: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+    background: rgb(0, 50, 60);
+    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+    background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
     height: 25px;
     position: absolute;
     width: 150px;
