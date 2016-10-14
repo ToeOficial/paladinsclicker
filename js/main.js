@@ -31,13 +31,34 @@ function updateHP() {
                 width: (274-((championHP/maxChampionHP)*274))
             }, 100);
         });
-        //randomizeChampion();
         championHP = maxChampionHP;
     }
 }
+
+//Draw lvl
+function drawLvLCircle() {
+    var canvas = document.getElementById('lvlCanvas'),
+        ctx = canvas.getContext('2d'),
+        centerX = canvas.width / 2,
+        centerY = canvas.height / 2,
+        endAngle = 2.3 * Math.PI;
+    ctx.lineWidth = 32;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 114, 0 * Math.PI, 2 * Math.PI, false);
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, endAngle, false);
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
+}
+
 //Function running on each click
 function click() {
-    console.log('Click!');
     championHP-=dmg;
     updateHP();
 }
@@ -59,6 +80,7 @@ $(function() {
         theme: 'minimal'
     });
 
+    drawLvLCircle();
     randomizeChampion();
 
     //     ***** EVENTS *****

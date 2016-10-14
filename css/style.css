@@ -173,3 +173,8 @@ body {
 
     border-top: 10px solid rgb(0, 192, 230);
 }
+.level-canvas {
+    position: absolute;
+    left: calc(50% - 130px);
+    top: 20px;
+}
