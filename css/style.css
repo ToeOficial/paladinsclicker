@@ -114,7 +114,7 @@ body {
     background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
     background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 192, 230) 5px, rgb(0, 192, 230) 30px);
     left: calc(50% - 137px);
-    top: calc(50% - 120px);
+    top: calc(50% - 125px);
     height: 25px;
     position: absolute;
     width: 274px;
@@ -143,4 +143,20 @@ body {
 
     text-align: center;
     color: rgb(0, 192, 230);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px black;
+    font-size: 15px;
+}
+.champion-triangle {
+    left: calc(50% - 10px);
+    top: calc(50% - 95px);
+    position: absolute;
+
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid rgb(0, 192, 230);
 }
