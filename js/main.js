@@ -50,11 +50,18 @@ function updateHP() {
 }
 
 function updateXp() {
+    //Display effect only if we don't rank up
+    if(!(xp>maxXp)) {
+        $('.level-text').effect('highlight', { color: '#54E9E6'}, 250);
+    }
+
+    //Too much xp, lvl up
     while(xp>maxXp) {
         level++;
         oldXp=0;
         xp=(xp-maxXp);
         maxXp=Math.floor(1.2*maxXp);
+        $('.level-text').effect('highlight', { color: '#54E9E6'}, 1500);
         $('.level-text').html(level);
     }
     $('.level-text').tooltipster('content', xp+'/'+maxXp);
@@ -70,23 +77,27 @@ function drawLvLCircle() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    //Bigger circle - border
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 114, 0 * Math.PI, 2 * Math.PI, false);
+    ctx.arc(centerX, centerY, 114, 0, 2 * Math.PI, false);
     ctx.lineWidth = 28;
     ctx.strokeStyle = '#128D8A';
     ctx.stroke();
 
+    //Grey circle - empty space
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 114, 0 * Math.PI, 2 * Math.PI, false);
+    ctx.arc(centerX, centerY, 114, 0, 2 * Math.PI, false);
     ctx.lineWidth = 24;
     ctx.strokeStyle = '#222222';
     ctx.stroke();
 
+    //New xp
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(xp/maxXp)))*Math.PI, false);
     ctx.strokeStyle = '#54E9E6';
     ctx.stroke();
 
+    //Old xp
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(oldXp/maxXp)))*Math.PI, false);
     ctx.strokeStyle = '#128D8A';
@@ -109,19 +120,22 @@ $(window).on('load', function() {
 
 //On DOM load
 $(function() {
+    //Init tooltipster
     $('.tooltipster').tooltipster({
-        theme: ['tooltipster-punk', 'tooltipster-punk-customized'],
+        theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
         animation: 'slide',
         delay: [300, 1500],
         animationDuration: [300, 1500],
         updateAnimation: 'scale'
     });
+    //Init custom scrollbar
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
         scrollbarPosition: 'inside',
         theme: 'minimal'
     });
 
+    //Draw level indicator and pick random champion
     drawLvLCircle();
     randomizeChampion();
 
