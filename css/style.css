@@ -194,12 +194,36 @@ body {
 }
 .pc-stats {
     position: absolute;
-    left: calc(50% - 120px);
-    width: 240px;
+    left: calc(50% - 150px);
+    width: 300px;
     height: 240px;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     top: 300px;
     text-align: center;
     color: white;
+    font-size: 32px;
+    line-height: 32px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(18, 142, 139, 0.5);
+}
+.pc-stats img {
+    margin-bottom: 5px;
+}
+.stats-yellow {
+    color: #DEAC3D;
+}
+.stats-orange {
+    color: #FF6600;
+}
+.gps, .dps {
+    font-size: 20px;
+    line-height: 20px;
+    display: block;
+    margin-top: -5px;
+}
+.stats-section {
+    padding-top: 12.5%;
+    padding-bottom: 12.5%;
+    height: 50%;
 }
