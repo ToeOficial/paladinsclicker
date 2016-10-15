@@ -50,7 +50,7 @@ function updateHP() {
 }
 
 function updateXp() {
-    if(xp>maxXp) {
+    while(xp>maxXp) {
         level++;
         oldXp=0;
         xp=(xp-maxXp);
@@ -111,7 +111,10 @@ $(window).on('load', function() {
 $(function() {
     $('.tooltipster').tooltipster({
         theme: ['tooltipster-punk', 'tooltipster-punk-customized'],
-        animation: 'grow'
+        animation: 'slide',
+        delay: [300, 1500],
+        animationDuration: [300, 1500],
+        updateAnimation: 'scale'
     });
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
