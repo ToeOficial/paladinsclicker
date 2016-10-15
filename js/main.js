@@ -2,7 +2,7 @@
 
 //Champion list
 //UPDATE WHEN NEW CHAMPION COMES OUT
-const CHAMPION_LIST = ['Androxus', 'Barik', 'Bomb King', 'Buck', 'Cassie', 'Drogoz', 'Evie', 'Fernando', 'Grohk', 'Grover', 'Kinessa', 'Makoa', 'Pip', 'Ruckus', 'Skye', 'Viktor', 'Ying'];
+const CHAMPION_LIST = ['Androxus', 'Barik', 'Bomb King', 'Buck', 'Cassie', 'Drogoz', 'Evie', 'Fernando', 'Grohk', 'Grover', 'Kinessa', 'Makoa', 'Mal\'Damba', 'Pip', 'Ruckus', 'Skye', 'Viktor', 'Ying'];
 var activeChampion = '';
 
 var championHP = 10;
@@ -30,11 +30,14 @@ function updateHP() {
     $('.health-progress').animate({
         width: (274-((championHP/maxChampionHP)*274))
     }, 100);
+    $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
+
     if (championHP<=0) {
         $('.champion-icon').effect('explode', {pieces: explodePieces}, 500, function() {
             randomizeChampion();
             $(this).show();
 
+            $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
             $('.health-progress').animate({
                 width: (274-((championHP/maxChampionHP)*274))
             }, 100);
@@ -54,6 +57,7 @@ function updateXp() {
         maxXp=Math.floor(1.2*maxXp);
         $('.level-text').html(level);
     }
+    $('.level-text').tooltipster('content', xp+'/'+maxXp);
     drawLvLCircle();
 }
 
@@ -105,7 +109,10 @@ $(window).on('load', function() {
 
 //On DOM load
 $(function() {
-    $('.tooltip').tooltipster();
+    $('.tooltipster').tooltipster({
+        theme: ['tooltipster-punk', 'tooltipster-punk-customized'],
+        animation: 'grow'
+    });
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
         scrollbarPosition: 'inside',
