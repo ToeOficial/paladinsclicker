@@ -19,6 +19,8 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <link rel="stylesheet" href="./css/tooltipster.bundle.min.css">
+        <link rel="stylesheet" href="./css/tooltipster-sideTip-punk.min.css">
+        <link rel="stylesheet" href="./css/tooltipster-theme.css">
         <link rel="stylesheet" href="./css/customscrollbar.min.css">
         <link rel="stylesheet" href="./css/jquery-ui.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
@@ -59,7 +61,7 @@
             <div class="champion-name">
                 Placeholder
             </div>
-            <div class="health-wrapper">
+            <div class="health-wrapper tooltipster" title="10/10">
                 <div class="health-progress">
                 </div>
             </div>
@@ -72,12 +74,12 @@
         </div>
         <div class="pc-midbar pc-bar">
             <canvas width="260" height="260" id="lvlCanvas" class="level-canvas"></canvas>
-            <div class="level-text">
+            <div class="level-text tooltipster" title="0/100">
                 1
             </div>
             <div class="pc-stats">
-                Gold: 0<br>
-                GoldPS: 0 
+                <!--Gold: 0<br>
+                GoldPS: 0-->
             </div>
         </div>
         <div class="pc-rightbar pc-bar">

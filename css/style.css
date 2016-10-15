@@ -182,6 +182,7 @@ body {
     width: 260px;
     height: 260px;
     top: 20px;
+    border-radius: 50%;
 
     text-align: center;
     line-height: 260px;
