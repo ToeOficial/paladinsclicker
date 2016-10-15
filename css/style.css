@@ -216,7 +216,7 @@ body {
 .stats-orange {
     color: #FF6600;
 }
-.gps, .dps {
+.gpc, .dps {
     font-size: 20px;
     line-height: 20px;
     display: block;
