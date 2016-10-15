@@ -13,7 +13,7 @@ var level = 1;
 var oldXp = 0;
 var xp = 0;
 var xpPerKill = 20;
-var maxXP = 100;
+var maxXp = 100;
 //Get random champion from the list
 function randomizeChampion() {
     activeChampion = CHAMPION_LIST[Math.floor(Math.random()*CHAMPION_LIST.length)];
@@ -44,11 +44,11 @@ function updateHP() {
 }
 
 function updateXp() {
-    if(xp>maxXP) {
+    if(xp>maxXp) {
         level++;
         oldXp=0;
-        xp=xpPerKill;
-        maxXP+=20;
+        xp=(xp-maxXp);
+        maxXp=Math.floor(1.2*maxXp);
         $('.level-text').html(level);
     }
     drawLvLCircle();
@@ -76,12 +76,12 @@ function drawLvLCircle() {
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(xp/maxXP)))*Math.PI, false);
+    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(xp/maxXp)))*Math.PI, false);
     ctx.strokeStyle = '#54E9E6';
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(oldXp/maxXP)))*Math.PI, false);
+    ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(oldXp/maxXp)))*Math.PI, false);
     ctx.strokeStyle = '#128D8A';
     ctx.stroke();
 }
