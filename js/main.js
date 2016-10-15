@@ -14,6 +14,9 @@ var oldXp = 0;
 var xp = 0;
 var xpPerKill = 20;
 var maxXp = 100;
+
+//Settings
+var explodePieces = 32;
 //Get random champion from the list
 function randomizeChampion() {
     activeChampion = CHAMPION_LIST[Math.floor(Math.random()*CHAMPION_LIST.length)];
@@ -28,7 +31,7 @@ function updateHP() {
         width: (274-((championHP/maxChampionHP)*274))
     }, 100);
     if (championHP<=0) {
-        $('.champion-icon').effect('explode', {pieces: 32}, 500, function() {
+        $('.champion-icon').effect('explode', {pieces: explodePieces}, 500, function() {
             randomizeChampion();
             $(this).show();
 
@@ -111,6 +114,15 @@ $(function() {
 
     drawLvLCircle();
     randomizeChampion();
+
+    //decrease lag on smaller devices
+    //default of 32 pieces on 1280 screen width
+    //scales with width, so it's 4 pieces on mobile
+    //caps at 128
+    explodePieces = Math.pow(2, ($(window).width()/1280)*5);
+    if(explodePieces>128) {
+        explodePieces = 128;
+    }
 
     //     ***** EVENTS *****
     //On champion icon left or middle click
