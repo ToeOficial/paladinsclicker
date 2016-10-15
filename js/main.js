@@ -27,7 +27,7 @@ function randomizeChampion() {
 }
 
 function updateHP() {
-    $('.health-progress').animate({
+    $('.health-progress').stop(true).animate({
         width: (274-((championHP/maxChampionHP)*274))
     }, 100);
     $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
@@ -38,7 +38,7 @@ function updateHP() {
             $(this).show();
 
             $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
-            $('.health-progress').animate({
+            $('.health-progress').stop(true).animate({
                 width: (274-((championHP/maxChampionHP)*274))
             }, 100);
         });
