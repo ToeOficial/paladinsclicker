@@ -7,7 +7,13 @@ var activeChampion = '';
 
 var championHP = 10;
 var maxChampionHP = 10;
+
 var dmg = 1;
+var dps = 0;
+
+var gold = 0;
+var goldPerKill = 3;
+var gps = 0;
 
 var level = 1;
 var oldXp = 0;
@@ -17,6 +23,7 @@ var maxXp = 100;
 
 //Settings
 var explodePieces = 32;
+
 //Get random champion from the list
 function randomizeChampion() {
     activeChampion = CHAMPION_LIST[Math.floor(Math.random()*CHAMPION_LIST.length)];
@@ -40,27 +47,26 @@ function updateHP() {
             $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
             $('.health-progress').stop(true).animate({
                 width: (274-((championHP/maxChampionHP)*274))
-            }, 100);
+            }, 200);
         });
-        championHP = maxChampionHP;
         oldXp=xp;
         xp+=xpPerKill;
         updateXp();
+        championHP = maxChampionHP;
+        gold+=goldPerKill;
+        $('#goldSpan').html(gold);
     }
 }
 
 function updateXp() {
-    //Display effect only if we don't rank up
-    if(!(xp>maxXp)) {
-        $('.level-text').effect('highlight', { color: '#54E9E6'}, 250);
-    }
-
     //Too much xp, lvl up
     while(xp>maxXp) {
         level++;
         oldXp=0;
         xp=(xp-maxXp);
-        maxXp=Math.floor(1.2*maxXp);
+        maxXp=Math.floor(1.3*maxXp);
+        maxChampionHP+=2;
+        xpPerKill=Math.floor(1.05*xpPerKill);
         $('.level-text').effect('highlight', { color: '#54E9E6'}, 1500);
         $('.level-text').html(level);
     }
@@ -147,6 +153,16 @@ $(function() {
     if(explodePieces>128) {
         explodePieces = 128;
     }
+
+
+    //     ***** DPS AND GPS TIMER *****
+    var dpstimer = setInterval(function() {
+        gold+=gps;
+        championHP-=dps;
+        $('#goldSpan').html(gold);
+        updateHP();
+    }, 1000);
+
 
     //     ***** EVENTS *****
     //On champion icon left or middle click
