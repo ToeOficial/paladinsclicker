@@ -30,8 +30,8 @@
     user-select: none;
 }
 body {
-    background-color: #644C38;
-    background-image: url('../img/background.jpg');
+    background-color: #617FF7;
+    background-image: url('../img/background.png');
     background-size: cover;
     background-clip: border-box;
     background-position: 0px 45px;
@@ -216,7 +216,7 @@ body {
 .stats-orange {
     color: #FF6600;
 }
-.gpc, .dps {
+.gpk, .dps {
     font-size: 20px;
     line-height: 20px;
     display: block;
