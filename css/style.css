@@ -37,6 +37,7 @@ body {
     background-position: 0px 45px;
     background-repeat: repeat-y;
     overflow: hidden;
+    color: white;
 }
 .pc-navbar {
     background-color: #0f1014;

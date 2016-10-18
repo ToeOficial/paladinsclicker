@@ -13,7 +13,7 @@ var dps = 0;
 
 var gold = 0;
 var goldPerKill = 3;
-var topUnlocked = 0;
+var topUnlocked = 1;
 
 var level = 1;
 var oldXp = 0;
@@ -67,6 +67,10 @@ function updateXp() {
         maxXp=Math.floor(1.3*maxXp);
         maxChampionHP+=5;
         xpPerKill=Math.floor(1.05*xpPerKill);
+        if(level%5==0) {
+            goldPerKill++;
+            $('#gpkSpan').html(goldPerKill);
+        }
         $('.level-text').effect('highlight', { color: '#54E9E6'}, 1500);
         $('.level-text').html(level);
     }
@@ -129,9 +133,9 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.cost = cost; //Item cost
     this.level = 0; //Starting level (by default 0, because we don't have it unlocked)
     this.image = './img/items/' + id + '.png'; //Image stored in ./img/items/ with .png extension
-    this.costid = '#cost-' + id; //Id of element containing item price
-    this.levelid = '#level-' + id; //Id of element containing item level
-    this.buyid = '#buy-' + id; //Id of buy button
+    this.costid = 'cost-' + id; //Id of element containing item price
+    this.levelid = 'level-' + id; //Id of element containing item level
+    this.buyid = 'buy-' + id; //Id of buy button
     this.req = req; //Required item (most of the time 1 less)
     this.unl = unl; //Item number (starts at 1)
 
@@ -156,18 +160,20 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 topUnlocked = this.unl;
             }
             //play sound
+            this.render();
             return true;
         }
         return false;
     }
 
     this.render = function() {
-        $(this.costid).html(this.cost);
-        $(this.levelid).html(this.level);
-        if (this.cost > gold) {
-            $(this.buyid).addClass('dis');
-        } else {
-            $(this.buyid).removeClass('dis');
+        $('#'+this.costid).html(this.cost);
+        $('#'+this.levelid).html(this.level);
+        if(this.level>0) {
+            $('#'+this.buyid).html('UPGRADE');
+        }
+        else {
+            $('#'+this.buyid).html('BUY');
         }
     }
 
@@ -177,7 +183,8 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1);
+var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1); basicbow.level = 1;
+var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
 
 
 //On full page load
@@ -204,6 +211,23 @@ $(function() {
         scrollbarPosition: 'inside',
         theme: 'minimal'
     });
+
+    //Draw sidebar
+    $.each(Item.instances, function() {
+        var currentElement = '<div class="pc-item">' +
+            '<img class="pc-item-image" src="'+ this.image +'" height="90px" width="90px" draggable="false">' +
+            '<div class="pc-item-title">'+ this.name +'</div>' +
+            '<div class="pc-item-cost" id="'+ this.costid +'"></div>' +
+            '<div class="pc-item-level" id="'+ this.levelid +'"></div>' +
+            '<div class="pc-item-bonus">'+ this.bonus +'</div>' +
+            '<button type="button" onclick="'+ this.id +'.buy();" id="'+ this.buyid +'">BUY</button>' +
+        '</div>';
+
+        $('.pc-rightbar').find('.mCSB_container').append(currentElement);
+        this.render();
+        $(".pc-rightbar").mCustomScrollbar('update');
+    });
+
 
     //Draw level indicator and pick random champion
     drawLvLCircle();
