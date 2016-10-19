@@ -13,7 +13,7 @@ var dps = 0;
 
 var gold = 0;
 var goldPerKill = 3;
-var topUnlocked = 1;
+var topUnlocked = 0;
 
 var level = 1;
 var oldXp = 0;
@@ -151,7 +151,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
             gold = Math.floor(gold);
             $('#goldSpan').html(gold);
             this.level += 1;
-            this.cost = Math.floor(this.cost * 1.5);
+            this.cost = Math.floor(this.cost * 1.4);
             if (this.type == 1) {
                 dmg += this.bonus;
                 $('#damageSpan').html(dmg);
@@ -164,6 +164,11 @@ function Item(id, name, type, bonus, cost, req, unl) {
             }
             if(this.unl > topUnlocked) {
                 topUnlocked = this.unl;
+                $.each(Item.instances, function() {
+                    if(this.req<=topUnlocked) {
+                        $('#'+this.id).slideDown(1000);
+                    }
+                });
             }
             //play sound
             $('#'+this.id).effect('highlight', { color: '#54E9E6'}, 1000);
@@ -191,9 +196,10 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1); basicbow.level = 1;
+var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1); basicbow.level = 1; //Unique item, starts with level 1
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
-
+var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
+var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
 
 //On full page load
 $(window).on('load', function() {
@@ -237,6 +243,9 @@ $(function() {
         '</div>';
 
         $('.pc-rightbar').find('.mCSB_container').append(currentElement);
+        if(this.req>topUnlocked) {
+            $('#'+this.id).hide();
+        }
         //1: DMG
         //2: DPS
         //3: GOLDPERKILL
