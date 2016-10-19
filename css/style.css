@@ -228,3 +228,83 @@ body {
     padding-bottom: 12.5%;
     height: 50%;
 }
+.pc-item {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(18, 142, 139, 0.5);
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    height: 115px;
+    position: relative;
+}
+.pc-item-image {
+    border: 2px solid rgba(18, 142, 139, 0.5);
+    border-radius: 10px;
+}
+.pc-item-stats {
+    position: absolute;
+    left: 110px;
+    right: 0;
+    top: 40px;
+    bottom: 10px;
+    font-size: 15px;
+    line-height: 30px;
+}
+.pc-item-title {
+    position: absolute;
+    left: 110px;
+    right: 0;
+    top: 10px;
+    height: 26px;
+    border-bottom: 1px solid white;
+
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: bold;
+    color: white;
+}
+.pc-item-level::before {
+    content: "Level: ";
+}
+.pc-item-cost::before {
+    content: "Cost: ";
+}
+.pc-item-section {
+    width: 50%;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.pc-item-section2 {
+    text-align: center;
+}
+.pc-item-button {
+    background-color: #128D8A;
+    border: 2px solid #063938;
+    outline: none;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.pc-item-button:hover {
+    background-color: #10c2bd;
+}
+.pc-item-cost img {
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+.pc-item-bonus-dmg::after {
+    content: ' DMG';
+    color: #FF6600;
+}
+.pc-item-bonus-dps::after {
+    content: ' DPS';
+    color: #bd0a0a;
+}
+.pc-item-bonus-gpk::after {
+    content: ' GPK';
+    color: #DEAC3D;
+}

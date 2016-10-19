@@ -34,8 +34,13 @@ function randomizeChampion() {
 }
 
 function updateHP() {
-    $('.health-progress').stop(true).animate({
-        width: (274-((championHP/maxChampionHP)*274))
+    var nextWidth = 274-((championHP/maxChampionHP)*274);
+    if (nextWidth>274) {
+        nextWidth = 274;
+    }
+
+    $('.health-progress').animate({
+        width: nextWidth
     }, 100);
     $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
 
@@ -136,6 +141,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.costid = 'cost-' + id; //Id of element containing item price
     this.levelid = 'level-' + id; //Id of element containing item level
     this.buyid = 'buy-' + id; //Id of buy button
+    this.bonusid = 'bonus-' + id; //Id of bonus element
     this.req = req; //Required item (most of the time 1 less)
     this.unl = unl; //Item number (starts at 1)
 
@@ -160,6 +166,8 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 topUnlocked = this.unl;
             }
             //play sound
+            $('#'+this.id).effect('highlight', { color: '#54E9E6'}, 1000);
+            $('#'+this.buyid).effect('highlight', { color: 'white'}, 1000);
             this.render();
             return true;
         }
@@ -214,16 +222,38 @@ $(function() {
 
     //Draw sidebar
     $.each(Item.instances, function() {
-        var currentElement = '<div class="pc-item">' +
+        var currentElement = '<div class="pc-item" id="'+ this.id +'">' +
             '<img class="pc-item-image" src="'+ this.image +'" height="90px" width="90px" draggable="false">' +
             '<div class="pc-item-title">'+ this.name +'</div>' +
-            '<div class="pc-item-cost" id="'+ this.costid +'"></div>' +
-            '<div class="pc-item-level" id="'+ this.levelid +'"></div>' +
-            '<div class="pc-item-bonus">'+ this.bonus +'</div>' +
-            '<button type="button" onclick="'+ this.id +'.buy();" id="'+ this.buyid +'">BUY</button>' +
+            '<div class="pc-item-stats">' +
+                '<div class="pc-item-section">' +
+                    '<div class="pc-item-cost"><span id="'+ this.costid +'"></span><img src="./img/gold.png" draggable="false" height="15" width="15"></div>' +
+                    '<div class="pc-item-level" id="'+ this.levelid +'"></div>' +
+                '</div><div class="pc-item-section pc-item-section2">' +
+                    '<div class="pc-item-bonus" id="'+ this.bonusid +'">'+ this.bonus +'</div>' +
+                    '<button class="pc-item-button" type="button" onclick="'+ this.id +'.buy();" id="'+ this.buyid +'">BUY</button>' +
+                '</div>' +
+            '</div>' +
         '</div>';
 
         $('.pc-rightbar').find('.mCSB_container').append(currentElement);
+        //1: DMG
+        //2: DPS
+        //3: GOLDPERKILL
+        switch (this.type) {
+            case 1:
+                $('#'+this.bonusid).addClass('pc-item-bonus-dmg');
+                break;
+            case 2:
+                $('#'+this.bonusid).addClass('pc-item-bonus-dps');
+                break;
+            case 3:
+                $('#'+this.bonusid).addClass('pc-item-bonus-gpk');
+                break;
+            default:
+                $('#'+this.bonusid).removeClass('pc-item-bonus-dmg pc-item-bonus-dps pc-item-bonus-gpk');
+        }
+
         this.render();
         $(".pc-rightbar").mCustomScrollbar('update');
     });
