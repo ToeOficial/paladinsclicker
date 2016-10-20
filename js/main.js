@@ -200,6 +200,7 @@ var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1); basicbow.l
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
+var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 
 //On full page load
 $(window).on('load', function() {
