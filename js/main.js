@@ -224,7 +224,8 @@ $(function() {
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
         scrollbarPosition: 'inside',
-        theme: 'minimal'
+        theme: 'minimal',
+        contentTouchScroll: false
     });
 
     //Draw sidebar
