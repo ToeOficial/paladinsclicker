@@ -225,7 +225,8 @@ $(function() {
         axis: 'y',
         scrollbarPosition: 'inside',
         theme: 'minimal',
-        contentTouchScroll: false
+        contentTouchScroll: false,
+        documentTouchScroll: true
     });
 
     //Draw sidebar
