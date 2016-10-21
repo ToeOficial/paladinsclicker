@@ -1,3 +1,6 @@
+/*
+TODO: Add legal info and information for someone possibly seeing this
+*/
 @media (max-width: 900px) {
     .pc-bar {
         width: 100% !important;
@@ -41,7 +44,7 @@ body {
 }
 .pc-navbar {
     background-color: #0f1014;
-    color: #54E9E6/*#ccccc2*/;
+    color: #54E9E6;
     height: 45px;
     line-height: 45px;
     vertical-align: middle;
@@ -307,4 +310,35 @@ body {
 .pc-item-bonus-gpk::after {
     content: ' GPK';
     color: #DEAC3D;
+}
+.pc-modal * {
+    background-color: #0f1014;
+    color: white;
+    border-color: #54E9E6;
+}
+.pc-modal .modal-content {
+    border-color: black;
+}
+.pc-modal .pc-modal-button {
+    background-color: #128D8A;
+    border: 2px solid #063938;
+    outline: none;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.pc-modal .pc-modal-button:hover {
+    background-color: #10c2bd;
+}
+.pc-button-decline {
+    background-color: #b30a0a !important;
+    border-color: #5c0606 !important;
+}
+.pc-button-decline:hover {
+    background-color: #e00303 !important;
+}
+a {
+    color: #54E9E6 !important;
 }
