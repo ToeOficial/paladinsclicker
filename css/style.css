@@ -15,7 +15,6 @@ TODO: Add legal info and information for someone possibly seeing this
    }
    .pc-rightbar {
        min-height: 300px !important;
-       height: auto !important;
        border-top: 3px solid #0f1014 !important;
        border-left: none !important;
    }
