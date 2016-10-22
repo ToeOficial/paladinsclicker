@@ -230,6 +230,9 @@ $(window).on('load', function() {
 
 //On DOM load
 $(function() {
+    $(window).bind('beforeunload', function(){
+        return 'Are you sure you want to leave? Champions will be pretty sad :(';
+    });
     //Init tooltipster
     $('.tooltipster').tooltipster({
         theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
