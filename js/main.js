@@ -230,6 +230,7 @@ $(window).on('load', function() {
 
 //On DOM load
 $(function() {
+    //Display confirm before leaving page
     $(window).bind('beforeunload', function(){
         return 'Are you sure you want to leave? Champions will be pretty sad :(';
     });
@@ -246,7 +247,7 @@ $(function() {
         axis: 'y',
         scrollbarPosition: 'inside',
         theme: 'minimal',
-        contentTouchScroll: false,
+        contentTouchScroll: false, //pretty important for small screens
         documentTouchScroll: true
     });
 

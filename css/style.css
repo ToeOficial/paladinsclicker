@@ -15,6 +15,7 @@ TODO: Add legal info and information for someone possibly seeing this
    }
    .pc-rightbar {
        min-height: 300px !important;
+       height: auto !important;
        border-top: 3px solid #0f1014 !important;
        border-left: none !important;
    }
@@ -340,4 +341,12 @@ body {
 }
 a {
     color: #54E9E6 !important;
+}
+.preload {
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: -9999px;
+    top: -9999px;
 }
