@@ -262,7 +262,7 @@ $(function() {
                     '<div class="pc-item-cost"><span id="'+ this.costid +'"></span><img src="./img/gold.png" draggable="false" height="15" width="15"></div>' +
                     '<div class="pc-item-level" id="'+ this.levelid +'"></div>' +
                 '</div><div class="pc-item-section pc-item-section2">' +
-                    '<div class="pc-item-bonus" id="'+ this.bonusid +'">'+ this.bonus +'</div>' +
+                    '<div class="pc-item-bonus tooltipster" id="'+ this.bonusid +'" title="placeholder">'+ this.bonus +'</div>' +
                     '<button class="pc-item-button" type="button" onclick="'+ this.id +'.buy();" id="'+ this.buyid +'">BUY</button>' +
                 '</div>' +
             '</div>' +
@@ -273,23 +273,38 @@ $(function() {
             //hide if requirement not fulfilled
             $('#'+this.id).hide();
         }
+
+
+        //Initialize tooltipster on bonus element
+        $('#'+this.bonusid).tooltipster({
+            theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
+            contentAsHTML: true, //support for html
+            animation: 'fade',
+            delay: 300,
+            animationDuration: 300
+        });
+
         //1: DMG
         //2: DPS
         //3: GOLDPERKILL
-        //Add class that handles text after bonus
+        //Add class that handles text after bonus and update tooltip content
         switch (this.type) {
             case 1:
                 $('#'+this.bonusid).addClass('pc-item-bonus-dmg');
+                $('#'+this.bonusid).tooltipster('content', '<span style="color: #FF6600;">Damage per Click</span>');
                 break;
             case 2:
                 $('#'+this.bonusid).addClass('pc-item-bonus-dps');
+                $('#'+this.bonusid).tooltipster('content', '<span style="color: #bd0a0a;">Damage per Second</span>');
                 break;
             case 3:
                 $('#'+this.bonusid).addClass('pc-item-bonus-gpk');
+                $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">Gold per Kill</span>');
                 break;
             default:
                 //if it isn't 1, 2 or 3 remove all classes, so that there is a clear indicator that something gone wrong
                 $('#'+this.bonusid).removeClass('pc-item-bonus-dmg pc-item-bonus-dps pc-item-bonus-gpk');
+                $('#'+this.bonusid).tooltipster('content', 'ERROR');
         }
 
         this.render();
