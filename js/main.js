@@ -1,5 +1,5 @@
 /*
-TODO: Add legal info and information for someone possibly seeing this
+Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks of Hi­Rez Studios, Inc. in the United States and other countries.
 */
 
 //     ***** INIT *****
