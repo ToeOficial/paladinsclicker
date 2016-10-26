@@ -242,6 +242,13 @@ $(function() {
         animationDuration: [300, 1500],
         updateAnimation: 'scale'
     });
+    $('.pc-navbar-element').tooltipster({
+        theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
+        animation: 'fade',
+        delay: 300,
+        animationDuration: 300,
+        side: 'bottom'
+    });
     //Init custom scrollbar
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
