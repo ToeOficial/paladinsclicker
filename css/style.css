@@ -49,7 +49,7 @@ body {
     line-height: 45px;
     vertical-align: middle;
 }
-.pc-navbar div {
+.pc-navbar div, .pc-navbar-element {
     display: inline-block;
     padding-left: 5px; padding-right: 5px;
     height: 45px;
@@ -57,10 +57,14 @@ body {
     float: right;
     font-size: 25px;
     cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+    color: white;
 }
 .pc-logo {
     font-weight: bold;
     float: left !important;
+    color: #54E9E6 !important;
 }
 .pc-logo-img {
     margin-bottom: 5px;
