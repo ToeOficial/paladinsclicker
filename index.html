@@ -94,13 +94,24 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                 <img src="./img/logo.png" height="25px" class="pc-logo-img" draggable="false">
                 Paladins Clicker
             </div>
-            <div class="pc-navbar-element" title="Credits">
+            <div class="pc-navbar-element" title="Credits" onclick="$('#creditsModal').modal().show();">
                 <i class="fa fa-address-book" aria-hidden="true"></i>
-                <!--
-                TODO: Add modal that displays credits (authors, legal info, technologies used)
-                -->
             </div>
         </nav>
+        <div id="creditsModal" class="modal fade pc-modal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-address-book" aria-hidden="true"></i> Credits</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="pc-modal-button" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="pc-leftbar pc-bar">
             <div class="champion-name">
