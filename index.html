@@ -102,13 +102,16 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                 <img src="./img/logo.png" height="25px" class="pc-logo-img" draggable="false">
                 Paladins Clicker
             </div>
+            <!--Icons on the right of navbar-->
             <div class="pc-navbar-element" title="Credits" onclick="$('#creditsModal').modal().show();">
                 <i class="fa fa-address-book" aria-hidden="true"></i>
             </div>
-            <div class="pc-navbar-element" title="Settings" onclick="/*$('#settingsModal').modal().show();*/">
+            <div class="pc-navbar-element" title="Settings" onclick="$('#settingsModal').modal().show();">
                 <i class="fa fa-cog" aria-hidden="true"></i>
             </div>
         </nav>
+
+        <!--MODALS-->
         <div id="creditsModal" class="modal fade pc-modal" role="dialog" data-backdrop="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -153,14 +156,32 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                 </div>
             </div>
         </div>
+        <div id="settingsModal" class="modal fade pc-modal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-cog" aria-hidden="true"></i> Settings</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="pc-modal-button" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--MODALS END-->
 
         <div class="pc-leftbar pc-bar">
             <div class="champion-name">
-                Placeholder
+                Placeholder<!--This gets changed when js loads and before load screen hides-->
             </div>
             <div class="health-wrapper tooltipster" title="10/10">
+                <!--Empty div showing hp-->
                 <div class="health-progress"></div>
             </div>
+            <!--Small indicator below hp bar-->
             <div class="champion-triangle"></div>
             <div class="champion-wrapper">
                 <img src="./img/placeholder.jpg" draggable="false" alt="?" class="champion-icon">
@@ -171,6 +192,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
             <div class="level-text tooltipster" title="0/100">
                 1
             </div>
+            <!--Stats-->
             <div class="pc-stats">
                 <div class="stats-section">
                     <img src="./img/gold.png" draggable="false" height="35" width="35"><span id="goldSpan">0</span>
@@ -183,7 +205,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
             </div>
         </div>
 
-        <div class="pc-rightbar pc-bar"></div>
+        <div class="pc-rightbar pc-bar"><!--Items get generated here--></div>
 
         <!--Load JS-->
         <script type="text/javascript" src="./js/jquery.min.js"></script>
