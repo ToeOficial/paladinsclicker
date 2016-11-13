@@ -362,3 +362,19 @@ a {
     left: -9999px;
     top: -9999px;
 }
+
+#explosionPiecesDisplay, #explosionPiecesInput {
+    display: inline-block;
+    vertical-align: middle;
+}
+#explosionPiecesInput {
+    width: 70%;
+}
+#explosionPiecesDisplay {
+    margin-left: 5%;
+    width: 25%;
+}
+#settingsModal label {
+    width: 100%;
+    font-weight: normal;
+}

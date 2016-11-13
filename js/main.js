@@ -5,7 +5,8 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
 //     ***** INIT *****
 //Champion list
 //UPDATE WHEN NEW CHAMPION COMES OUT
-const CHAMPION_LIST = ['Androxus', 'Barik', 'Bomb King', 'Buck', 'Cassie', 'Drogoz', 'Evie', 'Fernando', 'Grohk', 'Grover', 'Kinessa', 'Makoa', 'Mal\'Damba', 'Pip', 'Ruckus', 'Skye', 'Sha Lin', 'Viktor', 'Ying'];
+const CHAMPION_LIST = ['Androxus', 'Barik', 'Bomb King', 'Buck', 'Cassie', 'Drogoz', 'Evie', 'Fernando', 'Grohk', 'Grover', 'Kinessa', 'Makoa',
+                       'Mal\'Damba', 'Pip', 'Ruckus', 'Skye', 'Sha Lin', 'Viktor', 'Ying'];
 var activeChampion = '';
 
 //Current and max hp of the champion
@@ -138,6 +139,16 @@ function click() {
     championHP-=dmg;
     updateHP();
 }
+
+function saveSettings() {
+    explodePieces=$('#explosionPiecesInput').val();
+    if(explodePieces<1) {
+        explodePieces=1;
+        $('#explosionPiecesInput').val(explodePieces);
+    }
+    $('#explosionPiecesDisplay').val(explodePieces);
+}
+
 
 //     ***** ITEMS *****
 //"Class" handling items
@@ -327,11 +338,13 @@ $(function() {
     //default of 32 pieces on 1280 screen width
     //scales with width, so it's 4 pieces on mobile
     //caps at 128
-    explodePieces = Math.pow(2, ($(window).width()/1280)*5);
+    explodePieces = Math.floor(Math.pow(2, ($(window).width()/1280)*5));
     if(explodePieces>128) {
         explodePieces = 128;
     }
 
+    $('#explosionPiecesInput').val(explodePieces);
+    $('#explosionPiecesDisplay').val(explodePieces);
 
     //     ***** DPS AND GPS TIMER *****
     var dpstimer = setInterval(function() {
