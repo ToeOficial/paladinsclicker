@@ -118,14 +118,12 @@ body {
   opacity: 1;
   height: 230px;
   width: 230px; }
-
-.champion-icon:hover {
-  top: calc(50% - 117px);
-  opacity: 1; }
-
-.champion-icon:active {
-  top: calc(50% - 113px);
-  opacity: 0.9; }
+  .champion-icon:hover {
+    top: calc(50% - 117px);
+    opacity: 1; }
+  .champion-icon:active {
+    top: calc(50% - 113px);
+    opacity: 0.9; }
 
 .health-wrapper {
   background: #128D8A;
@@ -143,16 +141,15 @@ body {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH"; }
-
-.health-progress {
-  background: #00323c;
-  background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
-  background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
-  background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
-  background: repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
-  height: 25px;
-  position: absolute;
-  width: 0px; }
+  .health-wrapper .health-progress {
+    background: #00323c;
+    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
+    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
+    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
+    background: repeating-linear-gradient(80deg, transparent, transparent 5px, #00323c 5px, #00323c 30px);
+    height: 25px;
+    position: absolute;
+    width: 0px; }
 
 .champion-name {
   left: calc(50% - 137px);

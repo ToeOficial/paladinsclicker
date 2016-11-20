@@ -164,17 +164,18 @@ body {
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+    .health-progress {
+        background: rgb(0, 50, 60);
+        background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+        background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+        background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+        background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
+        height: 25px;
+        position: absolute;
+        width: 0px;
+    }
 }
-.health-progress {
-    background: rgb(0, 50, 60);
-    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-    background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-    height: 25px;
-    position: absolute;
-    width: 0px;
-}
+
 .champion-name {
     left: calc(50% - 137px);
     width: 274px;
