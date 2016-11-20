@@ -10,7 +10,6 @@ Feel free to contribute (bugfixes in main branch, fork for major changes). Every
 
 ##TODO
 * Move CSS to SASS/LESS/Stylus
-* Transpile ES2015 using Babel
 * Balance numbers
 * Add more items
 * Add easter eggs
