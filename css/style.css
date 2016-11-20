@@ -46,24 +46,22 @@ body {
   height: 45px;
   line-height: 45px;
   vertical-align: middle; }
-
-.pc-navbar div, .pc-navbar-element {
-  display: inline-block;
-  padding-right: 3px;
-  padding-left: 3px;
-  height: 45px;
-  vertical-align: middle;
-  float: right;
-  font-size: 25px;
-  cursor: pointer;
-  min-width: 40px;
-  text-align: center;
-  color: white;
-  transition-duration: 2s; }
-
-.pc-navbar-element:hover {
-  background-color: #242732 !important;
-  color: #54E9E6 !important; }
+  .pc-navbar .pc-navbar-element {
+    display: inline-block;
+    padding-right: 3px;
+    padding-left: 3px;
+    height: 45px;
+    vertical-align: middle;
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+    min-width: 40px;
+    text-align: center;
+    color: white;
+    transition-duration: 2s; }
+    .pc-navbar .pc-navbar-element:hover {
+      background-color: #242732 !important;
+      color: #54E9E6 !important; }
 
 .pc-logo {
   font-weight: bold;

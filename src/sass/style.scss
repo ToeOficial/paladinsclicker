@@ -53,25 +53,27 @@ body {
     height: $navbar-height;
     line-height: $navbar-height;
     vertical-align: middle;
-}
-.pc-navbar div, .pc-navbar-element {
-    display: inline-block;
-    padding-right: $navbar-element-padding; padding-left: $navbar-element-padding;
-    height: $navbar-height;
-    vertical-align: middle;
-    float: right;
-    font-size: $navbar-element-font-size;
-    cursor: pointer;
-    min-width: $navbar-height - 5px;
-    text-align: center;
-    color: white;
-    transition-duration: 2s;
+    .pc-navbar-element {
+        display: inline-block;
+        padding-right: $navbar-element-padding; padding-left: $navbar-element-padding;
+        height: $navbar-height;
+        vertical-align: middle;
+        float: right;
+        font-size: $navbar-element-font-size;
+        cursor: pointer;
+        min-width: $navbar-height - 5px;
+        text-align: center;
+        color: white;
+        transition-duration: 2s;
+        &:hover {
+            background-color: #242732 !important;
+            color: #54E9E6 !important;
+        }
+    }
 }
 
-.pc-navbar-element:hover {
-    background-color: #242732 !important;
-    color: #54E9E6 !important;
-}
+
+
 
 .pc-logo {
     font-weight: bold;
