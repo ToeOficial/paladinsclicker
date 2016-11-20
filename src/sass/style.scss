@@ -122,28 +122,28 @@ body {
     background-color: $champion-wrapper-background-color;
     border: $champion-wrapper-border;
     cursor: pointer;
-    .champion-icon {
-        -webkit-border-radius: 50% !important;
-        -moz-border-radius: 50% !important;
-        border-radius: 50% !important;
-        position: absolute;
-        left: calc(50% - #{$champion-icon-size/2});
-        top: calc(50% - #{$champion-icon-size/2});
-        -webkit-transition-duration: $champion-icon-transition-duration;
-        -moz-transition-duration: $champion-icon-transition-duration;
-        transition-duration: $champion-icon-transition-duration;
-        opacity: 1;
-        height: $champion-icon-size;
-        width: $champion-icon-size;
-        &:hover {
-            top: calc(50% - #{($champion-icon-size/2)+2});
-            opacity: 1;
-        }
-        &:active {
-            top: calc(50% - #{($champion-icon-size/2)-2});
-            opacity: 0.9;
-        }
-    }
+}
+.champion-icon {
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    position: absolute;
+    left: calc(50% - #{$champion-icon-size/2});
+    top: calc(50% - #{$champion-icon-size/2});
+    -webkit-transition-duration: $champion-icon-transition-duration;
+    -moz-transition-duration: $champion-icon-transition-duration;
+    transition-duration: $champion-icon-transition-duration;
+    opacity: 1;
+    height: $champion-icon-size;
+    width: $champion-icon-size;
+}
+.champion-icon:hover {
+    top: calc(50% - #{($champion-icon-size/2)+2});
+    opacity: 1;
+}
+.champion-icon:active {
+    top: calc(50% - #{($champion-icon-size/2)-2});
+    opacity: 0.9;
 }
 
 .health-wrapper {

@@ -104,25 +104,28 @@ body {
   background-color: #4996a4;
   border: 3px solid #00323c;
   cursor: pointer; }
-  .champion-wrapper .champion-icon {
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
-    position: absolute;
-    left: calc(50% - 115px);
-    top: calc(50% - 115px);
-    -webkit-transition-duration: 0.1s;
-    -moz-transition-duration: 0.1s;
-    transition-duration: 0.1s;
-    opacity: 1;
-    height: 230px;
-    width: 230px; }
-    .champion-wrapper .champion-icon:hover {
-      top: calc(50% - 117px);
-      opacity: 1; }
-    .champion-wrapper .champion-icon:active {
-      top: calc(50% - 113px);
-      opacity: 0.9; }
+
+.champion-icon {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  position: absolute;
+  left: calc(50% - 115px);
+  top: calc(50% - 115px);
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  opacity: 1;
+  height: 230px;
+  width: 230px; }
+
+.champion-icon:hover {
+  top: calc(50% - 117px);
+  opacity: 1; }
+
+.champion-icon:active {
+  top: calc(50% - 113px);
+  opacity: 0.9; }
 
 .health-wrapper {
   background: #128D8A;
