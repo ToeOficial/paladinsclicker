@@ -3,32 +3,35 @@
 Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks of Hi­Rez Studios, Inc. in the United States and other countries.
 Please note, that unlike js and html, css files for this project are chaotic and unorganized. If you are starting out this propably isn't a good place to learn.
 */
-@media (max-width: 900px) {
+
+@import 'partials/vars';
+
+@media (max-width: $mobile-max-width) {
     .pc-bar {
         width: 100% !important;
     }
-   .pc-leftbar {
-      height: 400px !important;
-   }
-   .pc-midbar {
-       height: 580px !important;
-       border-top: 3px solid #0f1014 !important;
-       border-left: none !important;
-   }
-   .pc-rightbar {
-       min-height: 300px !important;
-       height: auto !important;
-       border-top: 3px solid #0f1014 !important;
-       border-left: none !important;
-   }
-   body {
-       overflow-y: scroll !important;
-   }
+    .pc-leftbar {
+        height: $mobile-leftbar-height !important;
+    }
+    .pc-midbar {
+        height: $mobile-midbar-height !important;
+        border-top: $mobile-bar-border !important;
+        border-left: none !important;
+    }
+    .pc-rightbar {
+        min-height: $mobile-rightbar-min-height !important;
+        height: auto !important;
+        border-top: $mobile-bar-border !important;
+        border-left: none !important;
+    }
+    body {
+        overflow-y: scroll !important;
+    }
 }
 
 
 * {
-    font-family: 'Lato', sans-serif;
+    font-family: $main-font;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -39,7 +42,7 @@ body {
     background-image: url('../img/background.png');
     background-size: cover;
     background-clip: border-box;
-    background-position: 0px 45px;
+    background-position: 0px $navbar-height;
     background-repeat: repeat-y;
     overflow: hidden;
     color: white;
@@ -47,19 +50,19 @@ body {
 .pc-navbar {
     background-color: #0f1014;
     color: #54E9E6;
-    height: 45px;
-    line-height: 45px;
+    height: $navbar-height;
+    line-height: $navbar-height;
     vertical-align: middle;
 }
 .pc-navbar div, .pc-navbar-element {
     display: inline-block;
-    padding-right: 3px; padding-left: 3px;
-    height: 45px;
+    padding-right: $navbar-element-padding; padding-left: $navbar-element-padding;
+    height: $navbar-height;
     vertical-align: middle;
     float: right;
-    font-size: 25px;
+    font-size: $navbar-element-font-size;
     cursor: pointer;
-    min-width: 40px;
+    min-width: $navbar-height - 5px;
     text-align: center;
     color: white;
     transition-duration: 2s;
@@ -81,7 +84,7 @@ body {
 .pc-bar {
     display: inline-block;
     float: left;
-    height: calc(100vh - 45px);
+    height: calc(100vh - #{$navbar-height});
     overflow: hidden;
     position: relative;
 }

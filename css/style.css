@@ -24,7 +24,7 @@ Please note, that unlike js and html, css files for this project are chaotic and
   body {
     overflow-y: scroll !important; } }
 * {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
