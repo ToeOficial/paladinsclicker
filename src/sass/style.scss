@@ -110,7 +110,7 @@ body {
     width: $rightbar-width;
 }
 
-//WORKING AS OF NOW
+//NOTE: DON'T NEST THIS PART OR JQUERY EXPLODE WILL BUG OUT
 .champion-wrapper {
     width: $champion-wrapper-size;
     height: $champion-wrapper-size;
@@ -137,15 +137,16 @@ body {
     opacity: 1;
     height: $champion-icon-size;
     width: $champion-icon-size;
+    &:hover {
+        top: calc(50% - #{($champion-icon-size/2)+2});
+        opacity: 1;
+    }
+    &:active {
+        top: calc(50% - #{($champion-icon-size/2)-2});
+        opacity: 0.9;
+    }
 }
-.champion-icon:hover {
-    top: calc(50% - #{($champion-icon-size/2)+2});
-    opacity: 1;
-}
-.champion-icon:active {
-    top: calc(50% - #{($champion-icon-size/2)-2});
-    opacity: 0.9;
-}
+
 
 .health-wrapper {
     background: #128D8A;
