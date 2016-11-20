@@ -380,5 +380,5 @@ a {
 }
 .modal-open .modal {
     overflow-x: hidden;
-    overflow-y: visible !important;
+    overflow-y: scroll !important;
 }
