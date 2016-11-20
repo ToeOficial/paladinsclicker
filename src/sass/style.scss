@@ -99,9 +99,9 @@ body {
     .champion-wrapper {
         width: $champion-wrapper-size;
         height: $champion-wrapper-size;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
+        -webkit-border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        border-radius: 50% !important;
         position: absolute;
         left: calc(50% - #{$champion-wrapper-size/2});
         top: calc(50% - 80px);
@@ -109,7 +109,9 @@ body {
         border: $champion-wrapper-border;
         cursor: pointer;
         .champion-icon {
-            border-radius: 50%;
+            -webkit-border-radius: 50% !important;
+            -moz-border-radius: 50% !important;
+            border-radius: 50% !important;
             position: absolute;
             left: calc(50% - #{$champion-icon-size/2});
             top: calc(50% - #{$champion-icon-size/2});
