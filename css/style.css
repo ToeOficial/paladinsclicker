@@ -40,12 +40,21 @@ body {
   overflow: hidden;
   color: white; }
 
+.tooltip {
+  z-index: 2 !important; }
+
 .pc-navbar {
   background-color: #0f1014;
   color: #54E9E6;
   height: 45px;
   line-height: 45px;
   vertical-align: middle; }
+  .pc-navbar .pc-logo {
+    font-weight: bold;
+    float: left !important;
+    color: #54E9E6 !important; }
+    .pc-navbar .pc-logo .pc-logo-img {
+      margin-bottom: 5px; }
   .pc-navbar .pc-navbar-element {
     display: inline-block;
     padding-right: 3px;
@@ -62,13 +71,6 @@ body {
     .pc-navbar .pc-navbar-element:not(.pc-logo):hover {
       background-color: #242732 !important;
       color: #54E9E6 !important; }
-
-.pc-logo {
-  font-weight: bold;
-  float: left !important;
-  color: #54E9E6 !important; }
-  .pc-logo .pc-logo-img {
-    margin-bottom: 5px; }
 
 .pc-bar {
   display: inline-block;
@@ -93,9 +95,9 @@ body {
 .champion-wrapper {
   width: 250px;
   height: 250px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
   position: absolute;
   left: calc(50% - 125px);
   top: calc(50% - 80px);
@@ -104,13 +106,14 @@ body {
   cursor: pointer; }
 
 .champion-icon {
-  border-radius: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
   position: absolute;
   left: calc(50% - 115px);
   top: calc(50% - 115px);
   -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
   transition-duration: 0.1s;
   opacity: 1;
   height: 230px;
@@ -123,9 +126,6 @@ body {
 .champion-icon:active {
   top: calc(50% - 113px);
   opacity: 0.9; }
-
-.tooltip {
-  z-index: 2 !important; }
 
 .health-wrapper {
   background: #128D8A;

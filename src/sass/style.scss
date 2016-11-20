@@ -6,6 +6,7 @@ Please note, that unlike js and html, css files for this project are chaotic and
 
 @import 'partials/vars';
 
+
 @media (max-width: $mobile-max-width) {
     .pc-bar {
         width: 100% !important;
@@ -29,7 +30,6 @@ Please note, that unlike js and html, css files for this project are chaotic and
     }
 }
 
-
 * {
     font-family: $main-font;
     -webkit-user-select: none;
@@ -37,6 +37,7 @@ Please note, that unlike js and html, css files for this project are chaotic and
     -ms-user-select: none;
     user-select: none;
 }
+
 body {
     background-color: $background-placeholder-color;
     background-image: url('../img/background.png');
@@ -47,12 +48,25 @@ body {
     overflow: hidden;
     color: white;
 }
+
+.tooltip {
+    z-index: 2 !important;
+}
+
 .pc-navbar {
     background-color: $navbar-background-color;
     color: $light-blue-color;
     height: $navbar-height;
     line-height: $navbar-height;
     vertical-align: middle;
+    .pc-logo {
+        font-weight: bold;
+        float: left !important;
+        color: $light-blue-color !important;
+        .pc-logo-img {
+            margin-bottom: 5px;
+        }
+    }
     .pc-navbar-element {
         display: inline-block;
         padding-right: $navbar-element-padding; padding-left: $navbar-element-padding;
@@ -72,18 +86,6 @@ body {
     }
 }
 
-
-
-
-.pc-logo {
-    font-weight: bold;
-    float: left !important;
-    color: $light-blue-color !important;
-    .pc-logo-img {
-        margin-bottom: 5px;
-    }
-}
-
 .pc-bar {
     display: inline-block;
     float: left;
@@ -91,56 +93,59 @@ body {
     overflow: hidden;
     position: relative;
 }
+
 .pc-leftbar {
     width: $leftbar-width;
 }
+
 .pc-midbar {
     width: $midbar-width;
     background-color: $bar-background-color;
     border-left: $bar-border;
 }
+
 .pc-rightbar {
     background-color: $bar-background-color;
     border-left: $bar-border;
     width: $rightbar-width;
 }
+
 .champion-wrapper {
     width: $champion-wrapper-size;
     height: $champion-wrapper-size;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
     position: absolute;
-    left: calc(50% - 125px);
+    left: calc(50% - #{$champion-wrapper-size/2});
     top: calc(50% - 80px);
-    background-color: rgb(73, 150, 164);
-    border: 3px solid rgb(0, 50, 60);
+    background-color: $champion-wrapper-background-color;
+    border: $champion-wrapper-border;
     cursor: pointer;
 }
 .champion-icon {
-    border-radius: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
     position: absolute;
-    left: calc(50% - 115px);
-    top: calc(50% - 115px);
-    -webkit-transition-duration: 0.1s;
-    -moz-transition-duration: 0.1s;
-    -o-transition-duration: 0.1s;
-    transition-duration: 0.1s;
+    left: calc(50% - #{$champion-icon-size/2});
+    top: calc(50% - #{$champion-icon-size/2});
+    -webkit-transition-duration: $champion-icon-transition-duration;
+    -moz-transition-duration: $champion-icon-transition-duration;
+    transition-duration: $champion-icon-transition-duration;
     opacity: 1;
-    height: 230px;
-    width: 230px;
+    height: $champion-icon-size;
+    width: $champion-icon-size;
 }
 .champion-icon:hover {
-    top: calc(50% - 117px);
+    top: calc(50% - #{($champion-icon-size/2)+2});
     opacity: 1;
 }
 .champion-icon:active {
-    top: calc(50% - 113px);
+    top: calc(50% - #{($champion-icon-size/2)-2});
     opacity: 0.9;
 }
-.tooltip {
-    z-index: 2 !important;
-}
+
 .health-wrapper {
     background: #128D8A;
     background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px);
