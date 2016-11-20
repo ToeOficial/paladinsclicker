@@ -59,7 +59,7 @@ body {
     text-align: center;
     color: white;
     transition-duration: 2s; }
-    .pc-navbar .pc-navbar-element:hover {
+    .pc-navbar .pc-navbar-element:not(.pc-logo):hover {
       background-color: #242732 !important;
       color: #54E9E6 !important; }
 
