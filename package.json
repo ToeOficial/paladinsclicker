@@ -1,0 +1,23 @@
+{
+  "name": "paladinsclicker",
+  "version": "1.0.0",
+  "description": "Simple clicker game inspired by Paladins.",
+  "scripts": {
+    "babelbuild": "babel src/js/main.js --out-file js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tchojnacki/paladinsclicker.git"
+  },
+  "author": "Tomasz Chojnacki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tchojnacki/paladinsclicker/issues"
+  },
+  "homepage": "https://github.com/tchojnacki/paladinsclicker#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-babili": "0.0.8",
+    "babel-preset-latest": "^6.16.0"
+  }
+}
