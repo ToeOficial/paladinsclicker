@@ -67,9 +67,8 @@ body {
   font-weight: bold;
   float: left !important;
   color: #54E9E6 !important; }
-
-.pc-logo-img {
-  margin-bottom: 5px; }
+  .pc-logo .pc-logo-img {
+    margin-bottom: 5px; }
 
 .pc-bar {
   display: inline-block;
@@ -140,7 +139,6 @@ body {
   position: absolute;
   width: 274px;
   -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   filter: FlipH;
