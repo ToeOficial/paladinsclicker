@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple clicker game inspired by Paladins.",
   "scripts": {
-    "babelbuild": "babel src/js/main.js --out-file js/main.js"
+    "babelbuild": "babel src/js/main.js --out-file js/main.js --no-comments"
   },
   "repository": {
     "type": "git",
