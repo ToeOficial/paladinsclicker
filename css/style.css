@@ -40,12 +40,21 @@ body {
   overflow: hidden;
   color: white; }
 
+.tooltip {
+  z-index: 2 !important; }
+
 .pc-navbar {
   background-color: #0f1014;
   color: #54E9E6;
   height: 45px;
   line-height: 45px;
   vertical-align: middle; }
+  .pc-navbar .pc-logo {
+    font-weight: bold;
+    float: left !important;
+    color: #54E9E6 !important; }
+    .pc-navbar .pc-logo .pc-logo-img {
+      margin-bottom: 5px; }
   .pc-navbar .pc-navbar-element {
     display: inline-block;
     padding-right: 3px;
@@ -63,13 +72,6 @@ body {
       background-color: #242732 !important;
       color: #54E9E6 !important; }
 
-.pc-logo {
-  font-weight: bold;
-  float: left !important;
-  color: #54E9E6 !important; }
-  .pc-logo .pc-logo-img {
-    margin-bottom: 5px; }
-
 .pc-bar {
   display: inline-block;
   float: left;
@@ -79,6 +81,35 @@ body {
 
 .pc-leftbar {
   width: 30%; }
+  .pc-leftbar .champion-wrapper {
+    width: 250px;
+    height: 250px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 125px);
+    top: calc(50% - 80px);
+    background-color: #4996a4;
+    border: 3px solid #00323c;
+    cursor: pointer; }
+    .pc-leftbar .champion-wrapper .champion-icon {
+      border-radius: 50%;
+      position: absolute;
+      left: calc(50% - 115px);
+      top: calc(50% - 115px);
+      -webkit-transition-duration: 0.1s;
+      -moz-transition-duration: 0.1s;
+      transition-duration: 0.1s;
+      opacity: 1;
+      height: 230px;
+      width: 230px; }
+      .pc-leftbar .champion-wrapper .champion-icon:hover {
+        top: calc(50% - 117px);
+        opacity: 1; }
+      .pc-leftbar .champion-wrapper .champion-icon:active {
+        top: calc(50% - 113px);
+        opacity: 0.9; }
 
 .pc-midbar {
   width: 30%;
@@ -89,43 +120,6 @@ body {
   background-color: rgba(14, 15, 22, 0.8);
   border-left: 4px solid #0f1014;
   width: 40%; }
-
-.champion-wrapper {
-  width: 250px;
-  height: 250px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  position: absolute;
-  left: calc(50% - 125px);
-  top: calc(50% - 80px);
-  background-color: #4996a4;
-  border: 3px solid #00323c;
-  cursor: pointer; }
-
-.champion-icon {
-  border-radius: 50%;
-  position: absolute;
-  left: calc(50% - 115px);
-  top: calc(50% - 115px);
-  -webkit-transition-duration: 0.1s;
-  -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  opacity: 1;
-  height: 230px;
-  width: 230px; }
-
-.champion-icon:hover {
-  top: calc(50% - 117px);
-  opacity: 1; }
-
-.champion-icon:active {
-  top: calc(50% - 113px);
-  opacity: 0.9; }
-
-.tooltip {
-  z-index: 2 !important; }
 
 .health-wrapper {
   background: #128D8A;
