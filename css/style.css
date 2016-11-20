@@ -378,3 +378,7 @@ a {
     width: 100%;
     font-weight: normal;
 }
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
