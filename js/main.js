@@ -27,6 +27,13 @@ var xp = 0; //Both old and new xp
 var xpPerKill = 20;
 var maxXp = 100;
 
+//Balance
+const championHPperLevel = 3;
+const maxXpPerLevelMulti = 1.3;
+const xpPerKillPerLevelMulti = 1.05;
+const multipleOfGPKupgrade = 5;
+const costPerBuyMulti = 1.4;
+
 //Settings
 var explodePieces = 32;
 var easterEggs = false;
@@ -82,12 +89,12 @@ function updateXp() {
         level++;
         oldXp=0;
         xp=(xp-maxXp);
-        maxXp=Math.floor(1.3*maxXp);
-        maxChampionHP+=5;
-        xpPerKill=Math.floor(1.05*xpPerKill);
+        maxXp=Math.floor(maxXp*maxXpPerLevelMulti);
+        maxChampionHP+=championHPperLevel;
+        xpPerKill=Math.floor(xpPerKill*xpPerKillPerLevelMulti);
         //If level is multiple of 5 increase goldPerKill
-        if(level%5==0) {
-            goldPerKill += level/5;
+        if(level%multipleOfGPKupgrade==0) {
+            goldPerKill += level/multipleOfGPKupgrade;
             $('#gpkSpan').html(goldPerKill);
         }
         $('.level-text').effect('highlight', { color: '#54E9E6'}, 1500);
@@ -176,7 +183,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
             gold = Math.floor(gold);
             $('#goldSpan').html(gold);
             this.level += 1;
-            this.cost = Math.floor(this.cost * 1.4);
+            this.cost = Math.floor(this.cost * costPerBuyMulti);
             if (this.type == 1) {
                 dmg += this.bonus;
                 $('#damageSpan').html(dmg);
@@ -272,6 +279,7 @@ $(function() {
     //Draw sidebar
     $.each(Item.instances, function() {
         //Create element with info from instance
+        //TODO: Use template strings
         var currentElement = '<div class="pc-item" id="'+ this.id +'">' +
             '<img class="pc-item-image" src="'+ this.image +'" height="90px" width="90px" draggable="false">' +
             '<div class="pc-item-title">'+ this.name +'</div>' +
