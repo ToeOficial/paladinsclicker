@@ -1,5 +1,6 @@
 $main-font: 'Lato', sans-serif;
 $light-blue-color: #54E9E6;
+$dark-cyan-color: #128D8A;
 $background-placeholder-color: #617FF7;
 
 $navbar-height: 45px;
@@ -24,3 +25,17 @@ $champion-wrapper-background-color: rgb(73, 150, 164);
 $champion-wrapper-border: 3px solid rgb(0, 50, 60);
 $champion-icon-size: 230px;
 $champion-icon-transition-duration: 0.1s;
+
+$champion-width: 274px;
+$champion-font-size: 15px;
+$health-wrapper-gradient: 80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px;
+$health-wrapper-height: 25px;
+$health-progress-color: rgb(0, 50, 60);
+$health-progress-gradient: 80deg, transparent, transparent 5px, $health-progress-color 5px, $health-progress-color 30px;
+$champion-triangle-size: 10px;
+
+$level-size: 260px;
+$level-top: 20px;
+$level-font-size: 70px;
+
+$stats-width: 300px;
