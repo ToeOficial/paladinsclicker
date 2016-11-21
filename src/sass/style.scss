@@ -149,37 +149,38 @@ body {
 
 
 .health-wrapper {
-    background: #128D8A;
-    background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px);
-    background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px);
-    background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px);
-    background: repeating-linear-gradient(80deg, transparent, transparent 5px, $light-blue-color 5px, $light-blue-color 30px);
-    left: calc(50% - 137px);
-    top: calc(50% - 125px);
-    height: 25px;
+    background: $dark-cyan-color;
+    background: -webkit-repeating-linear-gradient($health-wrapper-gradient);
+    background: -o-repeating-linear-gradient($health-wrapper-gradient);
+    background: -moz-repeating-linear-gradient($health-wrapper-gradient);
+    background: repeating-linear-gradient($health-wrapper-gradient);
+    left: calc(50% - #{$champion-width/2});
+    top: calc(50% - #{($champion-width/2)-12});
+    height: $health-wrapper-height;
     position: absolute;
-    width: 274px;
+    width: $champion-width;
+    //Flip health wrapper
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
     .health-progress {
-        background: rgb(0, 50, 60);
-        background: -webkit-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-        background: -o-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-        background: -moz-repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-        background: repeating-linear-gradient(80deg, transparent, transparent 5px, rgb(0, 50, 60) 5px, rgb(0, 50, 60) 30px);
-        height: 25px;
+        background: $health-progress-color;
+        background: -webkit-repeating-linear-gradient($health-progress-gradient);
+        background: -o-repeating-linear-gradient($health-progress-gradient);
+        background: -moz-repeating-linear-gradient($health-progress-gradient);
+        background: repeating-linear-gradient($health-progress-gradient);
+        height: $health-wrapper-height;
         position: absolute;
         width: 0px;
     }
 }
 
 .champion-name {
-    left: calc(50% - 137px);
-    width: 274px;
-    top: calc(50% - 150px);
+    left: calc(50% - #{$champion-width/2});
+    width: $champion-width;
+    top: calc(50% - #{($champion-width/2)+13});
     position: absolute;
 
     text-align: center;
@@ -187,76 +188,78 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 1px 1px 1px black;
-    font-size: 15px;
+    font-size: $champion-font-size;
 }
 .champion-triangle {
-    left: calc(50% - 10px);
+    left: calc(50% - #{$champion-triangle-size});
     top: calc(50% - 95px);
     position: absolute;
 
     width: 0;
     height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    border-left: $champion-triangle-size solid transparent;
+    border-right: $champion-triangle-size solid transparent;
 
-    border-top: 10px solid $light-blue-color;
+    border-top: $champion-triangle-size solid $light-blue-color;
 }
 .level-canvas {
     position: absolute;
-    left: calc(50% - 130px);
-    top: 20px;
+    left: calc(50% - #{$level-size/2});
+    top: $level-top;
 }
 .level-text {
     position: absolute;
-    left: calc(50% - 130px);
-    width: 260px;
-    height: 260px;
-    top: 20px;
+    left: calc(50% - #{$level-size/2});
+    width: $level-size;
+    height: $level-size;
+    top: $level-top;
     border-radius: 50%;
 
     text-align: center;
-    line-height: 260px;
+    line-height: $level-size;
     color: white;
     font-weight: bold;
-    font-size: 70px;
+    font-size: $level-font-size;
 
-    text-shadow: 2px 2px 30px #128D8A, -2px -2px 30px #128D8A;
+    text-shadow: 2px 2px 30px $dark-cyan-color, -2px -2px 30px $dark-cyan-color;
 }
 .pc-stats {
     position: absolute;
-    left: calc(50% - 150px);
-    width: 300px;
+    left: calc(50% - #{$stats-width/2});
+    width: $stats-width;
     height: 240px;
     border-radius: 20px;
     padding: 10px;
-    top: 300px;
+    top: $level-size + 2*$level-top;
     text-align: center;
     color: white;
     font-size: 32px;
     line-height: 32px;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(18, 142, 139, 0.5);
+    border: 2px solid transparentize($dark-cyan-color, 0.5);
+    img {
+        margin-bottom: 5px;
+    }
+    .stats-yellow {
+        color: #DEAC3D;
+    }
+    .stats-orange {
+        color: #FF6600;
+    }
+    .gpk, .dps {
+        font-size: 20px;
+        line-height: 20px;
+        display: block;
+        margin-top: -5px;
+    }
+    .stats-section {
+        padding-top: 12.5%;
+        padding-bottom: 12.5%;
+        height: 50%;
+    }
 }
-.pc-stats img {
-    margin-bottom: 5px;
-}
-.stats-yellow {
-    color: #DEAC3D;
-}
-.stats-orange {
-    color: #FF6600;
-}
-.gpk, .dps {
-    font-size: 20px;
-    line-height: 20px;
-    display: block;
-    margin-top: -5px;
-}
-.stats-section {
-    padding-top: 12.5%;
-    padding-bottom: 12.5%;
-    height: 50%;
-}
+
+
 .pc-item {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(18, 142, 139, 0.5);
@@ -309,7 +312,7 @@ body {
     text-align: center;
 }
 .pc-item-button {
-    background-color: #128D8A;
+    background-color: $dark-cyan-color;
     border: 2px solid #063938;
     outline: none;
     border-radius: 5px;
@@ -346,7 +349,7 @@ body {
     border-color: black;
 }
 .pc-modal .pc-modal-button {
-    background-color: #128D8A;
+    background-color: $dark-cyan-color;
     border: 2px solid #063938;
     outline: none;
     border-radius: 5px;
