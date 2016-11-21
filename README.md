@@ -9,7 +9,6 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
 Feel free to contribute (bugfixes in main branch, fork for major changes). Everything is commented, so if you are starting out you can learn here.
 
 ##TODO
-* Move CSS to SASS/LESS/Stylus
 * Balance numbers
 * Add more items
 * Add easter eggs
