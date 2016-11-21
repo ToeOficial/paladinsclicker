@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*
 Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks of Hi­Rez Studios, Inc. in the United States and other countries.
-Please note, that unlike js and html, css files for this project are chaotic and unorganized. If you are starting out this propably isn't a good place to learn.
 */
 
 @import 'partials/vars';
@@ -262,7 +261,7 @@ body {
 
 .pc-item {
     background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(18, 142, 139, 0.5);
+    border: 2px solid transparentize($dark-cyan-color, 0.5);
     border-radius: 10px;
     width: calc(100% - 20px);
     padding: 10px;
@@ -271,7 +270,7 @@ body {
     position: relative;
 }
 .pc-item-image {
-    border: 2px solid rgba(18, 142, 139, 0.5);
+    border: 2px solid transparentize($dark-cyan-color, 0.5);
     border-radius: 10px;
 }
 .pc-item-stats {
@@ -313,16 +312,15 @@ body {
 }
 .pc-item-button {
     background-color: $dark-cyan-color;
-    border: 2px solid #063938;
+    border: $button-border;
     outline: none;
     border-radius: 5px;
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: $button-transition-duration;
+    -moz-transition-duration: $button-transition-duration;
+    transition-duration: $button-transition-duration;
 }
 .pc-item-button:hover {
-    background-color: #10c2bd;
+    background-color: $button-hover-color;
 }
 .pc-item-cost img {
     margin-bottom: 2px;
@@ -350,16 +348,15 @@ body {
 }
 .pc-modal .pc-modal-button {
     background-color: $dark-cyan-color;
-    border: 2px solid #063938;
+    border: $button-border;
     outline: none;
     border-radius: 5px;
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: $button-transition-duration;
+    -moz-transition-duration: $button-transition-duration;
+    transition-duration: $button-transition-duration;
 }
 .pc-modal .pc-modal-button:hover {
-    background-color: #10c2bd;
+    background-color: $button-hover-color;
 }
 .pc-button-decline {
     background-color: #b30a0a !important;
@@ -371,8 +368,10 @@ body {
 a {
     color: $light-blue-color !important;
 }
+//hide as much as possible
 .preload {
     opacity: 0;
+    visibility: hidden;
     position: absolute;
     width: 1px;
     height: 1px;
