@@ -224,7 +224,7 @@ body {
 
 .pc-item {
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(18, 142, 139, 0.5);
+  border: 2px solid rgba(18, 141, 138, 0.5);
   border-radius: 10px;
   width: calc(100% - 20px);
   padding: 10px;
@@ -233,7 +233,7 @@ body {
   position: relative; }
 
 .pc-item-image {
-  border: 2px solid rgba(18, 142, 139, 0.5);
+  border: 2px solid rgba(18, 141, 138, 0.5);
   border-radius: 10px; }
 
 .pc-item-stats {
@@ -279,7 +279,6 @@ body {
   border-radius: 5px;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
 .pc-item-button:hover {
@@ -316,7 +315,6 @@ body {
   border-radius: 5px;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
 .pc-modal .pc-modal-button:hover {
@@ -334,6 +332,7 @@ a {
 
 .preload {
   opacity: 0;
+  visibility: hidden;
   position: absolute;
   width: 1px;
   height: 1px;
