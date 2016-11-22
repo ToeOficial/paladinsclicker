@@ -27,12 +27,15 @@ var xp = 0; //Both old and new xp
 var xpPerKill = 20;
 var maxXp = 100;
 
+//Constants
 //Balance
 const championHPperLevel = 3;
 const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
 const costPerBuyMulti = 1.4;
+//Colors
+//TODO: Add colors to constants
 
 //Settings
 var explodePieces = 32;

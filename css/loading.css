@@ -4,6 +4,9 @@
 
     https://github.com/boguz/Spinners
 */
+/*
+    TODO: Move to SASS, get rid of boguz spinners, make it similar to Paladins' loading
+*/
 .loadingOverlay {
     position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
