@@ -50,6 +50,10 @@ body {
 
 .tooltip {
     z-index: 2 !important;
+    cursor: help !important;
+}
+.tooltipster {
+    cursor: help !important;
 }
 
 .pc-navbar {
@@ -379,20 +383,37 @@ a {
     top: -9999px;
 }
 
-#explosionPiecesDisplay, #explosionPiecesInput {
-    display: inline-block;
+#settingsModal {
     vertical-align: middle;
-}
-#explosionPiecesInput {
-    width: 70%;
-}
-#explosionPiecesDisplay {
-    margin-left: 5%;
-    width: 25%;
-}
-#settingsModal label {
-    width: 100%;
-    font-weight: normal;
+    input {
+        cursor: pointer;
+    }
+    label {
+        font-weight: normal;
+    }
+    .full-width {
+        width: 100%;
+    }
+    input[type="checkbox"] {
+        position: absolute;
+    }
+    label[for="easterEggsInput"] {
+        margin-left: 20px;
+    }
+    #explosionPiecesDisplay, #explosionPiecesInput {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #explosionPiecesInput {
+        width: 70%;
+    }
+    #explosionPiecesDisplay {
+        margin-left: 5%;
+        width: 25%;
+        border: 2px solid $light-blue-color;
+        text-align: center;
+        cursor: no-drop;
+    }
 }
 .modal-open .modal {
     overflow-x: hidden;
