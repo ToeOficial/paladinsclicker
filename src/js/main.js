@@ -148,12 +148,15 @@ function click() {
 }
 
 function saveSettings() {
+    //explodePieces
     explodePieces=$('#explosionPiecesInput').val();
     if(explodePieces<1) {
         explodePieces=1;
         $('#explosionPiecesInput').val(explodePieces);
     }
     $('#explosionPiecesDisplay').val(explodePieces);
+
+    //TODO: easterEggs
 }
 
 
