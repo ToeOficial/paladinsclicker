@@ -125,9 +125,10 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                         <h4 class="modal-title"><i class="fa fa-cog" aria-hidden="true"></i> Settings</h4>
                     </div>
                     <div class="modal-body">
-<label for="explosionPiecesDisplay">Explosion pieces:</label>
+<label for="explosionPiecesDisplay" class="full-width">Explosion pieces:</label>
 <input id="explosionPiecesInput" type="range" value="4" min="1" max="128" onchange="saveSettings();"/><input id="explosionPiecesDisplay" type="text" value="1" disabled="true">
-
+<hr>
+<input type="checkbox" name="easterEggsInput" class="input-checkbox" onchange="saveSettings();"><label for="easterEggsInput">Easter Eggs</label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="pc-modal-button" data-dismiss="modal" onclick="saveSettings();">CLOSE</button>
