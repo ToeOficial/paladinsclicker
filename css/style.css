@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*
 Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks of Hi­Rez Studios, Inc. in the United States and other countries.
-Please note, that unlike js and html, css files for this project are chaotic and unorganized. If you are starting out this propably isn't a good place to learn.
 */
 @media (max-width: 900px) {
   .pc-bar {
@@ -41,7 +40,11 @@ body {
   color: white; }
 
 .tooltip {
-  z-index: 2 !important; }
+  z-index: 2 !important;
+  cursor: help !important; }
+
+.tooltipster {
+  cursor: help !important; }
 
 .pc-navbar {
   background-color: #0f1014;
@@ -339,20 +342,29 @@ a {
   left: -9999px;
   top: -9999px; }
 
-#explosionPiecesDisplay, #explosionPiecesInput {
-  display: inline-block;
+#settingsModal {
   vertical-align: middle; }
-
-#explosionPiecesInput {
-  width: 70%; }
-
-#explosionPiecesDisplay {
-  margin-left: 5%;
-  width: 25%; }
-
-#settingsModal label {
-  width: 100%;
-  font-weight: normal; }
+  #settingsModal input {
+    cursor: pointer; }
+  #settingsModal label {
+    font-weight: normal; }
+  #settingsModal .full-width {
+    width: 100%; }
+  #settingsModal input[type="checkbox"] {
+    position: absolute; }
+  #settingsModal label[for="easterEggsInput"] {
+    margin-left: 20px; }
+  #settingsModal #explosionPiecesDisplay, #settingsModal #explosionPiecesInput {
+    display: inline-block;
+    vertical-align: middle; }
+  #settingsModal #explosionPiecesInput {
+    width: 70%; }
+  #settingsModal #explosionPiecesDisplay {
+    margin-left: 5%;
+    width: 25%;
+    border: 2px solid #54E9E6;
+    text-align: center;
+    cursor: no-drop; }
 
 .modal-open .modal {
   overflow-x: hidden;
