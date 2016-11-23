@@ -174,6 +174,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
     //3: GOLDPERKILL
     this.bonus = bonus; //Stat amount you get from item
     this.cost = cost; //Item cost
+    this.costMulti = costPerBuyMulti;
     this.level = 0; //Starting level (by default 0, because we don't have it unlocked)
     this.image = './img/items/' + id + '.png'; //Image stored in ./img/items/ with .png extension
     this.costid = 'cost-' + id; //Id of element containing item price
@@ -182,6 +183,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.bonusid = 'bonus-' + id; //Id of bonus element
     this.req = req; //Required item (most of the time 1 less)
     this.unl = unl; //Item number (starts at 1)
+    this.easterEgg = false;
 
     this.buy = function() {
         if (this.cost <= gold) {
@@ -189,7 +191,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
             gold = Math.floor(gold);
             $('#goldSpan').html(gold);
             this.level += 1;
-            this.cost = Math.floor(this.cost * costPerBuyMulti);
+            this.cost = Math.floor(this.cost * this.costMulti);
             if (this.type == 1) {
                 dmg += this.bonus;
                 $('#damageSpan').html(dmg);
@@ -239,7 +241,9 @@ var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
+var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6); aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; //Just to make it even worse
 //Add new items HERE
+//id, name, type, bonus, cost, req, unl
 
 
 //On full page load
