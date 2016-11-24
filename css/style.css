@@ -106,7 +106,7 @@ body {
   top: calc(50% - 80px);
   background-color: #4996a4;
   border: 3px solid #00323c;
-  cursor: pointer; }
+  cursor: crosshair !important; }
 
 .champion-icon {
   -webkit-border-radius: 50% !important;
@@ -120,7 +120,8 @@ body {
   transition-duration: 0.1s;
   opacity: 1;
   height: 230px;
-  width: 230px; }
+  width: 230px;
+  cursor: crosshair !important; }
   .champion-icon:hover {
     top: calc(50% - 117px);
     opacity: 1; }
@@ -284,6 +285,11 @@ body {
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
+.pc-item-button-disabled {
+  background-color: #bd0a0a !important;
+  border-color: #5c0606 !important;
+  cursor: not-allowed; }
+
 .pc-item-button:hover {
   background-color: #10c2bd; }
 
@@ -324,11 +330,11 @@ body {
   background-color: #10c2bd; }
 
 .pc-button-decline {
-  background-color: #b30a0a !important;
+  background-color: #bd0a0a !important;
   border-color: #5c0606 !important; }
 
 .pc-button-decline:hover {
-  background-color: #e00303 !important; }
+  background-color: #e21b1b !important; }
 
 a {
   color: #54E9E6 !important; }
