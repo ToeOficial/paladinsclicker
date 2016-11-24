@@ -125,7 +125,7 @@ body {
     top: calc(50% - 80px);
     background-color: $champion-wrapper-background-color;
     border: $champion-wrapper-border;
-    cursor: pointer;
+    cursor: crosshair !important;
 }
 .champion-icon {
     -webkit-border-radius: 50% !important;
@@ -140,6 +140,7 @@ body {
     opacity: 1;
     height: $champion-icon-size;
     width: $champion-icon-size;
+    cursor: crosshair !important;
     &:hover {
         top: calc(50% - #{($champion-icon-size/2)+2});
         opacity: 1;
@@ -323,6 +324,11 @@ body {
     -moz-transition-duration: $button-transition-duration;
     transition-duration: $button-transition-duration;
 }
+.pc-item-button-disabled {
+    background-color: $button-decline-color !important;
+    border-color: $button-decline-border-color !important;
+    cursor: not-allowed;
+}
 .pc-item-button:hover {
     background-color: $button-hover-color;
 }
@@ -336,7 +342,7 @@ body {
 }
 .pc-item-bonus-dps::after {
     content: ' DPS';
-    color: #bd0a0a;
+    color: $button-decline-color;
 }
 .pc-item-bonus-gpk::after {
     content: ' GPK';
@@ -363,11 +369,11 @@ body {
     background-color: $button-hover-color;
 }
 .pc-button-decline {
-    background-color: #b30a0a !important;
-    border-color: #5c0606 !important;
+    background-color: $button-decline-color !important;
+    border-color: $button-decline-border-color !important;
 }
 .pc-button-decline:hover {
-    background-color: #e00303 !important;
+    background-color: $button-decline-hover-color !important;
 }
 a {
     color: $light-blue-color !important;
