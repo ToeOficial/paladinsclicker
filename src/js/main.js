@@ -34,6 +34,8 @@ const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
 const costPerBuyMulti = 1.4;
+
+const easterEggChance = 5;
 //Colors
 //TODO: Add colors to constants
 
@@ -49,6 +51,58 @@ function randomizeChampion() {
     $('.champion-icon').attr('src', './img/champicons/'+activeChampion+'.png');
     $('.champion-icon').attr('alt', activeChampion);
     $('.champion-name').html(activeChampion);
+
+    //Easter eggs
+    if(easterEggs==true) {
+        checkNameEasterEggs();
+    }
+}
+
+//Try to change nickname
+function checkNameEasterEggs() {
+    let chosenNum = Math.floor(Math.random() * (100 + 1));
+    if(chosenNum <= easterEggChance) {
+        let newName;
+        switch (activeChampion) {
+            case 'Androxus':
+                newName = 'It\'s High Noon';
+                break;
+            case 'Barik':
+                newName = 'Torbjörn';
+                break;
+            case 'Cassie':
+                newName = 'Colossal Chest';
+                break;
+            case 'Drogoz':
+                newName = 'One Punch Man';
+                break;
+            case 'Fernando':
+                newName = 'FERRRNANDO';
+                break;
+            case 'Grover':
+                newName = 'Tree';
+                break;
+            case 'Makoa':
+                newName = 'Bowser';
+                break;
+            case 'Skye':
+                newName = 'That One Skye Pose';
+                break;
+            case 'Sha Lin':
+                newName = 'Aladdin';
+                break;
+            case 'Viktor':
+                newName = 'Soldier 77';
+                break;
+            case 'Ying':
+                newName = 'Yang';
+                break;
+            default:
+                newName = activeChampion;
+        }
+
+        $('.champion-name').html(newName);
+    }
 }
 
 //     ***** UPDATERS *****
