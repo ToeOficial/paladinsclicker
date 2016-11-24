@@ -160,6 +160,17 @@ function saveSettings() {
     $('#explosionPiecesDisplay').val(explodePieces);
 
     //TODO: easterEggs
+    easterEggs = $('#easterEggsInput').prop('checked');
+    $.each(Item.instances, function() {
+        if(this.easterEgg==true && this.req<=topUnlocked) {
+            if(easterEggs==false) {
+                $('#'+this.id).stop().fadeOut(1000);
+            }
+            if(easterEggs==true) {
+                $('#'+this.id).stop().fadeIn(1000);
+            }
+        }
+    });
 }
 
 
@@ -206,7 +217,9 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 topUnlocked = this.unl;
                 $.each(Item.instances, function() {
                     if(this.req<=topUnlocked) {
-                        $('#'+this.id).slideDown(1000);
+                        if((this.easterEgg==true&&easterEggs==true)||this.easterEgg==false) {
+                            $('#'+this.id).slideDown(1000);
+                        }
                     }
                 });
             }
