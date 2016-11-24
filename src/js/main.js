@@ -29,7 +29,7 @@ var maxXp = 100;
 
 //Constants
 //Balance
-const championHPperLevel = 3;
+const championHPperLevel = 2;
 const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
@@ -318,12 +318,14 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1); basicbow.level = 1; //Unique item, starts with level 1
+var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1);
+basicbow.level = 1; //Unique item, starts with level 1
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
-var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6); aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; //Just to make it even worse
+var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
+aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; //Just to make it even worse
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
@@ -372,7 +374,7 @@ $(function() {
     $.each(Item.instances, function() {
         //Create element with info from instance
         //TODO: Use template strings
-        var currentElement = '<div class="pc-item" id="'+ this.id +'">' +
+        /*var currentElement = '<div class="pc-item" id="'+ this.id +'">' +
             '<img class="pc-item-image" src="'+ this.image +'" height="90px" width="90px" draggable="false">' +
             '<div class="pc-item-title">'+ this.name +'</div>' +
             '<div class="pc-item-stats">' +
