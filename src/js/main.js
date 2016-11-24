@@ -251,8 +251,15 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.req = req; //Required item (most of the time 1 less)
     this.unl = unl; //Item number (starts at 1)
     this.easterEgg = false;
+    this.max = null;
 
     this.buy = function() {
+        if(this.max != null) {
+            if(this.level>=this.max) {
+                this.render();
+                return false;
+            }
+        }
         if (this.cost <= gold) {
             gold -= this.cost;
             gold = Math.floor(gold);
@@ -291,8 +298,14 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.render = function() {
         $('#'+this.costid).html(this.cost);
         $('#'+this.levelid).html(this.level);
-        if(this.level>0) {
+        if(this.level > 0) {
             $('#'+this.buyid).html('UPGRADE');
+            if(this.max != null) {
+                if(this.level >= this.max) {
+                    $('#'+this.buyid).html('MAX LEVEL');
+                    $('#'+this.buyid).addClass('pc-item-button-disabled');
+                }
+            }
         }
         else {
             $('#'+this.buyid).html('BUY');
