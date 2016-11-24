@@ -36,8 +36,10 @@ const multipleOfGPKupgrade = 5;
 const costPerBuyMulti = 1.4;
 
 const easterEggChance = 5;
+
 //Colors
-//TODO: Add colors to constants
+const lightBlueColor = '#54E9E6';
+const darkCyanColor = '#128D8A';
 
 //Settings
 var explodePieces = 32;
@@ -154,7 +156,7 @@ function updateXp() {
             goldPerKill += level/multipleOfGPKupgrade;
             $('#gpkSpan').html(goldPerKill);
         }
-        $('.level-text').effect('highlight', { color: '#54E9E6'}, 1500);
+        $('.level-text').effect('highlight', { color: lightBlueColor}, 1500);
         $('.level-text').html(level);
     }
     $('.level-text').tooltipster('content', xp+'/'+maxXp);
@@ -174,7 +176,7 @@ function drawLvLCircle() {
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 0, 2 * Math.PI, false);
     ctx.lineWidth = 28;
-    ctx.strokeStyle = '#128D8A';
+    ctx.strokeStyle = darkCyanColor;
     ctx.stroke();
 
     //Grey circle - empty space
@@ -187,13 +189,13 @@ function drawLvLCircle() {
     //New xp
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(xp/maxXp)))*Math.PI, false);
-    ctx.strokeStyle = '#54E9E6';
+    ctx.strokeStyle = lightBlueColor;
     ctx.stroke();
 
     //Old xp
     ctx.beginPath();
     ctx.arc(centerX, centerY, 114, 3.5 * Math.PI, (3.5+(2*(oldXp/maxXp)))*Math.PI, false);
-    ctx.strokeStyle = '#128D8A';
+    ctx.strokeStyle = darkCyanColor;
     ctx.stroke();
 }
 
@@ -278,7 +280,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 });
             }
             //play sound
-            $('#'+this.id).effect('highlight', { color: '#54E9E6'}, 1000);
+            $('#'+this.id).effect('highlight', { color: lightBlueColor}, 1000);
             $('#'+this.buyid).effect('highlight', { color: 'white'}, 1000);
             this.render();
             return true;
