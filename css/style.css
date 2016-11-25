@@ -285,7 +285,7 @@ body {
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.pc-item-button-disabled {
+.pc-item-button-disabled, .pc-item-button-expensive {
   background-color: #bd0a0a !important;
   border-color: #5c0606 !important;
   cursor: not-allowed; }
