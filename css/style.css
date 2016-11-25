@@ -358,7 +358,7 @@ a {
     width: 100%; }
   #settingsModal input[type="checkbox"] {
     position: absolute; }
-  #settingsModal label[for="easterEggsInput"] {
+  #settingsModal label[for="easterEggsInput"], #settingsModal label[for="isMobileInput"] {
     margin-left: 20px; }
   #settingsModal #explosionPiecesDisplay, #settingsModal #explosionPiecesInput {
     display: inline-block;

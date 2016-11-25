@@ -44,6 +44,7 @@ const darkCyanColor = '#128D8A';
 //Settings
 var explodePieces = 32;
 var easterEggs = false;
+var isMobile = false;
 
 //Get random champion from the list
 function randomizeChampion() {
@@ -215,12 +216,15 @@ function click() {
 
 function saveSettings() {
     //explodePieces
-    explodePieces=$('#explosionPiecesInput').val();
-    if(explodePieces<1) {
-        explodePieces=1;
+    explodePieces = $('#explosionPiecesInput').val();
+    if(explodePieces < 1) {
+        explodePieces = 1;
         $('#explosionPiecesInput').val(explodePieces);
     }
     $('#explosionPiecesDisplay').val(explodePieces);
+
+    //Mobile
+    isMobile = $('#isMobileInput').prop('checked');
 
     //TODO: easterEggs
     easterEggs = $('#easterEggsInput').prop('checked');
@@ -346,7 +350,7 @@ var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
-aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; //Just to make it even worse
+aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
@@ -394,20 +398,6 @@ $(function() {
     //Draw sidebar
     $.each(Item.instances, function() {
         //Create element with info from instance
-        //TODO: Use template strings
-        /*var currentElement = '<div class="pc-item" id="'+ this.id +'">' +
-            '<img class="pc-item-image" src="'+ this.image +'" height="90px" width="90px" draggable="false">' +
-            '<div class="pc-item-title">'+ this.name +'</div>' +
-            '<div class="pc-item-stats">' +
-                '<div class="pc-item-section">' +
-                    '<div class="pc-item-cost"><span id="'+ this.costid +'"></span><img src="./img/gold.png" draggable="false" height="15" width="15"></div>' +
-                    '<div class="pc-item-level" id="'+ this.levelid +'"></div>' +
-                '</div><div class="pc-item-section pc-item-section2">' +
-                    '<div class="pc-item-bonus tooltipster" id="'+ this.bonusid +'" title="placeholder">'+ this.bonus +'</div>' +
-                    '<button class="pc-item-button" type="button" onclick="'+ this.id +'.buy();" id="'+ this.buyid +'">BUY</button>' +
-                '</div>' +
-            '</div>' +
-        '</div>';*/
         var currentElement =
         `<div class="pc-item" id="${this.id}">
             <img class="pc-item-image" src="${this.image}" height="90px" width="90px" draggable="false">
@@ -478,6 +468,10 @@ $(function() {
     explodePieces = Math.floor(Math.pow(2, ($(window).width()/1280)*5));
     if(explodePieces>128) {
         explodePieces = 128;
+    }
+    if($(window).width()<=900) {
+        isMobile = true;
+        $('#isMobileInput').prop('checked', true);
     }
 
     $('#explosionPiecesInput').val(explodePieces);

@@ -403,7 +403,7 @@ a {
     input[type="checkbox"] {
         position: absolute;
     }
-    label[for="easterEggsInput"] {
+    label[for="easterEggsInput"], label[for="isMobileInput"] {
         margin-left: 20px;
     }
     #explosionPiecesDisplay, #explosionPiecesInput {
