@@ -137,7 +137,7 @@ function updateHP() {
         updateXp();
         championHP = maxChampionHP;
         gold+=goldPerKill;
-        $('#goldSpan').html(gold);
+        updateGold();
     }
 }
 
@@ -161,6 +161,13 @@ function updateXp() {
     }
     $('.level-text').tooltipster('content', xp+'/'+maxXp);
     drawLvLCircle();
+}
+
+function updateGold() {
+    $('#goldSpan').html(gold);
+    $.each(Item.instances, function() {
+        this.render();
+    });
 }
 
 //Draw lvl
@@ -263,7 +270,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
         if (this.cost <= gold) {
             gold -= this.cost;
             gold = Math.floor(gold);
-            $('#goldSpan').html(gold);
+            updateGold();
             this.level += 1;
             this.cost = Math.floor(this.cost * this.costMulti);
             if (this.type == 1) {
@@ -298,12 +305,26 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.render = function() {
         $('#'+this.costid).html(this.cost);
         $('#'+this.levelid).html(this.level);
+
+        if((this.max != null && this.level<this.max)||this.max==null) {
+            if(this.cost > gold) {
+                $('#'+this.buyid).addClass('pc-item-button-expensive');
+            }
+            else {
+                $('#'+this.buyid).removeClass('pc-item-button-expensive');
+            }
+        }
+
         if(this.level > 0) {
             $('#'+this.buyid).html('UPGRADE');
             if(this.max != null) {
                 if(this.level >= this.max) {
                     $('#'+this.buyid).html('MAX LEVEL');
                     $('#'+this.buyid).addClass('pc-item-button-disabled');
+                }
+                else {
+                    $('#'+this.buyid).html('UPGRADE');
+                    $('#'+this.buyid).removeClass('pc-item-button-disabled');
                 }
             }
         }

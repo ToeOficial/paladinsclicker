@@ -324,7 +324,7 @@ body {
     -moz-transition-duration: $button-transition-duration;
     transition-duration: $button-transition-duration;
 }
-.pc-item-button-disabled {
+.pc-item-button-disabled, .pc-item-button-expensive {
     background-color: $button-decline-color !important;
     border-color: $button-decline-border-color !important;
     cursor: not-allowed;
