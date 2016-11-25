@@ -157,7 +157,9 @@ function updateXp() {
             goldPerKill += level/multipleOfGPKupgrade;
             $('#gpkSpan').html(goldPerKill);
         }
-        $('.level-text').effect('highlight', { color: lightBlueColor}, 1500);
+        if(isMobile==false) {
+            $('.level-text').effect('highlight', { color: lightBlueColor}, 1500);
+        }
         $('.level-text').html(level);
     }
     $('.level-text').tooltipster('content', xp+'/'+maxXp);
@@ -298,8 +300,10 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 });
             }
             //play sound
-            $('#'+this.id).effect('highlight', { color: lightBlueColor}, 1000);
-            $('#'+this.buyid).effect('highlight', { color: 'white'}, 1000);
+            if(isMobile==false) {
+                $('#'+this.id).effect('highlight', { color: lightBlueColor}, 1000);
+                $('#'+this.buyid).effect('highlight', { color: 'white'}, 1000);
+            }
             this.render();
             return true;
         }
@@ -321,14 +325,16 @@ function Item(id, name, type, bonus, cost, req, unl) {
 
         if(this.level > 0) {
             $('#'+this.buyid).html('UPGRADE');
-            if(this.max != null) {
-                if(this.level >= this.max) {
-                    $('#'+this.buyid).html('MAX LEVEL');
-                    $('#'+this.buyid).addClass('pc-item-button-disabled');
-                }
-                else {
-                    $('#'+this.buyid).html('UPGRADE');
-                    $('#'+this.buyid).removeClass('pc-item-button-disabled');
+            if(isMobile==false) {
+                if(this.max != null) {
+                    if(this.level >= this.max) {
+                        $('#'+this.buyid).html('MAX LEVEL');
+                        $('#'+this.buyid).addClass('pc-item-button-disabled');
+                    }
+                    else {
+                        $('#'+this.buyid).html('UPGRADE');
+                        $('#'+this.buyid).removeClass('pc-item-button-disabled');
+                    }
                 }
             }
         }
