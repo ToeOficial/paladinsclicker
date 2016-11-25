@@ -4,7 +4,7 @@
   "description": "Simple clicker game inspired by Paladins.",
   "scripts": {
     "babelbuild": "babel src/js/main.js --out-file js/main.min.js --no-comments",
-    "sassbuild": "sass src/sass/style.scss css/style.css"
+    "sassbuild": "node-sass --output-style compressed -o css src/sass"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-babili": "0.0.8",
-    "babel-preset-latest": "^6.16.0"
+    "babel-preset-latest": "^6.16.0",
+    "node-sass": "^3.13.0"
   }
 }
