@@ -227,6 +227,14 @@ function saveSettings() {
 
     //Mobile
     isMobile = $('#isMobileInput').prop('checked');
+    if(isMobile) {
+        $.each(Item.instances, function() {
+            $('#'+this.buyid).removeClass('pc-item-button-expensive');
+        });
+    }
+    else {
+        updateGold();
+    }
 
     //TODO: easterEggs
     easterEggs = $('#easterEggsInput').prop('checked');
