@@ -314,12 +314,14 @@ function Item(id, name, type, bonus, cost, req, unl) {
         $('#'+this.costid).html(this.cost);
         $('#'+this.levelid).html(this.level);
 
-        if((this.max != null && this.level<this.max)||this.max==null) {
-            if(this.cost > gold) {
-                $('#'+this.buyid).addClass('pc-item-button-expensive');
-            }
-            else {
-                $('#'+this.buyid).removeClass('pc-item-button-expensive');
+        if(isMobile==false) {
+            if((this.max != null && this.level<this.max)||this.max==null) {
+                if(this.cost > gold) {
+                    $('#'+this.buyid).addClass('pc-item-button-expensive');
+                }
+                else {
+                    $('#'+this.buyid).removeClass('pc-item-button-expensive');
+                }
             }
         }
 
