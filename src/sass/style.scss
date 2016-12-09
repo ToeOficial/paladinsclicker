@@ -4,30 +4,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
 */
 
 @import 'partials/vars';
-
-
-@media (max-width: $mobile-max-width) {
-    .pc-bar {
-        width: 100% !important;
-    }
-    .pc-leftbar {
-        height: $mobile-leftbar-height !important;
-    }
-    .pc-midbar {
-        height: $mobile-midbar-height !important;
-        border-top: $mobile-bar-border !important;
-        border-left: none !important;
-    }
-    .pc-rightbar {
-        min-height: $mobile-rightbar-min-height !important;
-        height: auto !important;
-        border-top: $mobile-bar-border !important;
-        border-left: none !important;
-    }
-    body {
-        overflow-y: scroll !important;
-    }
-}
+@import 'partials/media';
 
 * {
     font-family: $main-font;
