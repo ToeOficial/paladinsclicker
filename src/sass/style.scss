@@ -8,9 +8,6 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
 
 * {
     font-family: $main-font;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 
@@ -94,8 +91,6 @@ body {
 .champion-wrapper {
     width: $champion-wrapper-size;
     height: $champion-wrapper-size;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
     border-radius: 50% !important;
     position: absolute;
     left: calc(50% - #{$champion-wrapper-size/2});
@@ -105,14 +100,10 @@ body {
     cursor: crosshair !important;
 }
 .champion-icon {
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
     border-radius: 50% !important;
     position: absolute;
     left: calc(50% - #{$champion-icon-size/2});
     top: calc(50% - #{$champion-icon-size/2});
-    -webkit-transition-duration: $champion-icon-transition-duration;
-    -moz-transition-duration: $champion-icon-transition-duration;
     transition-duration: $champion-icon-transition-duration;
     opacity: 1;
     height: $champion-icon-size;
@@ -131,9 +122,6 @@ body {
 
 .health-wrapper {
     background: $dark-cyan-color;
-    background: -webkit-repeating-linear-gradient($health-wrapper-gradient);
-    background: -o-repeating-linear-gradient($health-wrapper-gradient);
-    background: -moz-repeating-linear-gradient($health-wrapper-gradient);
     background: repeating-linear-gradient($health-wrapper-gradient);
     left: calc(50% - #{$champion-width/2});
     top: calc(50% - #{($champion-width/2)-12});
@@ -141,16 +129,11 @@ body {
     position: absolute;
     width: $champion-width;
     //Flip health wrapper
-    -moz-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
     .health-progress {
         background: $health-progress-color;
-        background: -webkit-repeating-linear-gradient($health-progress-gradient);
-        background: -o-repeating-linear-gradient($health-progress-gradient);
-        background: -moz-repeating-linear-gradient($health-progress-gradient);
         background: repeating-linear-gradient($health-progress-gradient);
         height: $health-wrapper-height;
         position: absolute;
@@ -297,8 +280,6 @@ body {
     border: $button-border;
     outline: none;
     border-radius: 5px;
-    -webkit-transition-duration: $button-transition-duration;
-    -moz-transition-duration: $button-transition-duration;
     transition-duration: $button-transition-duration;
 }
 .pc-item-button-disabled, .pc-item-button-expensive {
@@ -338,8 +319,6 @@ body {
     border: $button-border;
     outline: none;
     border-radius: 5px;
-    -webkit-transition-duration: $button-transition-duration;
-    -moz-transition-duration: $button-transition-duration;
     transition-duration: $button-transition-duration;
 }
 .pc-modal .pc-modal-button:hover {
