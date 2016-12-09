@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Simple clicker game inspired by Paladins.",
   "scripts": {
-    "babelbuild": "babel src/js/main.js --out-file js/main.min.js --no-comments",
-    "sassbuild": "node-sass --output-style compressed -o css src/sass"
+    "babel": "babel src/js/main.js --out-file js/main.min.js --no-comments",
+    "sass": "node-sass --output-style compressed -o css src/sass",
+    "prefixstyle": "postcss --use autoprefixer css/style.css -o css/style.css",
+    "prefixloading": "postcss --use autoprefixer css/loading.css -o css/loading.css",
+    "prefix" : "npm run prefixstyle && npm run prefixloading",
+    "build": "npm run babel && npm run sass && npm run prefix"
   },
   "repository": {
     "type": "git",
@@ -17,9 +21,12 @@
   },
   "homepage": "https://github.com/tchojnacki/paladinsclicker#readme",
   "devDependencies": {
+    "autoprefixer": "^6.5.3",
     "babel-cli": "^6.18.0",
     "babel-preset-babili": "0.0.8",
     "babel-preset-latest": "^6.16.0",
-    "node-sass": "^3.13.0"
+    "node-sass": "^3.13.0",
+    "postcss": "^5.2.6",
+    "postcss-cli-simple": "^1.0.3"
   }
 }
