@@ -214,6 +214,9 @@ function click() {
     //Lower hp and run a hp check
     championHP-=dmg;
     updateHP();
+    if(isMobile==false) {
+        $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+dmg+'</div>'));
+    }
 }
 
 function saveSettings() {
