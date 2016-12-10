@@ -205,12 +205,6 @@ body {
     img {
         margin-bottom: 5px;
     }
-    .stats-yellow {
-        color: #DEAC3D;
-    }
-    .stats-orange {
-        color: #FF6600;
-    }
     .gpk, .dps {
         font-size: 20px;
         line-height: 20px;
@@ -222,6 +216,16 @@ body {
         padding-bottom: 12.5%;
         height: 50%;
     }
+}
+
+.stats-yellow {
+    color: $stats-color-yellow;
+}
+.stats-orange {
+    color: $stats-color-orange;
+}
+.stats-red {
+    color: $stats-color-red;
 }
 
 
@@ -297,7 +301,7 @@ body {
 }
 .pc-item-bonus-dmg::after {
     content: ' DMG';
-    color: #FF6600;
+    color: $stats-color-orange;
 }
 .pc-item-bonus-dps::after {
     content: ' DPS';
@@ -305,7 +309,7 @@ body {
 }
 .pc-item-bonus-gpk::after {
     content: ' GPK';
-    color: #DEAC3D;
+    color: $stats-color-yellow;
 }
 .pc-modal * {
     background-color: $navbar-background-color;
@@ -381,4 +385,26 @@ a {
 .modal-open .modal {
     overflow-x: hidden;
     overflow-y: scroll !important;
+}
+.dmgFloatingNum {
+    pointer-events: none;
+    color: $stats-color-red;
+    font-size: $floating-num-size; font-weight: bold;
+    height: $floating-num-size; line-height: $floating-num-size;
+    width: $floating-num-size*4; text-align: center;
+    position: absolute; left: calc(50% - #{$floating-num-size*2}); top: calc(50% - 80px);
+    z-index: 50;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    &.dmgFloat1 {
+        animation-name: floatingNumLeft;
+    }
+    &.dmgFloat2 {
+        animation-name: floatingNumCenter;
+    }
+    &.dmgFloat3 {
+        animation-name: floatingNumRight;
+    }
 }
