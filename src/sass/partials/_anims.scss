@@ -10,7 +10,7 @@
 @keyframes floatingNumLeft {
     0% {
         opacity: 1;
-        transform: scale(7);
+        transform: scale($floating-num-scale);
     }
     25% {
         transform: scale(1);
@@ -35,7 +35,7 @@
 @keyframes floatingNumRight {
     0% {
         opacity: 1;
-        transform: scale(7);
+        transform: scale($floating-num-scale);
     }
     25% {
         transform: scale(1);
@@ -60,18 +60,17 @@
 @keyframes floatingNumCenter {
     0% {
         opacity: 1;
-        transform: scale(7);
+        transform: scale($floating-num-scale);
     }
     25% {
         transform: scale(1);
         top: calc(50% - 80px);
     }
     35% {
-        top: calc(50% - 150px);
         opacity: 1;
     }
     60% {
-        top: calc(50% - 180px);
+        top: calc(50% - 250px);
         opacity: 0;
     }
     100% {
