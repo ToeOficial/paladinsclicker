@@ -45,6 +45,7 @@ const darkCyanColor = '#128D8A';
 var explodePieces = 32;
 var easterEggs = false;
 var isMobile = false;
+var shotVolume = 0.3;
 
 //Get random champion from the list
 function randomizeChampion() {
@@ -217,6 +218,9 @@ function click() {
     if(isMobile==false) {
         $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+dmg+'</div>'));
     }
+    var shotSound = new Audio('./audio/shot/cassie.mp3');
+    shotSound.volume = shotVolume;
+    shotSound.play();
 }
 
 function saveSettings() {
