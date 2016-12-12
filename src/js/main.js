@@ -243,7 +243,7 @@ function saveSettings() {
         updateGold();
     }
 
-    //TODO: easterEggs
+    //easter eggs
     easterEggs = $('#easterEggsInput').prop('checked');
     $.each(Item.instances, function() {
         if(this.easterEgg==true && this.req<=topUnlocked) {
@@ -388,12 +388,65 @@ $(window).on('load', function() {
     //Show legal notice
 });
 
+
+//Local storage helper functions
+function saveLocalStorage() {
+    localStorage.maxChampionHP = maxChampionHP;
+    localStorage.dmg = dmg;
+    localStorage.dps = dps;
+    localStorage.gold = gold;
+    localStorage.goldPerKill = goldPerKill;
+    localStorage.topUnlocked = topUnlocked;
+    localStorage.level = level;
+    localStorage.xp = xp;
+    localStorage.xpPerKill = xpPerKill;
+    localStorage.maxXp = maxXp;
+    //Settings
+    localStorage.easterEggs = easterEggs;
+    localStorage.shotVolume = shotVolume;
+    console.log(localStorage.shotVolume)
+}
+
+function readLocalStorage() {
+    maxChampionHP = localStorage.maxChampionHP;
+    dmg = localStorage.dmg;
+    dps = localStorage.dps;
+    gold = localStorage.gold;
+    goldPerKill = localStorage.goldPerKill;
+    topUnlocked = localStorage.topUnlocked;
+    level = localStorage.level;
+    xp = localStorage.xp;
+    oldXp = xp;
+    xpPerKill = localStorage.xpPerKill;
+    maxXp = localStorage.maxXp;
+    //Settings
+    easterEggs = localStorage.easterEggs;
+    shotVolume = localStorage.shotVolume;
+}
+
+
 //On DOM load
 $(function() {
     //Display confirm before leaving page
     $(window).bind('beforeunload', function(){
         return 'Are you sure you want to leave? Champions will be pretty sad :(';
     });
+
+    //Local storage
+    if (typeof(Storage) !== "undefined") {
+        $('#localStorageDisplay').html('This website uses <a href="http://www.w3schools.com/html/html5_webstorage.asp">HTML5 Web Storage</a>. By continuing to use this website you are giving consent to web storage being used.');
+        if (localStorage.visited) {
+            readLocalStorage();
+        }
+        else {
+            saveLocalStorage();
+            localStorage.visited = true;
+        }
+
+    } else {
+        //No Web Storage support
+        $('#localStorageDisplay').html('Sorry, your browser doesn\'t support Web Storage thus your progress can\'t be saved across sessions.');
+    }
     //Init tooltipster
     $('.tooltipster').tooltipster({
         theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
