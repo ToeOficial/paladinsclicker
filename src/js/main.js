@@ -217,6 +217,7 @@ function click() {
     updateHP();
     if(isMobile==false) {
         $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+dmg+'</div>'));
+        //TODO: Remove element after animation
     }
     var shotSound = new Audio('./audio/shot/cassie.mp3');
     shotSound.volume = shotVolume;
@@ -390,8 +391,9 @@ $(window).on('load', function() {
 
 
 //Local storage helper functions
+//TODO: Add items
 function saveLocalStorage() {
-    /*localStorage.maxChampionHP = maxChampionHP;
+    localStorage.maxChampionHP = maxChampionHP;
     localStorage.dmg = dmg;
     localStorage.dps = dps;
     localStorage.gold = gold;
@@ -404,24 +406,28 @@ function saveLocalStorage() {
     //Settings
     localStorage.easterEggs = easterEggs;
     localStorage.shotVolume = shotVolume;
-    console.log(localStorage.shotVolume)*/
 }
 
 function readLocalStorage() {
-/*maxChampionHP = localStorage.maxChampionHP;
-    dmg = localStorage.dmg;
-    dps = localStorage.dps;
-    gold = localStorage.gold;
-    goldPerKill = localStorage.goldPerKill;
-    topUnlocked = localStorage.topUnlocked;
-    level = localStorage.level;
-    xp = localStorage.xp;
+    maxChampionHP = parseInt(localStorage.maxChampionHP);
+    dmg = parseInt(localStorage.dmg);
+    dps = parseInt(localStorage.dps);
+    gold = parseInt(localStorage.gold);
+    goldPerKill = parseInt(localStorage.goldPerKill);
+    topUnlocked = parseInt(localStorage.topUnlocked);
+    level = parseInt(localStorage.level);
+    xp = parseInt(localStorage.xp);
     oldXp = xp;
-    xpPerKill = localStorage.xpPerKill;
-    maxXp = localStorage.maxXp;
+    xpPerKill = parseInt(localStorage.xpPerKill);
+    maxXp = parseInt(localStorage.maxXp);
     //Settings
-    easterEggs = localStorage.easterEggs;
-    shotVolume = localStorage.shotVolume;*/
+    easterEggs = localStorage.easterEggs == "true";
+    shotVolume = parseFloat(localStorage.shotVolume);
+
+    //Update UI
+    updateHP();
+    updateXp();
+    updateGold();
 }
 
 
