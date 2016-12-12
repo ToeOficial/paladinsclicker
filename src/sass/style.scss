@@ -381,6 +381,9 @@ a {
         text-align: center;
         cursor: no-drop;
     }
+    label[for="deleteLocalStorage"] {
+        margin-right: 10px;
+    }
 }
 .modal-open .modal {
     overflow-x: hidden;

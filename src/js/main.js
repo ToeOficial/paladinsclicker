@@ -389,6 +389,13 @@ $(window).on('load', function() {
     //Show legal notice
 });
 
+//Reset data
+function resetData() {
+    if(confirm('You will lose all your progress. Do you want to proceed?')) {
+        localStorage.clear();
+        location.reload()
+    }
+}
 
 //Local storage helper functions
 //TODO: Add items
