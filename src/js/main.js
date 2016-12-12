@@ -438,21 +438,6 @@ $(function() {
         return 'Are you sure you want to leave? Champions will be pretty sad :(';
     });
 
-    //Local storage
-    if (typeof(Storage) !== "undefined") {
-        $('#localStorageDisplay').html('This website uses <a href="http://www.w3schools.com/html/html5_webstorage.asp">HTML5 Web Storage</a>. By continuing to use this website you are giving consent to web storage being used.');
-        if (localStorage.visited) {
-            readLocalStorage();
-        }
-        else {
-            saveLocalStorage();
-            localStorage.visited = true;
-        }
-
-    } else {
-        //No Web Storage support
-        $('#localStorageDisplay').html('Sorry, your browser doesn\'t support Web Storage thus your progress can\'t be saved across sessions.');
-    }
     //Init tooltipster
     $('.tooltipster').tooltipster({
         theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
@@ -468,6 +453,23 @@ $(function() {
         animationDuration: 300,
         side: 'bottom'
     });
+
+    //Local storage
+    if (typeof(Storage) !== "undefined") {
+        $('#localStorageDisplay').html('This website uses <a href="http://www.w3schools.com/html/html5_webstorage.asp">HTML5 Web Storage</a>. By continuing to use this website you are giving consent to web storage being used.');
+        if (localStorage.visited) {
+            readLocalStorage();
+        }
+        else {
+            saveLocalStorage();
+            localStorage.visited = true;
+        }
+
+    } else {
+        //No Web Storage support
+        $('#localStorageDisplay').html('Sorry, your browser doesn\'t support Web Storage thus your progress can\'t be saved across sessions.');
+    }
+
     //Init custom scrollbar
     $('.pc-rightbar').mCustomScrollbar({
         axis: 'y',
