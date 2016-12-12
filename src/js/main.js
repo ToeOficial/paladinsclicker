@@ -391,7 +391,7 @@ $(window).on('load', function() {
 
 //Local storage helper functions
 function saveLocalStorage() {
-    localStorage.maxChampionHP = maxChampionHP;
+    /*localStorage.maxChampionHP = maxChampionHP;
     localStorage.dmg = dmg;
     localStorage.dps = dps;
     localStorage.gold = gold;
@@ -404,11 +404,11 @@ function saveLocalStorage() {
     //Settings
     localStorage.easterEggs = easterEggs;
     localStorage.shotVolume = shotVolume;
-    console.log(localStorage.shotVolume)
+    console.log(localStorage.shotVolume)*/
 }
 
 function readLocalStorage() {
-    maxChampionHP = localStorage.maxChampionHP;
+/*maxChampionHP = localStorage.maxChampionHP;
     dmg = localStorage.dmg;
     dps = localStorage.dps;
     gold = localStorage.gold;
@@ -421,7 +421,7 @@ function readLocalStorage() {
     maxXp = localStorage.maxXp;
     //Settings
     easterEggs = localStorage.easterEggs;
-    shotVolume = localStorage.shotVolume;
+    shotVolume = localStorage.shotVolume;*/
 }
 
 
