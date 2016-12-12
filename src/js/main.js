@@ -411,11 +411,15 @@ function saveLocalStorage() {
 function readLocalStorage() {
     maxChampionHP = parseInt(localStorage.maxChampionHP);
     dmg = parseInt(localStorage.dmg);
+    $('#damageSpan').html(dmg);
     dps = parseInt(localStorage.dps);
+    $('#dpsSpan').html(dmg);
     gold = parseInt(localStorage.gold);
     goldPerKill = parseInt(localStorage.goldPerKill);
+    $('#gpkSpan').html(dmg);
     topUnlocked = parseInt(localStorage.topUnlocked);
     level = parseInt(localStorage.level);
+    $('.level-text').html(level);
     xp = parseInt(localStorage.xp);
     oldXp = xp;
     xpPerKill = parseInt(localStorage.xpPerKill);
@@ -435,7 +439,7 @@ function readLocalStorage() {
 $(function() {
     //Display confirm before leaving page
     $(window).bind('beforeunload', function(){
-        return 'Are you sure you want to leave? Champions will be pretty sad :(';
+        saveLocalStorage();
     });
 
     //Init tooltipster
