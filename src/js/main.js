@@ -393,7 +393,7 @@ $(window).on('load', function() {
 function resetData() {
     if(confirm('You will lose all your progress. Do you want to proceed?')) {
         localStorage.clear();
-        location.reload()
+        location.reload();
     }
 }
 
