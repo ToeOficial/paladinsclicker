@@ -441,7 +441,85 @@ function readLocalStorage() {
 
     $.each(Item.instances, function() {
         window[this.id] = JSON.parse(localStorage.getItem(this.id));
-        this.render();
+        window[this.id].buy = function() {
+            if(this.max != null) {
+                if(this.level>=this.max) {
+                    this.render();
+                    return false;
+                }
+            }
+            if (this.cost <= gold) {
+                gold -= this.cost;
+                gold = Math.floor(gold);
+                updateGold();
+                this.level += 1;
+                this.cost = Math.floor(this.cost * this.costMulti);
+                if (this.type == 1) {
+                    dmg += this.bonus;
+                    $('#damageSpan').html(dmg);
+                } else if (this.type == 2) {
+                    dps += this.bonus;
+                    $('#dpsSpan').html(dps);
+                } else if (this.type == 3) {
+                    goldPerKill += this.bonus;
+                    $('#gpkSpan').html(goldPerKill);
+                }
+                if(this.unl > topUnlocked) {
+                    topUnlocked = this.unl;
+                    $.each(Item.instances, function() {
+                        if(this.req<=topUnlocked) {
+                            if((this.easterEgg==true&&easterEggs==true)||this.easterEgg==false) {
+                                $('#'+this.id).slideDown(1000);
+                            }
+                        }
+                    });
+                }
+                //play sound
+                if(isMobile==false) {
+                    $('#'+this.id).effect('highlight', { color: lightBlueColor}, 1000);
+                    $('#'+this.buyid).effect('highlight', { color: 'white'}, 1000);
+                }
+                this.render();
+                return true;
+            }
+            return false;
+        }
+
+        window[this.id].render = function() {
+            $('#'+this.costid).html(this.cost);
+            $('#'+this.levelid).html(this.level);
+
+            if(isMobile==false) {
+                if((this.max != null && this.level<this.max)||this.max==null) {
+                    if(this.cost > gold) {
+                        $('#'+this.buyid).addClass('pc-item-button-expensive');
+                    }
+                    else {
+                        $('#'+this.buyid).removeClass('pc-item-button-expensive');
+                    }
+                }
+            }
+
+            if(this.level > 0) {
+                $('#'+this.buyid).html('UPGRADE');
+                if(isMobile==false) {
+                    if(this.max != null) {
+                        if(this.level >= this.max) {
+                            $('#'+this.buyid).html('MAX LEVEL');
+                            $('#'+this.buyid).addClass('pc-item-button-disabled');
+                        }
+                        else {
+                            $('#'+this.buyid).html('UPGRADE');
+                            $('#'+this.buyid).removeClass('pc-item-button-disabled');
+                        }
+                    }
+                }
+            }
+            else {
+                $('#'+this.buyid).html('BUY');
+            }
+        }
+        window[this.id].render();
     });
 
     //Update UI
