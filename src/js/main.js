@@ -413,6 +413,10 @@ function saveLocalStorage() {
     //Settings
     localStorage.easterEggs = easterEggs;
     localStorage.shotVolume = shotVolume;
+    //Items
+    $.each(Item.instances, function() {
+        localStorage[this.id] = this;
+    });
 }
 
 function readLocalStorage() {
