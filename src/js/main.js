@@ -424,10 +424,10 @@ function readLocalStorage() {
     dmg = parseInt(localStorage.getItem('dmg'));
     $('#damageSpan').html(dmg);
     dps = parseInt(localStorage.getItem('dps'));
-    $('#dpsSpan').html(dmg);
+    $('#dpsSpan').html(dps);
     gold = parseInt(localStorage.getItem('gold'));
     goldPerKill = parseInt(localStorage.getItem('goldPerKill'));
-    $('#gpkSpan').html(dmg);
+    $('#gpkSpan').html(goldPerKill);
     topUnlocked = parseInt(localStorage.getItem('topUnlocked'));
     level = parseInt(localStorage.getItem('level'));
     $('.level-text').html(level);
@@ -440,7 +440,7 @@ function readLocalStorage() {
     shotVolume = parseFloat(localStorage.getItem('shotVolume'));
 
     $.each(Item.instances, function() {
-        Item.instances[this] = JSON.parse(localStorage.getItem(this.id));
+        window[this.id] = JSON.parse(localStorage.getItem(this.id));
         this.render();
     });
 
