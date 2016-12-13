@@ -420,24 +420,29 @@ function saveLocalStorage() {
 }
 
 function readLocalStorage() {
-    maxChampionHP = parseInt(localStorage.maxChampionHP);
-    dmg = parseInt(localStorage.dmg);
+    maxChampionHP = parseInt(localStorage.getItem('maxChampionHP'));
+    dmg = parseInt(localStorage.getItem('dmg'));
     $('#damageSpan').html(dmg);
-    dps = parseInt(localStorage.dps);
+    dps = parseInt(localStorage.getItem('dps'));
     $('#dpsSpan').html(dmg);
-    gold = parseInt(localStorage.gold);
-    goldPerKill = parseInt(localStorage.goldPerKill);
+    gold = parseInt(localStorage.getItem('gold'));
+    goldPerKill = parseInt(localStorage.getItem('goldPerKill'));
     $('#gpkSpan').html(dmg);
-    topUnlocked = parseInt(localStorage.topUnlocked);
-    level = parseInt(localStorage.level);
+    topUnlocked = parseInt(localStorage.getItem('topUnlocked'));
+    level = parseInt(localStorage.getItem('level'));
     $('.level-text').html(level);
-    xp = parseInt(localStorage.xp);
+    xp = parseInt(localStorage.getItem('xp'));
     oldXp = xp;
-    xpPerKill = parseInt(localStorage.xpPerKill);
-    maxXp = parseInt(localStorage.maxXp);
+    xpPerKill = parseInt(localStorage.getItem('xpPerKill'));
+    maxXp = parseInt(localStorage.getItem('maxXp'));
     //Settings
-    easterEggs = localStorage.easterEggs == "true";
-    shotVolume = parseFloat(localStorage.shotVolume);
+    easterEggs = localStorage.getItem('easterEggs') == "true";
+    shotVolume = parseFloat(localStorage.getItem('shotVolume'));
+
+    $.each(Item.instances, function() {
+        Item.instances[this] = JSON.parse(localStorage.getItem(this.id));
+        this.render();
+    });
 
     //Update UI
     updateHP();
