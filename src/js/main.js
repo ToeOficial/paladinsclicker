@@ -400,22 +400,22 @@ function resetData() {
 //Local storage helper functions
 //TODO: Add items
 function saveLocalStorage() {
-    localStorage.maxChampionHP = maxChampionHP;
-    localStorage.dmg = dmg;
-    localStorage.dps = dps;
-    localStorage.gold = gold;
-    localStorage.goldPerKill = goldPerKill;
-    localStorage.topUnlocked = topUnlocked;
-    localStorage.level = level;
-    localStorage.xp = xp;
-    localStorage.xpPerKill = xpPerKill;
-    localStorage.maxXp = maxXp;
+    localStorage.setItem('maxChampionHP', maxChampionHP);
+    localStorage.setItem('dmg', dmg);
+    localStorage.setItem('dps', dps);
+    localStorage.setItem('gold', gold);
+    localStorage.setItem('goldPerKill', goldPerKill);
+    localStorage.setItem('topUnlocked', topUnlocked);
+    localStorage.setItem('level', level);
+    localStorage.setItem('xp', xp);
+    localStorage.setItem('xpPerKill', xpPerKill);
+    localStorage.setItem('maxXp', maxXp);
     //Settings
-    localStorage.easterEggs = easterEggs;
-    localStorage.shotVolume = shotVolume;
+    localStorage.setItem('easterEggs', easterEggs);
+    localStorage.setItem('shotVolume', shotVolume);
     //Items
     $.each(Item.instances, function() {
-        localStorage[this.id] = this;
+        localStorage.setItem(this.id, JSON.stringify(this));
     });
 }
 
