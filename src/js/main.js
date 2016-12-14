@@ -437,6 +437,7 @@ function readLocalStorage() {
     maxXp = parseInt(localStorage.getItem('maxXp'));
     //Settings
     easterEggs = localStorage.getItem('easterEggs') == "true";
+    $('#explosionPiecesInput').val(easterEggs);
     shotVolume = parseFloat(localStorage.getItem('shotVolume'));
 
     $.each(Item.instances, function() {
@@ -451,6 +452,7 @@ function readLocalStorage() {
     updateHP();
     updateXp();
     updateGold();
+    saveSettings();
 }
 
 
