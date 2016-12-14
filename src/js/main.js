@@ -564,6 +564,7 @@ $(function() {
         this.render();
         $(".pc-rightbar").mCustomScrollbar('update');
     });
+    saveSettings();
 
 
     //Draw level indicator and pick random champion
