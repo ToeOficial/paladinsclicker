@@ -438,6 +438,16 @@ function readLocalStorage() {
     //Settings
     easterEggs = localStorage.getItem('easterEggs') == "true";
     $('#explosionPiecesInput').val(easterEggs);
+    $.each(Item.instances, function() {
+        if(this.easterEgg==true && this.req<=topUnlocked) {
+            if(easterEggs==false) {
+                $('#'+this.id).stop().fadeOut(1000);
+            }
+            if(easterEggs==true) {
+                $('#'+this.id).stop().fadeIn(1000);
+            }
+        }
+    });
     shotVolume = parseFloat(localStorage.getItem('shotVolume'));
 
     $.each(Item.instances, function() {
