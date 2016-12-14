@@ -436,8 +436,8 @@ function readLocalStorage() {
     xpPerKill = parseInt(localStorage.getItem('xpPerKill'));
     maxXp = parseInt(localStorage.getItem('maxXp'));
     //Settings
-    easterEggs = localStorage.getItem('easterEggs') == "true";
-    $('#explosionPiecesInput').prop('checked', easterEggs);
+    easterEggs = localStorage.getItem('easterEggs') == 'true';
+    $('#easterEggsInput').prop('checked', easterEggs);
     shotVolume = parseFloat(localStorage.getItem('shotVolume'));
 
     $.each(Item.instances, function() {
