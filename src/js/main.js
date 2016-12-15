@@ -122,16 +122,28 @@ function updateHP() {
     $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
 
     if (championHP<=0) {
-        $('.champion-icon').effect('explode', {pieces: explodePieces}, 500, function() {
+        if(!document.hidden) {
+            $('.champion-icon').effect('explode', {pieces: explodePieces}, 500, function() {
+                randomizeChampion(); //Pick new champion before showing
+                $(this).show();
+
+                $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP); //Update hp tooltip
+                // .stop(true) so that hp bar isn't late with big dps
+                $('.health-progress').stop(true).animate({
+                    width: (274-((championHP/maxChampionHP)*274))
+                }, 200);
+            });
+        }
+        else {
             randomizeChampion(); //Pick new champion before showing
-            $(this).show();
 
             $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP); //Update hp tooltip
             // .stop(true) so that hp bar isn't late with big dps
             $('.health-progress').stop(true).animate({
                 width: (274-((championHP/maxChampionHP)*274))
             }, 200);
-        });
+        }
+
         //Get old xp before updating normal one
         oldXp=xp;
         xp+=xpPerKill;
@@ -413,6 +425,7 @@ function saveLocalStorage() {
     //Settings
     localStorage.setItem('easterEggs', easterEggs);
     localStorage.setItem('shotVolume', shotVolume);
+    localStorage.setItem('isMobile', isMobile);
     //Items
     $.each(Item.instances, function() {
         localStorage.setItem(this.id, JSON.stringify(this));
@@ -438,6 +451,8 @@ function readLocalStorage() {
     //Settings
     easterEggs = localStorage.getItem('easterEggs') == 'true';
     $('#easterEggsInput').prop('checked', easterEggs);
+    isMobile = localStorage.getItem('isMobile') == 'true';
+    $('#isMobileInput').prop('checked', isMobile);
     shotVolume = parseFloat(localStorage.getItem('shotVolume'));
 
     $.each(Item.instances, function() {
