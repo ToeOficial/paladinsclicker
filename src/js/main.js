@@ -137,11 +137,8 @@ function updateHP() {
         else {
             randomizeChampion(); //Pick new champion before showing
 
-            $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP); //Update hp tooltip
-            // .stop(true) so that hp bar isn't late with big dps
-            $('.health-progress').stop(true).animate({
-                width: (274-((championHP/maxChampionHP)*274))
-            }, 200);
+            //$('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP); //Update hp tooltip
+            $('.health-progress').css('width', (274-((championHP/maxChampionHP)*274)).toString()+'px');
         }
 
         //Get old xp before updating normal one
@@ -152,6 +149,12 @@ function updateHP() {
         championHP = maxChampionHP;
         gold+=goldPerKill;
         updateGold();
+        if(!document.hidden) {
+            document.title = 'Paladins Clicker';
+        }
+        else {
+            document.title = gold+'G - Paladins Clicker'
+        }
     }
 }
 
@@ -229,7 +232,9 @@ function click() {
     updateHP();
     if(isMobile==false) {
         $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+dmg+'</div>'));
-        //TODO: Remove element after animation
+        setTimeout(function() {
+            $('.floatingNumsWrapper').children(':first').remove();
+        }, 1000);
     }
     var shotSound = new Audio('./audio/shot/cassie.mp3');
     shotSound.volume = shotVolume;
@@ -410,7 +415,7 @@ function resetData() {
 }
 
 //Local storage helper functions
-//TODO: Add items
+
 function saveLocalStorage() {
     localStorage.setItem('maxChampionHP', maxChampionHP);
     localStorage.setItem('dmg', dmg);
@@ -470,6 +475,10 @@ function readLocalStorage() {
     saveSettings();
 }
 
+function displayNotice() {
+    //TODO: function that displays text on the screen
+}
+
 
 //On DOM load
 $(function() {
@@ -504,6 +513,7 @@ $(function() {
             saveLocalStorage();
             localStorage.visited = true;
         }
+        setInterval(saveLocalStorage,1000*60*3);
 
     } else {
         //No Web Storage support
