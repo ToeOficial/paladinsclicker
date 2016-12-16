@@ -311,6 +311,10 @@ body {
     content: ' GPK';
     color: $stats-color-yellow;
 }
+.pc-item-bonus-xppk::after {
+    content: ' XPPK';
+    color: $light-blue-color;
+}
 .pc-modal * {
     background-color: $navbar-background-color;
     color: white;

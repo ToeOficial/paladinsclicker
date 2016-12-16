@@ -285,6 +285,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
     //1: DMG
     //2: DPS
     //3: GOLDPERKILL
+    //4: XPPERKILL
     this.bonus = bonus; //Stat amount you get from item
     this.cost = cost; //Item cost
     this.costMulti = costPerBuyMulti;
@@ -321,6 +322,8 @@ function Item(id, name, type, bonus, cost, req, unl) {
             } else if (this.type == 3) {
                 goldPerKill += this.bonus;
                 $('#gpkSpan').html(goldPerKill);
+            } else if (this.type == 4) {
+                xpPerKill += this.bonus;
             }
             if(this.unl > topUnlocked) {
                 topUnlocked = this.unl;
@@ -392,6 +395,7 @@ var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
+var booster = new Item('booster', 'XP Booster', 4, 100, 500, 4, 6);
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
@@ -435,6 +439,7 @@ function saveLocalStorage() {
     $.each(Item.instances, function() {
         localStorage.setItem(this.id, JSON.stringify(this));
     });
+    displayNotice('Saving data...');
 }
 
 function readLocalStorage() {
@@ -475,8 +480,9 @@ function readLocalStorage() {
     saveSettings();
 }
 
-function displayNotice() {
+function displayNotice(text) {
     //TODO: function that displays text on the screen
+    alert(text);
 }
 
 
@@ -513,7 +519,7 @@ $(function() {
             saveLocalStorage();
             localStorage.visited = true;
         }
-        setInterval(saveLocalStorage,1000*60*3);
+        setInterval(saveLocalStorage,1000*60);
 
     } else {
         //No Web Storage support
@@ -579,6 +585,10 @@ $(function() {
             case 3:
                 $('#'+this.bonusid).addClass('pc-item-bonus-gpk');
                 $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">Gold per Kill</span>');
+                break;
+            case 4:
+                $('#'+this.bonusid).addClass('pc-item-bonus-xppk');
+                $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">XP per Kill</span>');
                 break;
             default:
                 //if it isn't 1, 2 or 3 remove all classes, so that there is a clear indicator that something gone wrong
