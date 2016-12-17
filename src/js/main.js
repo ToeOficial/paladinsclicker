@@ -33,7 +33,7 @@ const championHPperLevel = 2;
 const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
-const costPerBuyMulti = 1.4;
+const costPerBuyMulti = 1.25;
 
 const easterEggChance = 5;
 
@@ -394,7 +394,7 @@ var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
-var booster = new Item('booster', 'XP Booster', 4, 100, 500, 4, 6);
+var booster = new Item('booster', 'XP Booster', 4, 150, 500, 4, 6);
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
@@ -587,7 +587,7 @@ $(function() {
                 break;
             case 4:
                 $('#'+this.bonusid).addClass('pc-item-bonus-xppk');
-                $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">XP per Kill</span>');
+                $('#'+this.bonusid).tooltipster('content', '<span style="color: #54E9E6;">XP per Kill</span>');
                 break;
             default:
                 //if it isn't 1, 2 or 3 remove all classes, so that there is a clear indicator that something gone wrong
