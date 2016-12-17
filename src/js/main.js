@@ -29,7 +29,7 @@ var maxXp = 100;
 
 //Constants
 //Balance
-const championHPperLevel = 2;
+//const championHPperLevel = 2;
 const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
@@ -166,7 +166,7 @@ function updateXp() {
         oldXp=0;
         xp=(xp-maxXp);
         maxXp=Math.floor(maxXp*maxXpPerLevelMulti);
-        maxChampionHP+=championHPperLevel;
+        maxChampionHP+=Math.round(level/2);
         xpPerKill=Math.floor(xpPerKill*xpPerKillPerLevelMulti);
         //If level is multiple of 5 increase goldPerKill
         if(level%multipleOfGPKupgrade==0) {
