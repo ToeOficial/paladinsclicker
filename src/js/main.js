@@ -33,7 +33,7 @@ var maxXp = 100;
 const maxXpPerLevelMulti = 1.3;
 const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
-const costPerBuyMulti = 1.25;
+const costPerBuyMulti = 1.3;
 
 const easterEggChance = 5;
 
@@ -386,11 +386,11 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 20, 0, 1);
+var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 15, 0, 1);
 basicbow.level = 1; //Unique item, starts with level 1
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
-var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 2, 70, 1, 3);
-var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 3, 100, 2, 4);
+var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 3, 70, 1, 3);
+var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 4, 100, 2, 4);
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
@@ -481,7 +481,7 @@ function readLocalStorage() {
 
 function displayNotice(text) {
     //TODO: function that displays text on the screen
-    alert(text);
+    $('#noticeWrapper').append($('<div class="notice">'+text+'</div>'));
 }
 
 
