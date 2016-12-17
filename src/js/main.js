@@ -607,12 +607,12 @@ $(function() {
     randomizeChampion();
 
     //decrease lag on smaller devices
-    //default of 32 pieces on 1280 screen width
-    //scales with width, so it's 4 pieces on mobile
-    //caps at 128
-    explodePieces = Math.floor(Math.pow(2, ($(window).width()/1280)*5));
-    if(explodePieces>128) {
-        explodePieces = 128;
+    //default of 25 pieces on 1280 screen width
+    //scales with width, so it's smaller pieces on mobile
+    //caps at 32
+    explodePieces = Math.floor(Math.pow(($(window).width()/1280)*384), 2);
+    if(explodePieces>32) {
+        explodePieces = 32;
     }
     if($(window).width()<=900) {
         isMobile = true;
