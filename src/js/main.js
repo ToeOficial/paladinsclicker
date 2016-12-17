@@ -42,7 +42,7 @@ const lightBlueColor = '#54E9E6';
 const darkCyanColor = '#128D8A';
 
 //Settings
-var explodePieces = 32;
+var explodePieces = 9;
 var easterEggs = false;
 var isMobile = false;
 var shotVolume = 0.3;
