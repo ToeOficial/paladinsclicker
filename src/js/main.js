@@ -173,7 +173,7 @@ function updateXp() {
             goldPerKill += level/multipleOfGPKupgrade;
             $('#gpkSpan').html(goldPerKill);
         }
-        if(isMobile==false) {
+        if(isMobile==false && !document.hidden) {
             $('.level-text').effect('highlight', { color: lightBlueColor}, 1500);
         }
         $('.level-text').html(level);
@@ -350,7 +350,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
         $('#'+this.costid).html(this.cost);
         $('#'+this.levelid).html(this.level);
 
-        if(isMobile==false) {
+        if(isMobile==false || !document.hidden) {
             if((this.max != null && this.level<this.max)||this.max==null) {
                 if(this.cost > gold) {
                     $('#'+this.buyid).addClass('pc-item-button-expensive');
@@ -363,16 +363,15 @@ function Item(id, name, type, bonus, cost, req, unl) {
 
         if(this.level > 0) {
             $('#'+this.buyid).html('UPGRADE');
-            if(isMobile==false) {
-                if(this.max != null) {
-                    if(this.level >= this.max) {
-                        $('#'+this.buyid).html('MAX LEVEL');
-                        $('#'+this.buyid).addClass('pc-item-button-disabled');
-                    }
-                    else {
-                        $('#'+this.buyid).html('UPGRADE');
-                        $('#'+this.buyid).removeClass('pc-item-button-disabled');
-                    }
+
+            if(this.max != null) {
+                if(this.level >= this.max) {
+                    $('#'+this.buyid).html('MAX LEVEL');
+                    $('#'+this.buyid).addClass('pc-item-button-disabled');
+                }
+                else {
+                    $('#'+this.buyid).html('UPGRADE');
+                    $('#'+this.buyid).removeClass('pc-item-button-disabled');
                 }
             }
         }
