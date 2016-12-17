@@ -519,7 +519,7 @@ $(function() {
             saveLocalStorage();
             localStorage.visited = true;
         }
-        setInterval(saveLocalStorage,1000*60);
+        setInterval(saveLocalStorage, 1000*60);
 
     } else {
         //No Web Storage support
