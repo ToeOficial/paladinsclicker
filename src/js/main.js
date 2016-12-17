@@ -609,7 +609,7 @@ $(function() {
     //default of 25 pieces on 1280 screen width
     //scales with width, so it's smaller pieces on mobile
     //caps at 32
-    explodePieces = Math.floor(Math.pow(($(window).width()/1280)*384), 2);
+    explodePieces = Math.floor(Math.pow($(window).width()/182, 2));
     if(explodePieces>32) {
         explodePieces = 32;
     }
