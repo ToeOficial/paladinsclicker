@@ -47,6 +47,7 @@ var easterEggs = false;
 var isMobile = false;
 var shotVolume = 0.3;
 
+
 //Get random champion from the list
 function randomizeChampion() {
     activeChampion = CHAMPION_LIST[Math.floor(Math.random()*CHAMPION_LIST.length)]; //Pick random champion
@@ -229,12 +230,12 @@ function drawLvLCircle() {
 }
 
 //Function running on each click
-function click() {
+function click(clickDmg=dmg) {
     //Lower hp and run a hp check
-    championHP-=dmg;
+    championHP-=clickDmg;
     updateHP();
     if(isMobile==false) {
-        $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+dmg+'</div>'));
+        $('.floatingNumsWrapper').append($('<div class="dmgFloatingNum dmgFloat'+(Math.floor(Math.random() * 3) + 1).toString()+' stats-orange">'+clickDmg+'</div>'));
         setTimeout(function() {
             $('.floatingNumsWrapper').children(':first').remove();
         }, 1000);
@@ -382,6 +383,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
                 }
                 else {
                     $('#'+this.buyid).html('UPGRADE');
+                    $('#'+this.costid).html(this.cost);
                     $('#'+this.buyid).removeClass('pc-item-button-disabled');
                 }
             }
