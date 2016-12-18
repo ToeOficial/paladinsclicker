@@ -319,10 +319,10 @@ body {
         color: $background-placeholder-color;
     }
     .abilityCooldownDiv {
-        height: 0; width: $item-size;
+        height: $item-size; width: $item-size;
         position: absolute; bottom: 10px;
         border-radius: 10px;
-        background-color: rgba(#000000, 0.7);
+        background-color: transparent;
     }
 }
 
