@@ -525,8 +525,10 @@ $(function() {
                 if(salvo.level==1) {
                     if(!salvo.onCooldown) {
                         salvo.onCooldown = true;
-                        $('#salvo .abilityCooldownDiv').css({height: 90});
-                        $('#salvo .abilityCooldownDiv').animate({height: 0}, 1000*salvo.cooldown);
+                        $('#salvo .abilityCooldownDiv').css('background-color', 'black').animate({'height': '0', 'background-color': 'transparent'}, 1000*salvo.cooldown-500, 'linear', function() {
+                            $(this).css('height', '90px').effect('highlight', {color: lightBlueColor}, 500);
+                        });
+                        //$('#salvo .abilityCooldownDiv').animate({'height': '0', 'background-color': 'transparent'}, 1000*salvo.cooldown, 'linear');
                         setTimeout(function() {
                             salvo.onCooldown = false;
                         }, salvo.cooldown*1000);
