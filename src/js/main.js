@@ -302,6 +302,13 @@ function Item(id, name, type, bonus, cost, req, unl) {
     this.unl = unl; //Item number (starts at 1)
     this.easterEgg = false;
     this.max = null;
+    this.ability = false;
+    if(this.type>=100) {
+        this.ability = true;
+        this.keybind = null;
+        this.onCooldown = false;
+        this.cooldown = 1;
+    }
 
     this.buy = function() {
         if(this.max != null) {
@@ -543,13 +550,14 @@ $(function() {
         var currentElement =
         `<div class="pc-item" id="${this.id}">
             <img class="pc-item-image" src="${this.image}" height="90px" width="90px" draggable="false">
-            <div class="pc-item-title">${this.name}</div>
+            ${this.ability?'<div class="abilityCooldownDiv"></div>':''}
+            <div class="pc-item-title">${this.name}${(this.ability ? ' (<span title="Ability" class="tooltipster abilityLetter">'+this.keybind+'</span>)' : '')}</div>
             <div class="pc-item-stats">
                 <div class="pc-item-section">
                     <div class="pc-item-cost"><span id="${this.costid}"></span><img src="./img/gold.png" draggable="false" height="15" width="15"></div>
                     <div class="pc-item-level" id="${this.levelid}"></div>
                 </div><div class="pc-item-section pc-item-section2">
-                    <div class="pc-item-bonus tooltipster" id="${this.bonusid}" title="placeholder">${this.bonus}</div>
+                    ${(this.ability ? '<div class="pc-item-bonus" id="'+this.bonusid+'">Press '+this.keybind+' (<span style="color: #617FF7;">Ability</span>)</div>' : '<div class="pc-item-bonus tooltipster" id="'+this.bonusid+'" title="placeholder">'+this.bonus+'</div>')}
                     <button class="pc-item-button" type="button" onclick="${this.id}.buy();" id="${this.buyid}">BUY</button>
                 </div>
             </div>
@@ -563,39 +571,57 @@ $(function() {
 
 
         //Initialize tooltipster on bonus element
-        $('#'+this.bonusid).tooltipster({
+        if(!this.ability) {
+            $('#'+this.bonusid).tooltipster({
+                theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
+                contentAsHTML: true, //support for html
+                animation: 'fade',
+                delay: 300,
+                animationDuration: 300
+            });
+        }
+
+        //Tooltipster letter if ability
+        $('#'+this.id+' .abilityLetter').tooltipster({
             theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
             contentAsHTML: true, //support for html
             animation: 'fade',
             delay: 300,
             animationDuration: 300
         });
+        $('#'+this.id+' .abilityLetter').tooltipster('content', '<span style="color: #617FF7;">Ability:</span> '+this.name);
 
         //1: DMG
         //2: DPS
         //3: GOLDPERKILL
         //Add class that handles text after bonus and update tooltip content
-        switch (this.type) {
-            case 1:
-                $('#'+this.bonusid).addClass('pc-item-bonus-dmg');
-                $('#'+this.bonusid).tooltipster('content', '<span style="color: #FF6600;">Damage per Click</span>');
-                break;
-            case 2:
-                $('#'+this.bonusid).addClass('pc-item-bonus-dps');
-                $('#'+this.bonusid).tooltipster('content', '<span style="color: #bd0a0a;">Damage per Second</span>');
-                break;
-            case 3:
-                $('#'+this.bonusid).addClass('pc-item-bonus-gpk');
-                $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">Gold per Kill</span>');
-                break;
-            case 4:
-                $('#'+this.bonusid).addClass('pc-item-bonus-xppk');
-                $('#'+this.bonusid).tooltipster('content', '<span style="color: #54E9E6;">XP per Kill</span>');
-                break;
-            default:
-                //if it isn't 1, 2 or 3 remove all classes, so that there is a clear indicator that something gone wrong
-                $('#'+this.bonusid).removeClass('pc-item-bonus-dmg pc-item-bonus-dps pc-item-bonus-gpk');
-                $('#'+this.bonusid).tooltipster('content', 'ERROR');
+        if(!this.ability){
+            switch (this.type) {
+                case 1:
+                    $('#'+this.bonusid).addClass('pc-item-bonus-dmg');
+                    $('#'+this.bonusid).tooltipster('content', '<span style="color: #FF6600;">Damage per Click</span>');
+                    break;
+                case 2:
+                    $('#'+this.bonusid).addClass('pc-item-bonus-dps');
+                    $('#'+this.bonusid).tooltipster('content', '<span style="color: #bd0a0a;">Damage per Second</span>');
+                    break;
+                case 3:
+                    $('#'+this.bonusid).addClass('pc-item-bonus-gpk');
+                    $('#'+this.bonusid).tooltipster('content', '<span style="color: #DEAC3D;">Gold per Kill</span>');
+                    break;
+                case 4:
+                    $('#'+this.bonusid).addClass('pc-item-bonus-xppk');
+                    $('#'+this.bonusid).tooltipster('content', '<span style="color: #54E9E6;">XP per Kill</span>');
+                    break;
+                default:
+                    //if it isn't 1, 2 or 3 remove all classes, so that there is a clear indicator that something gone wrong
+                    $('#'+this.bonusid).removeClass('pc-item-bonus-dmg pc-item-bonus-dps pc-item-bonus-gpk');
+                    $('#'+this.bonusid).tooltipster('content', 'ERROR');
+            }
+        }
+
+        if(this.ability) {
+            this.onCooldown = false;
         }
 
         this.render();
