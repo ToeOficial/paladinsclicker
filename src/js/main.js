@@ -35,7 +35,7 @@ const xpPerKillPerLevelMulti = 1.05;
 const multipleOfGPKupgrade = 5;
 const costPerBuyMulti = 1.3;
 
-const easterEggChance = 5;
+const easterEggChance = 7;
 
 //Colors
 const lightBlueColor = '#54E9E6';
@@ -121,7 +121,7 @@ function updateHP() {
 
     $('.health-progress').animate({
         width: nextWidth
-    }, 100);
+    }, 50);
     $('.health-wrapper').tooltipster('content', championHP+'/'+maxChampionHP);
 
     if (championHP<=0) {
@@ -134,7 +134,7 @@ function updateHP() {
                 // .stop(true) so that hp bar isn't late with big dps
                 $('.health-progress').stop(true).animate({
                     width: (274-((championHP/maxChampionHP)*274))
-                }, 200);
+                }, 100);
             });
         }
         else {
@@ -360,7 +360,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
         $('#'+this.costid).html(this.cost);
         $('#'+this.levelid).html(this.level);
 
-        if(isMobile==false || !document.hidden) {
+        if(!isMobile && !document.hidden) {
             if((this.max != null && this.level<this.max)||this.max==null) {
                 if(this.cost > gold) {
                     $('#'+this.buyid).addClass('pc-item-button-expensive');
@@ -377,6 +377,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
             if(this.max != null) {
                 if(this.level >= this.max) {
                     $('#'+this.buyid).html('MAX LEVEL');
+                    $('#'+this.costid).html('-');
                     $('#'+this.buyid).addClass('pc-item-button-disabled');
                 }
                 else {
@@ -398,13 +399,13 @@ Item.instances = [];
 
 var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 15, 0, 1);
 basicbow.level = 1; //Unique item, starts with level 1
-var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 2, 50, 0, 2);
+var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 3, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 3, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 4, 100, 2, 4);
 var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
-var booster = new Item('booster', 'XP Booster', 4, 150, 500, 4, 6);
+var booster = new Item('booster', 'XP Booster', 4, 100, 500, 5, 7);
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
@@ -491,7 +492,7 @@ function readLocalStorage() {
 
 function displayNotice(text) {
     //TODO: function that displays text on the screen
-    $('#noticeWrapper').append($('<div class="notice">'+text+'</div>'));
+    $('.noticeWrapper').append($('<div class="notice">'+text+'</div>'));
 }
 
 
