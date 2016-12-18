@@ -379,7 +379,12 @@ function Item(id, name, type, bonus, cost, req, unl) {
 
             if(this.max != null) {
                 if(this.level >= this.max) {
-                    $('#'+this.buyid).html('MAX LEVEL');
+                    if(this.max==1) {
+                        $('#'+this.buyid).html('UNLOCKED');
+                    }
+                    else {
+                        $('#'+this.buyid).html('MAX LEVEL');
+                    }
                     $('#'+this.costid).html('-');
                     $('#'+this.buyid).addClass('pc-item-button-disabled');
                 }
@@ -459,6 +464,7 @@ function saveLocalStorage() {
 
 function readLocalStorage() {
     maxChampionHP = parseInt(localStorage.getItem('maxChampionHP'));
+    championHP = maxChampionHP;
     dmg = parseInt(localStorage.getItem('dmg'));
     $('#damageSpan').html(dmg);
     dps = parseInt(localStorage.getItem('dps'));
@@ -591,7 +597,7 @@ $(function() {
                     <div class="pc-item-cost"><span id="${this.costid}"></span><img src="./img/gold.png" draggable="false" height="15" width="15"></div>
                     <div class="pc-item-level" id="${this.levelid}"></div>
                 </div><div class="pc-item-section pc-item-section2">
-                    ${(this.ability ? '<div class="pc-item-bonus" id="'+this.bonusid+'">Press '+this.keybind+' (<span style="color: #617FF7;">Ability</span>)</div>' : '<div class="pc-item-bonus tooltipster" id="'+this.bonusid+'" title="placeholder">'+this.bonus+'</div>')}
+                    ${(this.ability ? '<div class="pc-item-bonus" id="'+this.bonusid+'">Press <span style="color: #617FF7;">'+this.keybind+'</span> - '+this.cooldown+'s CD</div>' : '<div class="pc-item-bonus tooltipster" id="'+this.bonusid+'" title="placeholder">'+this.bonus+'</div>')}
                     <button class="pc-item-button" type="button" onclick="${this.id}.buy();" id="${this.buyid}">BUY</button>
                 </div>
             </div>
