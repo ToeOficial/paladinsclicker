@@ -238,83 +238,94 @@ body {
     margin: 10px;
     height: 115px;
     position: relative;
-}
-.pc-item-image {
-    border: 2px solid transparentize($dark-cyan-color, 0.5);
-    border-radius: 10px;
-}
-.pc-item-stats {
-    position: absolute;
-    left: 110px;
-    right: 0;
-    top: 40px;
-    bottom: 10px;
-    font-size: 15px;
-    line-height: 30px;
-}
-.pc-item-title {
-    position: absolute;
-    left: 110px;
-    right: 0;
-    top: 10px;
-    height: 26px;
-    border-bottom: 1px solid white;
+    .pc-item-image {
+        border: 2px solid transparentize($dark-cyan-color, 0.5);
+        border-radius: 10px;
+        height: $item-size; width: $item-size;
+    }
+    .pc-item-stats {
+        position: absolute;
+        left: 110px;
+        right: 0;
+        top: 40px;
+        bottom: 10px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .pc-item-title {
+        position: absolute;
+        left: 110px;
+        right: 0;
+        top: 10px;
+        height: 26px;
+        border-bottom: 1px solid white;
 
-    font-size: 24px;
-    line-height: 26px;
-    font-weight: bold;
-    color: white;
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: bold;
+        color: white;
+    }
+    .pc-item-level::before {
+        content: "Level: ";
+    }
+    .pc-item-cost::before {
+        content: "Cost: ";
+    }
+    .pc-item-section {
+        width: 50%;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        &.pc-item-section2 {
+            text-align: center;
+        }
+    }
+    .pc-item-button {
+        background-color: $dark-cyan-color;
+        border: $button-border;
+        outline: none;
+        border-radius: 5px;
+        transition-duration: $button-transition-duration;
+        &.pc-item-button-disabled, &.pc-item-button-expensive {
+            background-color: $button-decline-color !important;
+            border-color: $button-decline-border-color !important;
+            cursor: not-allowed;
+        }
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+    .pc-item-cost img {
+        margin-bottom: 2px;
+        margin-left: 2px;
+    }
+    .pc-item-bonus-dmg::after {
+        content: ' DMG';
+        color: $stats-color-orange;
+    }
+    .pc-item-bonus-dps::after {
+        content: ' DPS';
+        color: $button-decline-color;
+    }
+    .pc-item-bonus-gpk::after {
+        content: ' GPK';
+        color: $stats-color-yellow;
+    }
+    .pc-item-bonus-xppk::after {
+        content: ' XPPK';
+        color: $light-blue-color;
+    }
+    .abilityLetter {
+        color: $background-placeholder-color;
+    }
+    .abilityCooldownDiv {
+        height: 0; width: $item-size;
+        position: absolute; bottom: 10px;
+        border-radius: 10px;
+        background-color: rgba(#000000, 0.7);
+    }
 }
-.pc-item-level::before {
-    content: "Level: ";
-}
-.pc-item-cost::before {
-    content: "Cost: ";
-}
-.pc-item-section {
-    width: 50%;
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-.pc-item-section2 {
-    text-align: center;
-}
-.pc-item-button {
-    background-color: $dark-cyan-color;
-    border: $button-border;
-    outline: none;
-    border-radius: 5px;
-    transition-duration: $button-transition-duration;
-}
-.pc-item-button-disabled, .pc-item-button-expensive {
-    background-color: $button-decline-color !important;
-    border-color: $button-decline-border-color !important;
-    cursor: not-allowed;
-}
-.pc-item-button:hover {
-    background-color: $button-hover-color;
-}
-.pc-item-cost img {
-    margin-bottom: 2px;
-    margin-left: 2px;
-}
-.pc-item-bonus-dmg::after {
-    content: ' DMG';
-    color: $stats-color-orange;
-}
-.pc-item-bonus-dps::after {
-    content: ' DPS';
-    color: $button-decline-color;
-}
-.pc-item-bonus-gpk::after {
-    content: ' GPK';
-    color: $stats-color-yellow;
-}
-.pc-item-bonus-xppk::after {
-    content: ' XPPK';
-    color: $light-blue-color;
-}
+
 .pc-modal * {
     background-color: $navbar-background-color;
     color: white;
@@ -385,7 +396,7 @@ a {
         text-align: center;
         cursor: no-drop;
     }
-    label[for="deleteLocalStorage"] {
+    label[for="deleteLocalStorage"], label[for="saveLocalStorage"] {
         margin-right: 10px;
     }
 }
@@ -415,8 +426,10 @@ a {
         animation-name: floatingNumRight;
     }
 }
-#noticeWrapper {
+.noticeWrapper {
     //TODO: notice styles
+    //position: absolute;
+    display: none;
     .notice {
 
     }
