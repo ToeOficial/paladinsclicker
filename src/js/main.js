@@ -230,7 +230,7 @@ function drawLvLCircle() {
 }
 
 //Function running on each click
-function click(clickDmg=dmg) {
+function click(clickDmg=dmg, sound=true) {
     //Lower hp and run a hp check
     championHP-=clickDmg;
     updateHP();
@@ -240,9 +240,11 @@ function click(clickDmg=dmg) {
             $('.floatingNumsWrapper').children(':first').remove();
         }, 1000);
     }
-    var shotSound = new Audio('./audio/shot/cassie.mp3');
-    shotSound.volume = shotVolume;
-    shotSound.play();
+    if(sound) {
+        var shotSound = new Audio('./audio/shot/cassie.mp3');
+        shotSound.volume = shotVolume;
+        shotSound.play();
+    }
 }
 
 function saveSettings() {
@@ -523,10 +525,18 @@ $(function() {
                             salvo.onCooldown = false;
                         }, salvo.cooldown*1000);
 
+
+                        var salvoSound = new Audio('./audio/abilities/salvo.mp3');
+                        salvoSound.play();
+                        setTimeout(function() {
+                            salvoSound.pause();
+                        }, Math.ceil(championHP/(dmg*2))*150);
+
+
                         for(let i = 0; i<Math.ceil(championHP/(dmg*2)); i++) {
                             setTimeout(function() {
-                                click(dmg*2);
-                            }, i*100);
+                                click(dmg*2, false);
+                            }, i*150);
                         }
                     }
                 }
