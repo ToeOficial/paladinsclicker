@@ -403,8 +403,9 @@ var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 15, 0, 1);
 basicbow.level = 1; //Unique item, starts with level 1
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 3, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 3, 70, 1, 3);
-var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 4, 100, 2, 4);
-var defthands = new Item('defthands', 'Deft Hands', 2, 5, 350, 3, 5);
+var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 5, 100, 2, 4);
+var salvo = new Item('salvo', 'Salvo', 100, 0, 250, 3, 5); salvo.max = 1; salvo.keybind = 'R'; salvo.cooldown = 10;
+var defthands = new Item('defthands', 'Deft Hands', 2, 6, 350, 4, 6);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
 var booster = new Item('booster', 'XP Booster', 4, 100, 500, 5, 7);
@@ -505,6 +506,34 @@ $(function() {
         saveLocalStorage();
     });
 
+    $(window).bind('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && String.fromCharCode(event.which)=='S') {
+            event.preventDefault();
+            saveLocalStorage();
+        }
+        //Items
+        switch (String.fromCharCode(event.which).toUpperCase()) {
+            case salvo.keybind:
+                if(salvo.level==1) {
+                    if(!salvo.onCooldown) {
+                        salvo.onCooldown = true;
+                        $('#salvo .abilityCooldownDiv').css({height: 90});
+                        $('#salvo .abilityCooldownDiv').animate({height: 0}, 1000*salvo.cooldown);
+                        setTimeout(function() {
+                            salvo.onCooldown = false;
+                        }, salvo.cooldown*1000);
+
+                        for(let i = 0; i<Math.ceil(championHP/(dmg*2)); i++) {
+                            setTimeout(function() {
+                                click(dmg*2);
+                            }, i*100);
+                        }
+                    }
+                }
+                break;
+        }
+    });
+
     //Init tooltipster
     $('.tooltipster').tooltipster({
         theme: ['tooltipster-punk', 'tooltipster-punk-customized'], //use custom theme
@@ -520,7 +549,6 @@ $(function() {
         animationDuration: 300,
         side: 'bottom'
     });
-
     //Local storage
     if (typeof(Storage) !== "undefined") {
         $('#localStorageDisplay').html('This website uses <a href="http://www.w3schools.com/html/html5_webstorage.asp">HTML5 Web Storage</a>. By continuing to use this website you are giving consent to web storage being used.');
