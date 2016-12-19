@@ -506,6 +506,10 @@ function displayNotice(text) {
     $('.noticeWrapper').append($('<div class="notice">'+text+'</div>'));
 }
 
+function triggerAbility(ab) {
+    var e = jQuery.Event( 'keydown', { which: ab.keybind.charCodeAt(0) } );
+    $('body').trigger(e);
+}
 
 //On DOM load
 $(function() {
@@ -591,8 +595,8 @@ $(function() {
         //Create element with info from instance
         var currentElement =
         `<div class="pc-item" id="${this.id}">
-            <img class="pc-item-image" src="${this.image}" height="90px" width="90px" draggable="false">
-            ${this.ability?'<div class="abilityCooldownDiv"></div>':''}
+            <img class="pc-item-image" src="${this.image}" height="90px" width="90px" draggable="false"${this.ability?' style="cursor: pointer;"':''}>
+            ${this.ability?'<div class="abilityCooldownDiv" onclick="triggerAbility('+this.id+');"></div>':''}
             <div class="pc-item-title">${this.name}${(this.ability ? ' (<span title="Ability" class="tooltipster abilityLetter">'+this.keybind+'</span>)' : '')}</div>
             <div class="pc-item-stats">
                 <div class="pc-item-section">
