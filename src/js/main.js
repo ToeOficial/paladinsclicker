@@ -126,7 +126,7 @@ function updateHP() {
 
     if (championHP<=0) {
         if(!document.hidden) {
-            $('.champion-icon').effect('explode', {pieces: explodePieces}, 500, function() {
+            $('.champion-icon').effect('explode', {pieces: explodePieces}, 400, function() {
                 randomizeChampion(); //Pick new champion before showing
                 $(this).show();
 
@@ -404,7 +404,7 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Bow', 1, 1, 15, 0, 1);
+var basicbow = new Item('basicbow', 'Cassie\'s Crossbow', 1, 1, 15, 0, 1);
 basicbow.level = 1; //Unique item, starts with level 1
 var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 3, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 3, 70, 1, 3);
@@ -530,15 +530,14 @@ $(function() {
                         $('#salvo .abilityCooldownDiv').css('background-color', 'black').animate({'height': '0', 'background-color': 'transparent'}, 1000*salvo.cooldown-500, 'linear', function() {
                             $(this).css('height', '90px').effect('highlight', {color: lightBlueColor}, 500);
                         });
-                        //$('#salvo .abilityCooldownDiv').animate({'height': '0', 'background-color': 'transparent'}, 1000*salvo.cooldown, 'linear');
                         setTimeout(function() {
                             salvo.onCooldown = false;
                         }, salvo.cooldown*1000);
 
 
-                        for(let i = 0; i<Math.ceil(championHP/(dmg*2)); i++) {
+                        for(let i = 0; i<Math.ceil(championHP/dmg); i++) {
                             setTimeout(function() {
-                                click(dmg*2, './audio/abilities/salvo.mp3');
+                                click(dmg, './audio/abilities/salvo.mp3');
                             }, i*150);
                         }
                     }
@@ -697,9 +696,9 @@ $(function() {
     //     ***** DPS AND GPS TIMER *****
     var dpstimer = setInterval(function() {
         //Each second deal <dps> damage
-        championHP-=dps;
+        championHP-=(dps/2);
         updateHP();
-    }, 1000);
+    }, 500);
 
 
     //     ***** EVENTS *****
