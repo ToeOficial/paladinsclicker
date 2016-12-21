@@ -418,6 +418,17 @@ var booster = new Item('booster', 'XP Booster', 4, 100, 500, 5, 7);
 //id, name, type, bonus, cost, req, unl
 
 
+
+
+//Abilities
+salvo.abilitySpecial = function() {
+    for(let i = 0; i<Math.ceil(championHP/(2*dmg)); i++) {
+        setTimeout(function() {
+            click(dmg*2, './audio/abilities/salvo.mp3');
+        }, i*150);
+    }
+}
+
 //On full page load
 $(window).on('load', function() {
     $('.loadingOverlay').delay(500).fadeOut(500, function() {
@@ -522,28 +533,19 @@ $(function() {
             saveLocalStorage();
         }
         //Items
-        switch (String.fromCharCode(event.which).toUpperCase()) {
-            case salvo.keybind:
-                if(salvo.level==1) {
-                    if(!salvo.onCooldown) {
-                        salvo.onCooldown = true;
-                        $('#salvo .abilityCooldownDiv').css('background-color', 'black').animate({'height': '0', 'background-color': 'transparent'}, 1000*salvo.cooldown-500, 'linear', function() {
-                            $(this).css('height', '90px').effect('highlight', {color: lightBlueColor}, 500);
-                        });
-                        setTimeout(function() {
-                            salvo.onCooldown = false;
-                        }, salvo.cooldown*1000);
-
-
-                        for(let i = 0; i<Math.ceil(championHP/dmg); i++) {
-                            setTimeout(function() {
-                                click(dmg, './audio/abilities/salvo.mp3');
-                            }, i*150);
-                        }
-                    }
-                }
-                break;
-        }
+        $.each(Item.instances, function() {
+            if(this.ability && this.level>0 && !this.onCooldown && String.fromCharCode(event.which).toUpperCase() == this.keybind) {
+                this.onCooldown = true;
+                $('#'+this.id+' .abilityCooldownDiv').css('background-color', 'black').animate({'height': '0', 'background-color': 'transparent'}, 1000*this.cooldown-500, 'linear', function() {
+                    $(this).css('height', '90px').effect('highlight', {color: lightBlueColor}, 500);
+                });
+                setTimeout(function() {
+                    this.onCooldown = false;
+                }.bind(this), this.cooldown*1000);
+                this.abilitySpecial();
+                return false;
+            }
+        });
     });
 
     //Init tooltipster
