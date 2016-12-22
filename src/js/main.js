@@ -422,9 +422,9 @@ var booster = new Item('booster', 'XP Booster', 4, 100, 500, 5, 7);
 
 //Abilities
 salvo.abilitySpecial = function() {
-    for(let i = 0; i<Math.ceil(championHP/(2*dmg)); i++) {
+    for(let i = 0; i<Math.floor(maxChampionHP/(3*dmg)); i++) {
         setTimeout(function() {
-            click(dmg*2, './audio/abilities/salvo.mp3');
+            click(dmg*3, './audio/abilities/salvo.mp3');
         }, i*150);
     }
 }
@@ -435,7 +435,7 @@ $(window).on('load', function() {
         //On fade out complete
         $(this).remove();
     });
-    $('#greetModal').modal().show();
+    $('#greetModal').modal('show');
     //Show legal notice
 });
 
@@ -520,6 +520,24 @@ function triggerAbility(ab) {
     $('body').trigger(e);
 }
 
+function displayLocalStorage() {
+    let outputObj = {};
+    for(let prop in localStorage) {
+        outputObj[prop] = JSON.parse(localStorage[prop]);
+    }
+    $('#debugPre').html(JSON.stringify(outputObj, undefined, 2));
+    $('#debugPre').effect('highlight', {color: lightBlueColor});
+}
+
+function displayHtml() {
+    //Regex by Chris Baker
+    let outputString = $('html').clone().find('#debugPre').remove().end().html().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+        return '&#'+i.charCodeAt(0)+';';
+    });
+    $('#debugPre').html(outputString);
+    $('#debugPre').effect('highlight', {color: lightBlueColor});
+}
+
 //On DOM load
 $(function() {
     //Display confirm before leaving page
@@ -531,6 +549,11 @@ $(function() {
         if ((event.ctrlKey || event.metaKey) && String.fromCharCode(event.which)=='S') {
             event.preventDefault();
             saveLocalStorage();
+        }
+        if ((event.ctrlKey || event.metaKey) && String.fromCharCode(event.which)=='U') {
+            event.preventDefault();
+            displayLocalStorage();
+            $('#debugModal').modal('show');
         }
         //Items
         $.each(Item.instances, function() {
