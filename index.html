@@ -11,7 +11,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
         <meta name="description" content="Clicker game based on Paladins.">
         <meta name="keywords" content="Paladins,Game,Paladins Clicker,Clicker">
         <meta name="author" content="Tomasz Chojnacki">
-        <meta name="revised" content="tchojnacki, 6/11/2016" />
+        <meta name="revised" content="tchojnacki, 22/12/2016" />
 
         <meta name="google" content="notranslate" />
         <meta name="google" content="nositelinkssearchbox" />
@@ -149,7 +149,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                 </div>
             </div>
         </div>
-        <!--MODALS END-->
+
         <div id="greetModal" class="modal fade pc-modal" role="dialog" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -180,6 +180,25 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
             </div>
         </div>
 
+        <div id="debugModal" class="modal fade pc-modal" role="dialog" data-backdrop="true">
+            <div class="modal-admin">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-wrench" aria-hidden="true"></i> Debug</h4>
+                    </div>
+                    <div class="modal-body">
+                        <pre id="debugPre" contenteditable="true" spellcheck="false"></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="pc-modal-button" onclick="displayLocalStorage();">SHOW LOCAL STORAGE</button>
+                        <button type="button" class="pc-modal-button" onclick="displayHtml();">VIEW SOURCE</button>
+                        <button type="button" class="pc-modal-button" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--MODALS END-->
         <!--Preload, load etc. end-->
         <nav class="pc-navbar">
             <div class="pc-logo pc-navbar-element">
@@ -187,10 +206,10 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
                 Paladins Clicker
             </div>
             <!--Icons on the right of navbar-->
-            <div class="pc-navbar-element" title="Credits" onclick="$('#creditsModal').modal().show();">
+            <div class="pc-navbar-element" title="Credits" onclick="$('#creditsModal').modal('show');">
                 <i class="fa fa-address-book" aria-hidden="true"></i>
             </div>
-            <div class="pc-navbar-element" title="Settings" onclick="$('#settingsModal').modal().show();">
+            <div class="pc-navbar-element" title="Settings" onclick="$('#settingsModal').modal('show');">
                 <i class="fa fa-cog" aria-hidden="true"></i>
             </div>
         </nav>
