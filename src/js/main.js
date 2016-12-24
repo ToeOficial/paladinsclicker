@@ -74,6 +74,9 @@ function checkNameEasterEggs() {
             case 'Barik':
                 newName = 'Torbjörn';
                 break;
+            case 'Buck':
+                newName = 'Look at this Buck that I\'ve just found';
+                break;
             case 'Cassie':
                 newName = 'Colossal Chest';
                 break;
@@ -414,6 +417,7 @@ var defthands = new Item('defthands', 'Deft Hands', 2, 6, 350, 4, 6);
 var aggression = new Item('aggression', 'Aggression', 1, 1, 400, 4, 6);
 aggression.easterEgg = true; /*Easter Egg Item*/ aggression.costMulti = 2; aggression.max = 3; //Just to make it even worse
 var booster = new Item('booster', 'XP Booster', 4, 100, 500, 5, 7);
+var cannon = new Item('cannon', 'Makoa\'s Cannon', 1, 10, 525, 6, 8);
 //Add new items HERE
 //id, name, type, bonus, cost, req, unl
 
