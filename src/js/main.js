@@ -6,7 +6,7 @@ Paladins​™ and Paladins™: Champions of the Realm​​™ are trademarks o
 //Champion list
 //UPDATE WHEN NEW CHAMPION COMES OUT
 const CHAMPION_LIST = ['Androxus', 'Barik', 'Bomb King', 'Buck', 'Cassie', 'Drogoz', 'Evie', 'Fernando', 'Grohk', 'Grover', 'Kinessa', 'Makoa',
-                       'Mal\'Damba', 'Pip', 'Ruckus', 'Skye', 'Sha Lin', 'Tyra', 'Viktor', 'Ying'];
+                       'Mal\'Damba', 'Pip', 'Ruckus', 'Skye', 'Sha Lin', 'Torvald', 'Tyra', 'Viktor', 'Ying'];
 var activeChampion = '';
 
 //Current and max hp of the champion
@@ -98,6 +98,8 @@ function checkNameEasterEggs() {
             case 'Sha Lin':
                 newName = 'Aladdin';
                 break;
+            case 'Torvald':
+                newName = 'shieldmepls';
             case 'Tyra':
                 newName = 'Drybear';
                 break;
