@@ -11,4 +11,7 @@ Feel free to contribute (bugfixes in main branch, fork for major changes). Every
 ![Screenshot](/img/screenshot.png?raw=true "Screenshot")
 
 ## TODO
-* Add Meave and Inara
+* Add Maeve and Inara
+* Add achievements
+* Add prompt messages
+* Add new items
