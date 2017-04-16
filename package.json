@@ -15,7 +15,7 @@
     "url": "git+https://github.com/tchojnacki/paladinsclicker.git"
   },
   "author": "Tomasz Chojnacki",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tchojnacki/paladinsclicker/issues"
   },
