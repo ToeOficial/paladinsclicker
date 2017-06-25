@@ -1,8 +1,4 @@
-$black-color: #0f1014;
-$light-blue-color: #54E9E6;
-$white-color: darken(#fff, 5%);
-
-$navbar-height: 3rem;
+@import 'partials/vars';
 
 body {
   font-family: 'Roboto', 'Open Sans', 'Lato', sans-serif;
@@ -12,8 +8,6 @@ body {
 }
 
 .pc-container {
-  //min-height: 100vh;
-
   background-size: cover;
   background-clip: border-box;
   background-position: 0px $navbar-height;
@@ -91,13 +85,4 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  .pc-column {
-    width: 100% !important;
-    border-right: none !important;
-
-    &:not(:first-of-type) {
-      border-top: 0.25rem solid $black-color !important;
-    }
-  }
-}
+@import 'partials/media';
