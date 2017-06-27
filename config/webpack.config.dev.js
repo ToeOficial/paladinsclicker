@@ -187,6 +187,8 @@ module.exports = {
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
+              modules: true,
+              localIdentName : '[name]_[local]_[hash:base64:6]'
             },
           },
           {
@@ -212,7 +214,7 @@ module.exports = {
       {
         test: /\.scss$/,
         include: paths.appSrc,
-        loaders: ["style", "css", "sass"]
+        loaders: ["style-loader", "css-loader?importLoaders=1&modules&localIdentName=[name]_[local]_[hash:base64:6]", "sass-loader"]
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
