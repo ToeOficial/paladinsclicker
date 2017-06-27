@@ -1,0 +1,13 @@
+@import 'partials/vars';
+
+.container {
+  background-size: cover;
+  background-clip: border-box;
+  background-position: 0px $navbar-height;
+  background-repeat: repeat-y;
+}
+
+.bg_glacier_keep {
+    background-color: #617FF7;
+    background-image: url(https://tchojnacki.github.io/paladinsclicker/img/background.png);
+}
