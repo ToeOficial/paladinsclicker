@@ -190,7 +190,7 @@ module.exports = {
                     minimize: true,
                     sourceMap: true,
                     modules: true,
-                    localIdentName : '[name]_[local]_[hash:base64:6]'
+                    localIdentName : '[name]_[hash:base64:8]'
                   },
                 },
                 {
@@ -221,7 +221,7 @@ module.exports = {
       {
         test: /\.scss$/,
         include: paths.appSrc,
-        loaders: ["style-loader", "css-loader?importLoaders=1&minimize&sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:6]", "sass-loader"]
+        loaders: ["style-loader", "css-loader?importLoaders=1&minimize&sourceMap&modules&localIdentName=[name]_[hash:base64:8]", "sass-loader"]
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
