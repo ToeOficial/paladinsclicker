@@ -1,0 +1,46 @@
+@import '../../partials/vars';
+
+.root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  margin: 3em auto;
+  height: 320px;
+  width: 274px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  height: 21px;
+  background-color: paleturquoise;
+}
+
+.healthWrapper {
+  height: 25px;
+  width: 100%;
+  background-color: blue;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid color(cyan);
+}
+
+.champion {
+  height: 250px;
+  width: 250px;
+  background-color: green;
+  border-radius: 50%;
+}
