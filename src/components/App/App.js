@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import css from './App.scss';
-import logo from './assets/logo.png';
+import Shop from '../Shop/Shop.js';
+import ChampionDisplay from '../Champion/ChampionDisplay.js';
+
+import logo from '../../assets/logo.png';
 
 const siteName = 'Paladins Clicker';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: {
+        bow: {
+          name: 'Cassie\'s Bow'
+        }
+      }
+    }
+  }
+
   render() {
     return (
       <div className={css.container}>
@@ -19,9 +33,13 @@ class App extends Component {
           </div>
         </header>
         <div className={css.columnContainer}>
-          <div />
-          <div />
-          <div />
+          <div className={css.columnLeft}>
+            <ChampionDisplay />
+          </div>
+          <div className={css.columnMiddle} />
+          <div className={css.columnRight}>
+            <Shop items={this.state.items} />
+          </div>
         </div>
       </div>
     );

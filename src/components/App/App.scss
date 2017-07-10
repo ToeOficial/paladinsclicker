@@ -1,24 +1,26 @@
-@import 'partials/vars';
+@import '../../partials/vars';
 
 .container {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   background-size: cover;
   background-clip: border-box;
   background-position: 0px $navbar-height;
   background-repeat: repeat-y;
-  background-color: #617FF7;
+  background-color: color(blue);
   background-image: url(https://tchojnacki.github.io/paladinsclicker/img/background.png);
 }
 
 .navbar {
   height: $navbar-height;
   line-height: $navbar-height;
-  width: 100vw;
+  width: 100%;
   display: flex;
 
-  background-color: $black-color;
+  background-color: color(black);
 }
 
 .logo {
@@ -29,7 +31,7 @@
 
   cursor: pointer;
   user-select: none;
-  color: $light-blue-color;  
+  color: color(cyan);  
 }
 
 .logoImg {
@@ -50,5 +52,28 @@
 }
 
 .columnContainer {
-  width: 100vw;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
 }
+
+.columnLeft, .columnMiddle, .columnRight {
+  box-sizing: border-box;
+}
+
+.columnLeft, .columnMiddle {
+  width: 30%;
+  border-right: 3px solid color(black);
+}
+
+.columnRight {
+  width: 40%;
+}
+
+.columnMiddle, .columnRight {
+  background-color: color(blue);
+  background-color: rgba(24, 32, 64, 0.75);
+}
+
+@import 'App_mobile';
