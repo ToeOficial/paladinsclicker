@@ -1,0 +1,14 @@
+@media screen and (max-width: $mobile-max-width), (max-height: $mobile-max-height), (orientation: portrait) {
+    .columnContainer {
+        flex-direction: column;
+    }
+
+    .columnLeft, .columnMiddle, .columnRight {
+        width: 100%;
+        border-right: none;
+    }
+
+    .columnMiddle, .columnRight {
+        border-top: 3px solid color(black);
+    }
+}
