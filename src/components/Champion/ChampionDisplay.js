@@ -2,93 +2,35 @@ import React, { Component } from 'react';
 import css from './ChampionDisplay.scss';
 
 class ChampionDisplay extends Component {
-  champions = [{
-    name: 'Androxus'
-  },
-  {
-    name: 'Ash'
-  },
-  {
-    name: 'Barik'
-  },
-  {
-    name: 'Bomb King'
-  },
-  {
-    name: 'Buck'
-  },
-  {
-    name: 'Cassie'
-  },
-  {
-    name: 'Drogoz'
-  },
-  {
-    name: 'Evie'
-  },
-  {
-    name: 'Fernando'
-  },
-  {
-    name: 'Grohk'
-  },
-  {
-    name: 'Grover'
-  },
-  {
-    name: 'Inara'
-  },
-  {
-    name: 'Kinessa'
-  },
-  {
-    name: 'Lex'
-  },
-  {
-    name: 'Lian'
-  },
-  {
-    name: 'Maeve'
-  },
-  {
-    name: 'Makoa'
-  },
-  {
-    name: 'Mal\'Damba'
-  },
-  {
-    name: 'Pip'
-  },
-  {
-    name: 'Ruckus'
-  },
-  {
-    name: 'Seris'
-  },
-  {
-    name: 'Sha Lin'
-  },
-  {
-    name: 'Skye'
-  },
-  {
-    name: 'Torvald'
-  },
-  {
-    name: 'Tyra'
-  },
-  {
-    name: 'Viktor'
-  },
-  {
-    name: 'Willo'
-  },
-  {
-    name: 'Ying'
-  },
-  {
-    name: 'Zhin'
-  }];
+  champions = [{ name: 'Androxus', role: 'Flank' },
+    { name: 'Ash', role: 'Front Line' },
+    { name: 'Barik', role: 'Front Line' },
+    { name: 'Bomb King', role: 'Damage' },
+    { name: 'Buck', role: 'Flank' },
+    { name: 'Cassie', role: 'Damage' },
+    { name: 'Drogoz', role: 'Damage' },
+    { name: 'Evie', role: 'Flank' },
+    { name: 'Fernando', role: 'Front Line' },
+    { name: 'Grohk', role: 'Support' },
+    { name: 'Grover', role: 'Support' },
+    { name: 'Inara', role: 'Front Line' },
+    { name: 'Kinessa', role: 'Damage' },
+    { name: 'Lex', role: 'Flank' },
+    { name: 'Lian', role: 'Damage' },
+    { name: 'Maeve', role: 'Flank' },
+    { name: 'Makoa', role: 'Front Line' },
+    { name: 'Mal\'Damba', role: 'Support' },
+    { name: 'Pip', role: 'Support' },
+    { name: 'Ruckus', role: 'Front Line' },
+    { name: 'Seris', role: 'Support' },
+    { name: 'Sha Lin', role: 'Damage' },
+    { name: 'Skye', role: 'Flank' },
+    { name: 'Torvald', role: 'Front Line' },
+    { name: 'Tyra', role: 'Damage' },
+    { name: 'Viktor', role: 'Damage' },
+    { name: 'Willo', role: 'Damage' },
+    { name: 'Ying', role: 'Support' },
+    { name: 'Zhin', role: 'Flank' }];
 
   constructor(props) {
     super(props);
