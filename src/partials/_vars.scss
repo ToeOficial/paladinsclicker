@@ -2,7 +2,8 @@ $colors: (
     black: #0f1014,
     cyan: #54E9E6,
     white: darken(#fff, 5%),
-    blue: #617FF7
+    blue: #617FF7,
+    darkcyan: #4996a4
 );
 
 @function color($key) {
