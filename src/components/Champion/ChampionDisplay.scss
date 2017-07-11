@@ -21,18 +21,40 @@
 
 .name {
   width: 100%;
+  height: 19px;
   text-align: center;
   color: color(cyan);
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 2px 2px 3px black;
   font-size: 17px;
 }
 
 .healthWrapper {
   height: 25px;
   width: 100%;
-  background-color: cyan;
+  overflow: hidden;
+  background: color(cyan);
+  background: -webkit-repeating-linear-gradient(10deg, transparent, transparent 5px, color(cyan) 5px, color(cyan) 30px);
+  background: repeating-linear-gradient(80deg, transparent, transparent 5px, color(cyan) 5px, color(cyan) 30px);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: FlipH;
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.healthProgress {
+  background: color(darkcyan);
+  background: -webkit-repeating-linear-gradient(10deg, transparent, transparent 5px, color(darkcyan) 5px, color(darkcyan) 30px);
+  background: repeating-linear-gradient(80deg, transparent, transparent 5px, color(darkcyan) 5px, color(darkcyan) 30px);
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s ease-in-out 0s;
+
+  &.dead {
+    width: 100% !important;
+  }
 }
 
 .triangle {
@@ -60,4 +82,16 @@
   width: 225px;
   height: 225px;
   border-radius: 50%;
+  user-select: none;
+
+  margin-bottom: 0px;
+  transition: margin-bottom 0.2s ease-in-out 0s;
+
+  &:hover {
+    margin-bottom: 5px;
+  }
+
+  &:active {
+    margin-bottom: -10px;
+  }
 }

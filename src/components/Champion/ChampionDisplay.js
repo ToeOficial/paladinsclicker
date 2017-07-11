@@ -39,7 +39,9 @@ class ChampionDisplay extends Component {
 
     this.state = {
       champion: selectedChampion.name,
-      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role))
+      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
+      multi: this.getMulti(selectedChampion.role),
+      dead: false //needed for animation
     };
   }
 
@@ -48,7 +50,8 @@ class ChampionDisplay extends Component {
 
     this.setState({
       champion: selectedChampion.name,
-      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role))
+      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
+      multi: this.getMulti(selectedChampion.role)
     });
   }
 
@@ -68,8 +71,20 @@ class ChampionDisplay extends Component {
   }
 
   click() {
+    if (this.state.dead) {
+      return;
+    }
+
     if (this.state.health - this.props.stats.damage <= 0) {
-      console.log('respawn')
+      this.setState({
+        dead: true
+      });
+      setTimeout(()=>{
+        this.setState({
+          dead: false
+        });
+      }, 500);
+
       this.respawn();
       return;
     }
@@ -84,11 +99,20 @@ class ChampionDisplay extends Component {
   render() {
     const imageSource = require(`../../assets/champions/${this.state.champion}.png`);
 
+    let progressWidth = (Math.round((1-(this.state.health/(this.props.stats.maxHealth*this.state.multi)))*100))+'%';
+    if (this.state.dead) {
+      progressWidth = '100%';
+    }
+
     return (
       <div className={css.root}>
         <div className={css.wrapper}>
-          <div className={css.name}>{this.state.champion}</div>
-          <div className={css.healthWrapper}>{this.state.health}</div>
+          <div className={css.name}>
+            {this.state.dead ? '' : this.state.champion}
+          </div>
+          <div className={css.healthWrapper}>
+            <div className={css.healthProgress} style={{ width: progressWidth }} />
+          </div>
           <div className={css.triangle} />
           <div className={css.champion} onClick={()=>{this.click()}}>
             <img className={css.image} src={imageSource} width="225px" height="225px" draggable="false" alt={this.state.champion} />
