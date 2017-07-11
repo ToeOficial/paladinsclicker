@@ -17,11 +17,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 }
 
 .name {
-  height: 21px;
-  background-color: paleturquoise;
+  width: 100%;
+  text-align: center;
+  color: color(cyan);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px black;
+  font-size: 17px;
 }
 
 .healthWrapper {
@@ -39,8 +45,11 @@
 }
 
 .champion {
-  height: 250px;
+  box-sizing: border-box;
   width: 250px;
-  background-color: green;
+  height: 250px;
   border-radius: 50%;
+  background-color: color(darkcyan);
+  border: 3px solid color(black);
+  cursor: crosshair;
 }
