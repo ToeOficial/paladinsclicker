@@ -117,7 +117,7 @@ class ChampionDisplay extends Component {
           <div className={css.healthWrapper}>
             <div className={css.healthProgress} style={{ width: progressWidth }} />
           </div>
-          <div className={css.triangle} />
+          <div className={`${css.triangle}${this.state.dead ? ` ${css.dead}` : ''}`} />
           <div className={css.champion} onClick={()=>{this.click()}}>
             <img className={`${css.image}${this.state.dead ? ` ${css.dead}` : ''}`} src={imageSource} width="225px" height="225px" draggable="false" alt={this.state.champion} />
           </div>
