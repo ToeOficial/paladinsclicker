@@ -72,8 +72,7 @@
 }
 
 .columnMiddle, .columnRight {
-  background-color: color(blue);
-  background-color: rgba(24, 32, 64, 0.75);
+  background-color: transparentize(darken(color(blue), 60%), 0.3);
 }
 
 @import 'App_mobile';
