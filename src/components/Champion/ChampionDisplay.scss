@@ -12,7 +12,6 @@
   margin: 3em auto;
   height: 320px;
   width: 274px;
-  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,7 +32,7 @@
 .healthWrapper {
   height: 25px;
   width: 100%;
-  background-color: blue;
+  background-color: cyan;
 }
 
 .triangle {
@@ -49,7 +48,16 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-color: color(darkcyan);
-  border: 3px solid color(black);
+  background-color: darken(color(cyan), 30%);
+  border: 3px solid color(darkcyan);
   cursor: crosshair;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
 }
