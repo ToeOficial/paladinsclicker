@@ -39,7 +39,7 @@ class ChampionDisplay extends Component {
 
     this.state = {
       champion: selectedChampion.name,
-      health: this.props.maxHealth * selectedChampion.multi
+      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role))
     };
   }
 
@@ -48,7 +48,36 @@ class ChampionDisplay extends Component {
 
     this.setState({
       champion: selectedChampion.name,
-      health: this.props.maxHealth * selectedChampion.multi
+      health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role))
+    });
+  }
+
+  getMulti(role) {
+    switch (role) {
+      case 'Front Line':
+        return 2;
+      case 'Support':
+        return 1.5;
+      case 'Damage':
+        return 1.5;
+      case 'Flank':
+        return 1;
+      default:
+        return 1;
+    }
+  }
+
+  click() {
+    if (this.state.health - this.props.stats.damage <= 0) {
+      console.log('respawn')
+      this.respawn();
+      return;
+    }
+
+    this.setState((prevState, props) => {
+      return {
+        health: prevState.health - this.props.stats.damage
+      };
     });
   }
 
@@ -61,7 +90,7 @@ class ChampionDisplay extends Component {
           <div className={css.name}>{this.state.champion}</div>
           <div className={css.healthWrapper}>{this.state.health}</div>
           <div className={css.triangle} />
-          <div className={css.champion}>
+          <div className={css.champion} onClick={()=>{this.click()}}>
             <img className={css.image} src={imageSource} width="225px" height="225px" draggable="false" alt={this.state.champion} />
           </div>
         </div>

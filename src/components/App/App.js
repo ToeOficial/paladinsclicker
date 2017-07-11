@@ -16,7 +16,10 @@ class App extends Component {
           name: 'Cassie\'s Bow'
         }
       },
-      maxHealth: 10
+      stats: {
+        maxHealth: 6,
+        damage: 1
+      }
     }
   }
 
@@ -35,7 +38,7 @@ class App extends Component {
         </header>
         <div className={css.columnContainer}>
           <div className={css.columnLeft}>
-            <ChampionDisplay maxHealth={this.state.maxHealth} />
+            <ChampionDisplay stats={this.state.stats} />
           </div>
           <div className={css.columnMiddle} />
           <div className={css.columnRight}>
