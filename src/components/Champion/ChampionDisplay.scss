@@ -84,8 +84,10 @@
   border-radius: 50%;
   user-select: none;
 
+  margin-top: 0px;
   margin-bottom: 0px;
   transition: margin-bottom 0.2s ease-in-out 0s;
+  animation: spawn 0.3s;
 
   &:hover {
     margin-bottom: 5px;
@@ -93,5 +95,31 @@
 
   &:active {
     margin-bottom: -10px;
+  }
+
+  &.dead {
+    animation: die 0.5s;
+  }
+}
+
+@keyframes die {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+
+  100% {
+    opacity: 0;
+    margin-top: 150px;
+  }
+}
+
+@keyframes spawn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

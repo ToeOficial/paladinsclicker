@@ -41,7 +41,8 @@ class ChampionDisplay extends Component {
       champion: selectedChampion.name,
       health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
       multi: this.getMulti(selectedChampion.role),
-      dead: false //needed for animation
+      dead: false, //needed for animation
+      championImage: selectedChampion.name
     };
   }
 
@@ -80,8 +81,11 @@ class ChampionDisplay extends Component {
         dead: true
       });
       setTimeout(()=>{
-        this.setState({
-          dead: false
+        this.setState((prevState, props) => {
+          return {
+            dead: false,
+            championImage: prevState.champion
+          };
         });
       }, 500);
 
@@ -97,7 +101,7 @@ class ChampionDisplay extends Component {
   }
 
   render() {
-    const imageSource = require(`../../assets/champions/${this.state.champion}.png`);
+    const imageSource = require(`../../assets/champions/${this.state.championImage}.png`);
 
     let progressWidth = (Math.round((1-(this.state.health/(this.props.stats.maxHealth*this.state.multi)))*100))+'%';
     if (this.state.dead) {
@@ -115,7 +119,7 @@ class ChampionDisplay extends Component {
           </div>
           <div className={css.triangle} />
           <div className={css.champion} onClick={()=>{this.click()}}>
-            <img className={css.image} src={imageSource} width="225px" height="225px" draggable="false" alt={this.state.champion} />
+            <img className={`${css.image}${this.state.dead ? ` ${css.dead}` : ''}`} src={imageSource} width="225px" height="225px" draggable="false" alt={this.state.champion} />
           </div>
         </div>
       </div>
