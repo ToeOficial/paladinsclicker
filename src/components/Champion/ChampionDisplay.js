@@ -3,12 +3,91 @@ import css from './ChampionDisplay.scss';
 
 class ChampionDisplay extends Component {
   champions = [{
-    name: 'Fernando',
-    multi: 2
+    name: 'Androxus'
   },
   {
-    name: 'Kinessa',
-    multi: 1
+    name: 'Ash'
+  },
+  {
+    name: 'Barik'
+  },
+  {
+    name: 'Bomb King'
+  },
+  {
+    name: 'Buck'
+  },
+  {
+    name: 'Cassie'
+  },
+  {
+    name: 'Drogoz'
+  },
+  {
+    name: 'Evie'
+  },
+  {
+    name: 'Fernando'
+  },
+  {
+    name: 'Grohk'
+  },
+  {
+    name: 'Grover'
+  },
+  {
+    name: 'Inara'
+  },
+  {
+    name: 'Kinessa'
+  },
+  {
+    name: 'Lex'
+  },
+  {
+    name: 'Lian'
+  },
+  {
+    name: 'Maeve'
+  },
+  {
+    name: 'Makoa'
+  },
+  {
+    name: 'Mal\'Damba'
+  },
+  {
+    name: 'Pip'
+  },
+  {
+    name: 'Ruckus'
+  },
+  {
+    name: 'Seris'
+  },
+  {
+    name: 'Sha Lin'
+  },
+  {
+    name: 'Skye'
+  },
+  {
+    name: 'Torvald'
+  },
+  {
+    name: 'Tyra'
+  },
+  {
+    name: 'Viktor'
+  },
+  {
+    name: 'Willo'
+  },
+  {
+    name: 'Ying'
+  },
+  {
+    name: 'Zhin'
   }];
 
   constructor(props) {
