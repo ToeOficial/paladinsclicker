@@ -88,7 +88,7 @@ class ChampionDisplay extends Component {
           };
         });
       }, 500);
-
+      this.props.deadHandler();
       this.respawn();
       return;
     }
