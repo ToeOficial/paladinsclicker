@@ -2,11 +2,21 @@
   0% {
     opacity: 1;
     margin-top: 0px;
+    transform: rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateZ(5deg);
+  }
+
+  75% {
+    transform: rotateZ(-5deg);
   }
 
   100% {
     opacity: 0;
     margin-top: 50vh;
+    transform: rotateZ(0deg);
   }
 }
 
@@ -22,6 +32,20 @@
 
   100% {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes changeName {
+  0% {
+    transform: scale(0);
+  }
+
+  75% {
+    transform: scale(1.5);
+  }
+
+  100% {
     transform: scale(1);
   }
 }

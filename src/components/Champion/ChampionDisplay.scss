@@ -30,6 +30,11 @@
   text-transform: uppercase;
   text-shadow: 2px 2px 3px black;
   font-size: 17px;
+  animation: changeName 0.25s;
+
+  &.dead {
+    animation: none;
+  }
 }
 
 .healthWrapper {

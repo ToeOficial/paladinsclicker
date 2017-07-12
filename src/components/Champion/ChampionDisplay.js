@@ -111,7 +111,7 @@ class ChampionDisplay extends Component {
     return (
       <div className={css.root}>
         <div className={css.wrapper}>
-          <div className={css.name}>
+          <div className={`${css.name}${this.state.dead ? ` ${css.dead}` : ''}`}>
             {this.state.dead ? '' : this.state.champion}
           </div>
           <div className={css.healthWrapper}>
