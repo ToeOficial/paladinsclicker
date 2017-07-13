@@ -41,8 +41,7 @@ class ChampionDisplay extends Component {
       champion: selectedChampion.name,
       health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
       multi: this.getMulti(selectedChampion.role),
-      dead: false, //needed for animation
-      championImage: selectedChampion.name
+      dead: false //needed for animation
     };
   }
 
@@ -83,13 +82,13 @@ class ChampionDisplay extends Component {
       setTimeout(()=>{
         this.setState((prevState, props) => {
           return {
-            dead: false,
-            championImage: prevState.champion
+            dead: false
           };
         });
+        
+        this.respawn();
       }, 500);
       this.props.deadHandler();
-      this.respawn();
       return;
     }
 
@@ -101,9 +100,9 @@ class ChampionDisplay extends Component {
   }
 
   render() {
-    const imageSource = require(`../../assets/champions/${this.state.championImage}.png`);
+    const imageSource = require(`../../assets/champions/${this.state.champion}.png`);
 
-    let progressWidth = (Math.round((1-(this.state.health/(this.props.stats.maxHealth*this.state.multi)))*100))+'%';
+    let progressWidth = (Math.round((1-(this.state.health/Math.round(this.props.stats.maxHealth*this.state.multi)))*100))+'%';
     if (this.state.dead) {
       progressWidth = '100%';
     }
@@ -112,7 +111,7 @@ class ChampionDisplay extends Component {
       <div className={css.root}>
         <div className={css.wrapper}>
           <div className={`${css.name}${this.state.dead ? ` ${css.dead}` : ''}`}>
-            {this.state.dead ? '' : this.state.champion}
+            {this.state.dead ? '' : this.state.champion+' '+this.state.health+'/'+Math.round(this.props.stats.maxHealth*this.state.multi)}
           </div>
           <div className={css.healthWrapper}>
             <div className={css.healthProgress} style={{ width: progressWidth }} />

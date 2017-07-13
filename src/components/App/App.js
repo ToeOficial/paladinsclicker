@@ -30,14 +30,15 @@ class App extends Component {
         damage: 1,
         xpPerKill: 20,
         dmg: 1,
-        dps: 0, //might replace with clicks per second
+        //dps: 0, //might replace with clicks per second
         goldPerKill: 3
       },
       account: {
         level: 1,
         gold: 0,
         oldXp: 0,
-        xp: 0
+        xp: 0,
+        maxXp: 100
       }
     }
 
@@ -46,13 +47,25 @@ class App extends Component {
 
   handleDead() {
     this.setState((prevState, props) => {
-      return {
-        account: {
-          gold: prevState.account.gold + this.state.stats.goldPerKill,
-          oldXp: prevState.account.xp,
-          xp: prevState.account.xp + this.state.stats.xpPerKill
+      while (prevState.account.xp + prevState.stats.xpPerKill >= prevState.account.maxXp) {
+        let newState = prevState;
+        newState.account.gold = prevState.account.gold + prevState.stats.goldPerKill;
+        newState.account.oldXp = 0;
+        newState.account.xp = (prevState.account.xp + prevState.stats.xpPerKill) - prevState.account.maxXp;
+        newState.account.level = prevState.account.level + 1;
+        newState.account.maxXp = Math.floor(prevState.account.maxXp * this.constants.balance.maxXpPerLevelMulti);
+        newState.stats.maxHealth = prevState.stats.maxHealth + Math.round(newState.account.level / 2);
+        if(newState.account.level % this.constants.balance.multipleOfGpkUpgrade === 0) {
+            newState.stats.goldPerKill += newState.account.level/this.constants.balance.multipleOfGpkUpgrade;
         }
-      };
+        return newState;
+      }
+
+      let newState = prevState;
+      newState.account.gold = prevState.account.gold + prevState.stats.goldPerKill;
+      newState.account.oldXp = prevState.account.xp;
+      newState.account.xp = prevState.account.xp + prevState.stats.xpPerKill
+      return newState;
     });
   }
 
@@ -76,7 +89,9 @@ class App extends Component {
           <div className={css.columnMiddle}>
             Gold: {this.state.account.gold}<br/>
             XP: {this.state.account.xp}<br/>
-            OldXP: {this.state.account.oldXp}
+            MaxXP: {this.state.account.maxXp}<br/>
+            OldXP: {this.state.account.oldXp}<br/>
+            Level: {this.state.account.level}
           </div>
           <div className={css.columnRight}>
             <Shop items={this.state.items} />
