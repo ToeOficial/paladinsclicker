@@ -30,7 +30,7 @@ class App extends Component {
         damage: 1,
         xpPerKill: 20,
         dmg: 1,
-        //dps: 0, //might replace with clicks per second
+        cps: 0,
         goldPerKill: 3
       },
       account: {
