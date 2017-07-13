@@ -111,7 +111,7 @@ class ChampionDisplay extends Component {
       <div className={css.root}>
         <div className={css.wrapper}>
           <div className={`${css.name}${this.state.dead ? ` ${css.dead}` : ''}`}>
-            {this.state.dead ? '' : this.state.champion+' '+this.state.health+'/'+Math.round(this.props.stats.maxHealth*this.state.multi)}
+            {this.state.dead ? '' : this.state.champion}
           </div>
           <div className={css.healthWrapper}>
             <div className={css.healthProgress} style={{ width: progressWidth }} />
