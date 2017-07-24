@@ -76,7 +76,7 @@ class LevelDisplay extends Component {
     return (
       <div className={css.levelWrapper}>
         <canvas ref="canvas" width={260} height={260} />
-        <div className={`${css.levelDisplay}${this.state.isLevelUpping ? ` ${css.levelUp}` : ''}`}>{this.props.account.level}</div>
+        <div className={`${css.levelDisplay}${this.state.isLevelUpping ? ` ${css.levelUp}` : ''}`}><div className={css.levelTooltipBase}>{this.props.account.level}<span role="tooltip" className={css.levelTooltip}>{this.props.account.xp}/{this.props.account.maxXp}</span></div></div>
       </div>
     );
   }

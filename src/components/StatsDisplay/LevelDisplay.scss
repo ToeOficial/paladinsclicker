@@ -1,4 +1,5 @@
 @import '../../partials/vars';
+@import '../../partials/tooltips';
 
 .levelWrapper {
   width: $level-size;
@@ -16,12 +17,30 @@
   line-height: $level-size;
   color: color(white);
   font-weight: bold;
-  font-size: 4em;
+  font-size: 4rem;
   text-shadow: 2px 2px 30px #128D8A, -2px -2px 30px #128D8A;
 
   &.levelUp {
     animation: levelUp 0.5s ease-in-out;
   }
+}
+
+.levelTooltipBase {
+  @include tooltip-base();
+
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.levelTooltip {
+  @include tooltip();
+
+  width: 100px;
+  left: calc(50% - 50px);
+  box-shadow: none;
+  user-select: auto;
 }
 
 @keyframes levelUp {
