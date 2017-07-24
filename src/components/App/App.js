@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import css from './App.scss';
 import Shop from '../Shop/Shop.js';
 import ChampionDisplay from '../Champion/ChampionDisplay.js';
+import StatsDisplay from '../StatsDisplay/StatsDisplay.js';
 
 import logo from '../../assets/logo.png';
 
@@ -12,8 +13,7 @@ class App extends Component {
     balance: {
       maxXpPerLevelMulti: 1.15,
       multipleOfGpkUpgrade: 5
-    },
-    colors: {}
+    }
   };
 
   constructor(props) {
@@ -26,7 +26,7 @@ class App extends Component {
         }
       },
       stats: {
-        maxHealth: 6,
+        maxHealth: 4,
         damage: 1,
         xpPerKill: 20,
         dmg: 1,
@@ -87,11 +87,7 @@ class App extends Component {
             <ChampionDisplay stats={this.state.stats} deadHandler={this.handleDead} />
           </div>
           <div className={css.columnMiddle}>
-            Gold: {this.state.account.gold}<br/>
-            XP: {this.state.account.xp}<br/>
-            MaxXP: {this.state.account.maxXp}<br/>
-            OldXP: {this.state.account.oldXp}<br/>
-            Level: {this.state.account.level}
+            <StatsDisplay account={this.state.account} stats={this.state.stats} />
           </div>
           <div className={css.columnRight}>
             <Shop items={this.state.items} />
