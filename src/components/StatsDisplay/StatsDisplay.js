@@ -7,8 +7,8 @@ class StatsDisplay extends Component {
     return (
       <div className={css.wrapper}>
         <LevelDisplay account={this.props.account} level={this.props.account.level} />
-        <div>
-          
+        <div className={css.statsDisplay}>
+
         </div>
       </div>
     );
