@@ -3,7 +3,7 @@ $colors: (
     cyan: #54E9E6,
     white: darken(#fff, 5%),
     blue: #617FF7,
-    darkcyan: #00323c
+    darkcyan: #00323C
 );
 
 @function color($key) {
@@ -19,3 +19,5 @@ $navbar-height: 3rem;
 
 $mobile-max-width: 900px;
 $mobile-max-height: 500px;
+
+$level-size: 260px;
