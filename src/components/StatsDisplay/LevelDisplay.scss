@@ -37,8 +37,8 @@
 .levelTooltip {
   @include tooltip();
 
-  width: 100px;
-  left: calc(50% - 50px);
+  width: 120px;
+  left: calc(50% - 60px);
   box-shadow: none;
   user-select: auto;
 }

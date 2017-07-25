@@ -8,7 +8,13 @@ class StatsDisplay extends Component {
       <div className={css.wrapper}>
         <LevelDisplay account={this.props.account} level={this.props.account.level} />
         <div className={css.statsDisplay}>
-
+          Gold: {this.props.account.gold}
+          <br/>
+          GPK: {this.props.stats.goldPerKill}
+          <br/><br/>
+          DMG: {this.props.stats.damage}
+          <br/>
+          CPS: {this.props.stats.cps}
         </div>
       </div>
     );
