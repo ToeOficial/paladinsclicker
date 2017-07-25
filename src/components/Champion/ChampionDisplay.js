@@ -41,6 +41,7 @@ class ChampionDisplay extends Component {
       champion: selectedChampion.name,
       health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
       multi: this.getMulti(selectedChampion.role),
+      role: selectedChampion.role,
       dead: false //needed for animation
     };
   }
@@ -51,6 +52,7 @@ class ChampionDisplay extends Component {
     this.setState({
       champion: selectedChampion.name,
       health: Math.round(this.props.stats.maxHealth * this.getMulti(selectedChampion.role)),
+      role: selectedChampion.role,
       multi: this.getMulti(selectedChampion.role)
     });
   }
@@ -111,10 +113,11 @@ class ChampionDisplay extends Component {
       <div className={css.root}>
         <div className={css.wrapper}>
           <div className={`${css.name}${this.state.dead ? ` ${css.dead}` : ''}`}>
-            {this.state.dead ? '' : this.state.champion}
+            <span className={css.nameTooltipBase}>{this.state.dead ? '' : this.state.champion}<span role="tooltip" className={css.nameTooltip}>{this.state.champion}<br/>{this.state.role}</span></span>
           </div>
           <div className={css.healthWrapper}>
             <div className={css.healthProgress} style={{ width: progressWidth }} />
+            <span role="tooltip" className={css.healthTooltip}><span className={css.unflip}>{this.state.dead ? 0 : this.state.health}/{Math.round(this.props.stats.maxHealth*this.state.multi)}</span></span>
           </div>
           <div className={`${css.triangle}${this.state.dead ? ` ${css.dead}` : ''}`} />
           <div className={css.champion} onClick={()=>{this.click()}}>

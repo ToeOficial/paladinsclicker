@@ -1,4 +1,5 @@
 @import '../../partials/vars';
+@import '../../partials/tooltips';
 @import 'ChampionDisplay_anims';
 
 .root {
@@ -37,18 +38,29 @@
   }
 }
 
+.nameTooltipBase {
+  @include tooltip-base();
+}
+
+.nameTooltip {
+  @include tooltip();
+
+  width: 120px;
+  left: calc(50% - 60px);
+
+  line-height: 1.2em;
+}
+
 .healthWrapper {
   height: 25px;
   width: 100%;
-  overflow: hidden;
   background: color(cyan);
   background: -webkit-repeating-linear-gradient(10deg, transparent, transparent 5px, color(cyan) 5px, color(cyan) 30px);
   background: repeating-linear-gradient(80deg, transparent, transparent 5px, color(cyan) 5px, color(cyan) 30px);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  -webkit-filter: FlipH;
-  filter: FlipH;
-  -ms-filter: "FlipH";
+
+  @include tooltip-base();
 }
 
 .healthProgress {
@@ -61,6 +73,18 @@
 
   &.dead {
     width: 100% !important;
+  }
+}
+
+.healthTooltip {
+  @include tooltip();
+  width: 120px;
+  left: calc(50% - 60px);
+
+  .unflip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    display: block;
   }
 }
 
