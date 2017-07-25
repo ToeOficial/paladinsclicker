@@ -1,0 +1,7 @@
+@import '../../partials/vars';
+
+@media screen and (max-width: $mobile-max-width), (max-height: $mobile-max-height), (orientation: portrait) {
+  .wrapper > div {
+    margin: 1.5rem auto;
+  }
+}
