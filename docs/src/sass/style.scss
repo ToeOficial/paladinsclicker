@@ -266,10 +266,10 @@ body {
         color: white;
     }
     .pc-item-level::before {
-        content: "Level: ";
+        content: "Nível: ";
     }
     .pc-item-cost::before {
-        content: "Cost: ";
+        content: "Custo: ";
     }
     .pc-item-section {
         width: 50%;
@@ -300,7 +300,7 @@ body {
         margin-left: 2px;
     }
     .pc-item-bonus-dmg::after {
-        content: ' DMG';
+        content: ' DANO';
         color: $stats-color-orange;
     }
     .pc-item-bonus-dps::after {
@@ -308,7 +308,7 @@ body {
         color: $button-decline-color;
     }
     .pc-item-bonus-gpk::after {
-        content: ' GPK';
+        content: ' OPK';
         color: $stats-color-yellow;
     }
     .pc-item-bonus-xppk::after {
