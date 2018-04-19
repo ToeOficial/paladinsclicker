@@ -78,7 +78,7 @@ function checkNameEasterEggs() {
                 newName = 'Look at this Buck that I\'ve just found';
                 break;
             case 'Cassie':
-                newName = 'Colossal Chest';
+                newName = 'Baú Colossal';
                 break;
             case 'Drogoz':
                 newName = 'One Punch Man';
@@ -87,7 +87,7 @@ function checkNameEasterEggs() {
                 newName = 'FERRRNANDO';
                 break;
             case 'Grover':
-                newName = 'Tree';
+                newName = 'Árvore';
                 break;
             case 'Makoa':
                 newName = 'Bowser';
@@ -104,7 +104,7 @@ function checkNameEasterEggs() {
                 newName = 'Drybear';
                 break;
             case 'Viktor':
-                newName = 'Soldier 77';
+                newName = 'Soldado 77';
                 break;
             case 'Ying':
                 newName = 'Yang';
