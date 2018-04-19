@@ -409,9 +409,9 @@ function Item(id, name, type, bonus, cost, req, unl) {
 //Instances:
 Item.instances = [];
 
-var basicbow = new Item('basicbow', 'Cassie\'s Crossbow', 1, 1, 15, 0, 1);
+var basicbow = new Item('basicbow', 'Balestra da Cassie ', 1, 1, 15, 0, 1);
 basicbow.level = 1; //Unique item, starts with level 1
-var viktorrifle = new Item('viktorrifle', 'Viktor\'s Rifle', 2, 3, 50, 0, 2);
+var viktorrifle = new Item('viktorrifle', 'Fuzil de Assalto', 2, 3, 50, 0, 2);
 var killtoheal = new Item('killtoheal', 'Kill to Heal', 3, 3, 70, 1, 3);
 var sniperrifle = new Item('sniperrifle', 'Kinessa\'s Sniper Rifle', 1, 5, 100, 2, 4);
 var salvo = new Item('salvo', 'Salvo', 100, 0, 250, 3, 5); salvo.max = 1; salvo.keybind = 'R'; salvo.cooldown = 10;
